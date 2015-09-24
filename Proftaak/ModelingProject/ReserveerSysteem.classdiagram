@@ -18,6 +18,34 @@
     <logicalClassDesignerModelHasTypes>
       <class Id="02255fbf-92e8-4a84-9b61-54fa65c2895a" name="User" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="11a96b5c-6da1-4115-9a9b-29f45054b8c1" />
+        <targetEnds>
+          <association Id="b90d6dae-a7ff-4598-a7ed-f79c9d3b67ea" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Material" isLeaf="false" isAbstract="false">
+            <classMoniker Id="3d53d790-ad1d-4376-adf4-69177c204f94" LastKnownName="Material" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="787221bb-03fb-4ce8-9999-5d245f139ee6" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="8e602c6a-f815-46fe-92fe-db1667105556" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fd93aa31-34b3-48df-af63-2db97160efe2" name="Material" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="3b4b21e7-01e1-4e4b-9690-5ebd8c6cda7c" name="Lower" value="*">
+                      <elementDefinition Id="95b3a7c0-f9ee-4d10-987f-51b5b0286d7b" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="8a18ddd7-b27d-4c27-b4ff-cbb85f2cc952" name="Upper" value="*">
+                      <elementDefinition Id="c57b50eb-c758-445f-9736-ba0212a7053a" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="9a41483a-4ba6-44b9-831d-fa1c564f1bdb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4da1b799-cae4-4194-ba4d-dfee8eeb6656" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="ef3b11b7-1591-4768-ac84-4e8ac6ee8fd9" name="Username" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="c9c66eb8-5204-41fa-a3f8-78e171228d5e" />

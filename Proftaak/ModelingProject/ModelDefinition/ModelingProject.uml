@@ -25,6 +25,60 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false">
+        <targetEnds>
+          <association
+            Id="4da1b799-cae4-4194-ba4d-dfee8eeb6656"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Material"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="5b2f180c-875b-4efd-9691-5281cbc68cdb"
+              LastKnownName="Material"
+              LastKnownLocation="ModelingProject.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8e602c6a-f815-46fe-92fe-db1667105556"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9a41483a-4ba6-44b9-831d-fa1c564f1bdb"
+                  name="Material"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="95b3a7c0-f9ee-4d10-987f-51b5b0286d7b"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="c57b50eb-c758-445f-9736-ba0212a7053a"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="c9c66eb8-5204-41fa-a3f8-78e171228d5e"
