@@ -261,7 +261,7 @@
               <referencedTypeMoniker Id="0008413e-460b-4101-9911-9bc6790270f6" LastKnownName="String" />
             </type_NamedElement>
           </property>
-          <property Id="d1025cfe-dceb-4ec0-9eb1-dc5087e14f09" name="Place" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="d1025cfe-dceb-4ec0-9eb1-dc5087e14f09" name="Spots" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <lowerValueInternal>
               <literalString Id="3d272f99-8b5b-4a00-a2e0-f19e0e7b1d89" name="Lower" value="*">
                 <elementDefinition Id="ca1a0860-c78e-4da4-ab3e-a65abb271983" />

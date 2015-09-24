@@ -529,7 +529,7 @@
           </property>
           <property
             Id="40239110-686c-416b-a109-3765a60b6e0f"
-            name="Place"
+            name="Spots"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
