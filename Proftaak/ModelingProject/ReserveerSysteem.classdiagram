@@ -311,6 +311,12 @@
               <referencedTypeMoniker Id="dd185019-543d-4138-9246-6319009b1234" LastKnownName="Material" />
             </type_NamedElement>
           </property>
+          <property Id="777029f9-c614-49de-ab2b-fedec3765231" name="Location" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="16a9977b-151a-4764-9af4-65fa95f614f3" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="00fd8303-3f53-4b3e-a087-bc6aed3cc20b" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
         </ownedAttributesInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -447,7 +453,7 @@
       </class>
     </logicalClassDesignerModelHasTypes>
     <logicalClassDesignerModelHasTypes>
-      <class Id="e476e2be-257e-41a8-8200-f02b626026d5" name="Utils" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <class Id="e476e2be-257e-41a8-8200-f02b626026d5" name="Utils" visibility="Package" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="6ac7fe43-9b25-4a3f-b350-4e7548abce6e" />
         <ownedAttributesInternal>
           <property Id="9dc1ba52-70a5-4866-8858-086c23a37081" name="rngProvider" visibility="Private" isLeaf="false" isStatic="true" isReadOnly="true" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -629,6 +635,11 @@
     </packageHasNamedElement>
     <packageHasNamedElement>
       <referencedType Id="45059be7-9b9d-4e16-bab0-4cf6c8262eaf" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="00fd8303-3f53-4b3e-a087-bc6aed3cc20b" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
         <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
       </referencedType>
     </packageHasNamedElement>
