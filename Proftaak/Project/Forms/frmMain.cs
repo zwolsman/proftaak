@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EvenementBeheerSysteem.Classes;
 
 namespace EvenementBeheerSysteem.Forms
 {
@@ -15,6 +16,7 @@ namespace EvenementBeheerSysteem.Forms
         public frmMain()
         {
             InitializeComponent();
+
         }
     }
 }
