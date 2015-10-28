@@ -87,6 +87,8 @@ namespace DatabaseLibrary
             return output;
         }
 
+      
+
         public static Hashtable QueryFirst(string sql)
         {
             Hashtable[] result = Query(sql);
@@ -113,6 +115,20 @@ namespace DatabaseLibrary
             string qur = "SELECT * FROM " + tableName;
 
             return Query(qur).Select(HashtableToItem<T>).ToList();
+        }
+        public static IEnumerable<T> GetItems<T>(dynamic searchCriteria)
+        {
+            string tableName = classMappings.ContainsKey(typeof(T).Name)
+                ? classMappings[typeof(T).Name]
+                : typeof(T).Name;
+
+            
+            string joinTable = classMappings.ContainsKey(searchCriteria.GetType().Name)
+                ? classMappings[searchCriteria.GetType().Name]
+                : searchCriteria.GetType().Name;
+            string qur = string.Format("SELECT * FROM {0} WHERE {1}={2}", tableName, joinTable, searchCriteria.ID);
+            return Query(qur).Select(HashtableToItem<T>).ToList();
+
         }
 
         public static bool InsertItem<T>(T item)
