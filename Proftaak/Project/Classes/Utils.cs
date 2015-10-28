@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms.VisualStyles;
 
-namespace EvenementBeheerSysteem.Classes
+namespace EvenementBeheerSysteem
 {
     static class Utils
     {
