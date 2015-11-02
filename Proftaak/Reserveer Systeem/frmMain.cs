@@ -51,7 +51,7 @@ namespace Reserveer_Systeem
                 return;
 
             lblEventInfo.Text = evenements[listEvents.SelectedIndex].Description;
-            pictureBox1.Image = evenementBitmaps[listEvents.SelectedIndex];
+            picLogo.Image = evenementBitmaps[listEvents.SelectedIndex];
         }
 
         private void btnNext_Click(object sender, EventArgs e)

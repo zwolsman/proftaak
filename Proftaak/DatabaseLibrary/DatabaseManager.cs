@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -14,8 +15,14 @@ namespace DatabaseLibrary
 {
     public class DatabaseManager
     {
+        private const string SQL_SELECT_ALL = "SELECT * FROM {0}";
+        private const string SQL_SELECT_SPECIFIC = "SELECT {0} FROM {1}";
+        private const string SQL_INSERT = "INSERT INTO {0}({1}) VALUES {2}";
+        private const string SQL_UPDATE_WHERE = "UPDATE {0} SET {1} WHERE ID={2}";
+
+        private const string CONNECTION_STRING_FORMAT = "Server={0};Database={1};User Id={2};Password={3};";
         private static SqlConnection _connection;
-        private static string connectionString = "Server={0};Database={1};User Id={2};Password={3};";
+        private static string connectionString = "";
         public static bool IsConnected => _connection != null && _connection.State == ConnectionState.Open;
 
         //Map class names to table names. 
@@ -27,7 +34,7 @@ namespace DatabaseLibrary
 
         public static void Initialize(string username, string password, string server, string database)
         {
-            connectionString = $"Server={server};Database={database};User Id={username};Password={password};";
+            connectionString = string.Format(CONNECTION_STRING_FORMAT, server, database, username, password);
         }
 
         public static void Open()
@@ -102,7 +109,7 @@ namespace DatabaseLibrary
             string tableName = classMappings.ContainsKey(typeof (T).Name)
                 ? classMappings[typeof (T).Name]
                 : typeof (T).Name;
-            string qur = "SELECT * FROM " + tableName;
+            string qur = string.Format(SQL_SELECT_ALL, tableName);
 
             return HashtableToItem<T>(QueryFirst(qur));
         }
@@ -112,7 +119,8 @@ namespace DatabaseLibrary
             string tableName = classMappings.ContainsKey(typeof (T).Name)
                 ? classMappings[typeof (T).Name]
                 : typeof (T).Name;
-            string qur = "SELECT * FROM " + tableName;
+            string qur = string.Format(SQL_SELECT_ALL, tableName);
+
 
             return Query(qur).Select(HashtableToItem<T>).ToList();
         }
@@ -137,18 +145,16 @@ namespace DatabaseLibrary
                 ? classMappings[typeof (T).Name]
                 : typeof (T).Name;
             Hashtable hashtable = ItemToHashtable<T>(item);
-            string insert = "INSERT INTO " + tableName + "({0}) VALUES ({1});";
-
-            string tableNames =
+            string columnNames =
                 hashtable.Keys.Cast<object>()
                     .Aggregate("", (current, key) => current + (key.ToString() + ", "))
                     .Trim(',', ' ');
 
-            string values = Helper.GetValues(hashtable, tableName);
+            string columnValues = Helper.GetValues(hashtable, tableName);
 
-            insert = string.Format(insert, tableNames, values);
 
-            return Execute(insert) != -1;
+            string qur = string.Format(SQL_INSERT, tableName, columnNames, columnValues);
+            return Execute(qur) != -1;
         }
 
         public static bool UpdateItem<T>(T item)
@@ -158,21 +164,18 @@ namespace DatabaseLibrary
                : typeof(T).Name;
             Hashtable hashtable = ItemToHashtable<T>(item);
 
-            string qur = "UPDATE " + tableName + " SET {0} WHERE id={1}";
-
-            string temp = "";
+            string newValues = "";
             foreach (DictionaryEntry row in hashtable)
             {
                 if (row.Key.ToString() == "ID")
                 {
                     continue;
                 }
-                temp += $"{row.Key} = {Helper.GetValue(row.Value)}, ";
+                newValues += $"{row.Key} = {Helper.GetValue(row.Value)}, ";
             }
 
-            temp = temp.Trim(',', ' ');
-            qur = string.Format(qur, temp, hashtable["ID"]);
-
+            newValues = newValues.Trim(',', ' ');
+            string qur = string.Format(SQL_UPDATE_WHERE, tableName, newValues, hashtable["ID"]);
             return Execute(qur) != -1;
         }
 
