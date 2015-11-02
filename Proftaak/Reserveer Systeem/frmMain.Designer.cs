@@ -35,6 +35,7 @@
             this.lblEventInfo = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.picLogo = new System.Windows.Forms.PictureBox();
+            this.btnDatum = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,11 +111,23 @@
             this.picLogo.TabIndex = 7;
             this.picLogo.TabStop = false;
             // 
+            // btnDatum
+            // 
+            this.btnDatum.Enabled = false;
+            this.btnDatum.Location = new System.Drawing.Point(311, 253);
+            this.btnDatum.Name = "btnDatum";
+            this.btnDatum.Size = new System.Drawing.Size(98, 23);
+            this.btnDatum.TabIndex = 8;
+            this.btnDatum.Text = "Datum test";
+            this.btnDatum.UseVisualStyleBackColor = true;
+            this.btnDatum.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 284);
+            this.Controls.Add(this.btnDatum);
             this.Controls.Add(this.picLogo);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.lblEventInfo);
@@ -140,6 +153,7 @@
         private System.Windows.Forms.Label lblEventInfo;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.PictureBox picLogo;
+        private System.Windows.Forms.Button btnDatum;
     }
 }
 

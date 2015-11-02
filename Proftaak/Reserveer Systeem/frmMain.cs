@@ -18,13 +18,16 @@ namespace Reserveer_Systeem
     {
         /*readonly List<string> evenementDescriptions = new List<string>(); 
         readonly List<Bitmap> evenementBitmaps = new List<Bitmap>(); */
-        readonly Dictionary<int, Bitmap> evenementBitmaps = new Dictionary<int, Bitmap>(); 
-        readonly Dictionary<int, Evenement> evenements = new Dictionary<int, Evenement>(); 
+        private readonly Dictionary<int, Bitmap> evenementBitmaps = new Dictionary<int, Bitmap>();
+        private readonly Dictionary<int, Evenement> evenements = new Dictionary<int, Evenement>();
+
         public frmMain()
         {
             InitializeComponent();
             DatabaseManager.Initialize("sa", "Wachtwoord1", "127.0.0.1", "proftaak");
             DatabaseManager.Open();
+
+            //listEvents.DataSource = evenements;
             LoadEvents();
         }
 
@@ -39,13 +42,14 @@ namespace Reserveer_Systeem
         }
 
         private void LoadLogo(int id, string url)
-        { 
+        {
             evenementBitmaps.Add(id, new Bitmap(new MemoryStream(new WebClient().DownloadData(url))));
         }
 
         private void listEvents_SelectedIndexChanged(object sender, EventArgs e)
         {
             btnNext.Enabled = listEvents.SelectedIndex != -1;
+            btnDatum.Enabled = listEvents.SelectedIndex != -1;
 
             if (listEvents.SelectedIndex == -1)
                 return;
@@ -60,6 +64,11 @@ namespace Reserveer_Systeem
             frmSelectMaterial frmSelectMaterial = new frmSelectMaterial(selectedEvenement);
 
             frmSelectMaterial.ShowDialog(this);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new frmDatum().Show(this);
         }
     }
 }

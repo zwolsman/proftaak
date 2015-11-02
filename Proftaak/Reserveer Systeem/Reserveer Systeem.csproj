@@ -48,6 +48,13 @@
   <ItemGroup>
     <Compile Include="Classes\Evenement.cs" />
     <Compile Include="Classes\Material.cs" />
+    <Compile Include="Classes\Person.cs" />
+    <Compile Include="frmDatum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDatum.Designer.cs">
+      <DependentUpon>frmDatum.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +69,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmDatum.resx">
+      <DependentUpon>frmDatum.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -76,6 +86,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -95,6 +106,9 @@
       <Project>{cd2ffa70-b471-4ce0-811e-e53425e2a764}</Project>
       <Name>DatabaseLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

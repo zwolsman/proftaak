@@ -14,8 +14,8 @@ namespace Reserveer_Systeem
 {
     public partial class frmSelectMaterial : Form
     {
-        public Evenement Evenement { get; private set; }
-        public List<Material> Materials { get { return new List<Material>(materials);} }
+        public Evenement Evenement { get; }
+        public List<Material> Materials => new List<Material>(materials);
 
         private List<Material> materials = new List<Material>();
 

@@ -17,7 +17,7 @@ namespace DatabaseLibrary
     {
         private const string SQL_SELECT_ALL = "SELECT * FROM {0}";
         private const string SQL_SELECT_SPECIFIC = "SELECT {0} FROM {1}";
-        private const string SQL_INSERT = "INSERT INTO {0}({1}) VALUES {2}";
+        private const string SQL_INSERT = "INSERT INTO {0}({1}) VALUES ({2})";
         private const string SQL_UPDATE_WHERE = "UPDATE {0} SET {1} WHERE ID={2}";
 
         private const string CONNECTION_STRING_FORMAT = "Server={0};Database={1};User Id={2};Password={3};";
