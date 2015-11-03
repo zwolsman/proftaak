@@ -117,11 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="information" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="toolTipIBAN.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="picHelp.ToolTip" xml:space="preserve">
+    <value>Een IBAN (International Bank Account Number) code cq nummer heeft u nodig voor buitenlandse bankoverschrijvingen.
+De IBAN is ingevoerd op 14 augustus 1999 en zal nog heel wat jaren meegaan.
+Het nummer is in feite een internationaal bankrekeningnummer, een belangrijk gegeven.
+Het International Bank Account Number bestaat uit maximaal 34 tekens en je bankrekeningnummer komt er altijd in voor.</value>
   </data>
 </root>

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Account.cs" />
     <Compile Include="Classes\Evenement.cs" />
     <Compile Include="Classes\Material.cs" />
     <Compile Include="Classes\Person.cs" />
@@ -61,6 +62,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNewAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewAccount.Designer.cs">
+      <DependentUpon>frmNewAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSelectMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewAccount.resx">
+      <DependentUpon>frmNewAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSelectMaterial.resx">
       <DependentUpon>frmSelectMaterial.cs</DependentUpon>
@@ -109,6 +119,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

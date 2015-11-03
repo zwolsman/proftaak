@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -16,8 +17,6 @@ namespace Reserveer_Systeem
 {
     public partial class frmMain : Form
     {
-        /*readonly List<string> evenementDescriptions = new List<string>(); 
-        readonly List<Bitmap> evenementBitmaps = new List<Bitmap>(); */
         private readonly Dictionary<int, Bitmap> evenementBitmaps = new Dictionary<int, Bitmap>();
         private readonly Dictionary<int, Evenement> evenements = new Dictionary<int, Evenement>();
 
@@ -26,8 +25,6 @@ namespace Reserveer_Systeem
             InitializeComponent();
             DatabaseManager.Initialize("sa", "Wachtwoord1", "127.0.0.1", "proftaak");
             DatabaseManager.Open();
-
-            //listEvents.DataSource = evenements;
             LoadEvents();
         }
 
@@ -43,7 +40,14 @@ namespace Reserveer_Systeem
 
         private void LoadLogo(int id, string url)
         {
-            evenementBitmaps.Add(id, new Bitmap(new MemoryStream(new WebClient().DownloadData(url))));
+            try
+            {
+                evenementBitmaps.Add(id, new Bitmap(new MemoryStream(new WebClient().DownloadData(url))));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Oops, couldnt load {url}");
+            }
         }
 
         private void listEvents_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,20 +59,27 @@ namespace Reserveer_Systeem
                 return;
 
             lblEventInfo.Text = evenements[listEvents.SelectedIndex].Description;
-            picLogo.Image = evenementBitmaps[listEvents.SelectedIndex];
+            picLogo.Image = evenementBitmaps.ContainsKey(listEvents.SelectedIndex)
+                ? evenementBitmaps[listEvents.SelectedIndex]
+                : null;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
+        {
+            new frmNewAccount().ShowDialog(this);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new frmDatum().ShowDialog(this);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
             Evenement selectedEvenement = evenements[listEvents.SelectedIndex];
             frmSelectMaterial frmSelectMaterial = new frmSelectMaterial(selectedEvenement);
 
             frmSelectMaterial.ShowDialog(this);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            new frmDatum().Show(this);
         }
     }
 }
