@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNewAccount));
             this.btnNext = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtFirstname = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtLastname = new System.Windows.Forms.TextBox();
             this.txtBankaccount = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPhonenumber = new System.Windows.Forms.MaskedTextBox();
@@ -71,13 +71,13 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Voornaam";
             // 
-            // textBox1
+            // txtFirstname
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 21);
-            this.textBox1.TabIndex = 10;
-            this.textBox1.Text = "Marvin";
+            this.txtFirstname.Location = new System.Drawing.Point(15, 25);
+            this.txtFirstname.Name = "txtFirstname";
+            this.txtFirstname.Size = new System.Drawing.Size(146, 21);
+            this.txtFirstname.TabIndex = 10;
+            this.txtFirstname.Text = "Marvin";
             // 
             // txtAddress
             // 
@@ -96,13 +96,13 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Adres";
             // 
-            // textBox3
+            // txtLastname
             // 
-            this.textBox3.Location = new System.Drawing.Point(15, 65);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 21);
-            this.textBox3.TabIndex = 14;
-            this.textBox3.Text = "Zwolsman";
+            this.txtLastname.Location = new System.Drawing.Point(15, 65);
+            this.txtLastname.Name = "txtLastname";
+            this.txtLastname.Size = new System.Drawing.Size(146, 21);
+            this.txtLastname.TabIndex = 14;
+            this.txtLastname.Text = "Zwolsman";
             // 
             // txtBankaccount
             // 
@@ -234,10 +234,10 @@
             this.Controls.Add(this.txtPhonenumber);
             this.Controls.Add(this.txtBankaccount);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtLastname);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtFirstname);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnNext);
             this.Font = new System.Drawing.Font("Verdana", 8.25F);
@@ -253,10 +253,10 @@
 
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtFirstname;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtLastname;
         private System.Windows.Forms.TextBox txtBankaccount;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox txtPhonenumber;

@@ -235,7 +235,7 @@ namespace DatabaseLibrary
 
                 if (propInfo == null)
                 {
-                    Debug.WriteLine($"Error, can't find property {row.Key.ToString()}");
+                    Debug.WriteLine($"Error, can't find property {row.Key}");
                     continue;
                 }
                 if (!propInfo.CanWrite)

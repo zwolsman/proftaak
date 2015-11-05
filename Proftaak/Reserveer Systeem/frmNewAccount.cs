@@ -29,8 +29,27 @@ namespace Reserveer_Systeem
                 Account account = GetFromForm();
                 if (DatabaseManager.InsertItem(account))
                 {
-                    Account = account;
-                    DialogResult = DialogResult.OK;
+                    Account = DatabaseManager.ContainsItem(account, "Username", "Password");
+                    if (
+                        DatabaseManager.InsertItem(new Person(txtFirstname.Text, txtLastname.Text)
+                        {
+                            Account = Account.ID,
+                            MainTenant = "Y"
+                        }))
+                    {
+                        DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        if (
+                       MessageBox.Show("Kon account niet aanmaken. Probeer het opnieuw", "Account aanmaken",
+                           MessageBoxButtons.RetryCancel) == DialogResult.Retry)
+                        {
+                            continue;
+                        }
+
+                        Close();
+                    }
                 }
                 else
                 {

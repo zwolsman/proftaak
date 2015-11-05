@@ -8,24 +8,33 @@ namespace Reserveer_Systeem
 {
     class Person : IEquatable<Person>
     {
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
+        public int ID { get; set; } = -1;
+        public string Name { get; set; }
+
+        public int Account { get; set; }
+
+        public string Surname { get; set; } = "";
+
+        public string Affix { get; set; } = "";
+
+        public string MainTenant { get; set; } = "N";
+
         public Person() { }
 
-        public Person(string firstname, string lastname)
+        public Person(string name, string surname)
         {
-            Firstname = firstname;
-            Lastname = lastname;
+            Name = name;
+            Surname = surname;
         }
 
         public bool Equals(Person other)
         {
-            return this.ToString() == other.ToString();
+            return ToString() == other.ToString();
         }
 
         public override string ToString()
         {
-            return $"{Firstname} {Lastname}";
+            return $"{Name} {Surname}";
         }
     }
 }
