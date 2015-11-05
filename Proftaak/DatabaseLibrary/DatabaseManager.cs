@@ -45,6 +45,7 @@ namespace DatabaseLibrary
 
         public static int Execute(string sql)
         {
+            Debug.WriteLine("SQL: " + sql);
             SqlCommand cmd = new SqlCommand(sql, _connection);
 
             if (cmd.ExecuteNonQuery() > 0)
@@ -62,6 +63,8 @@ namespace DatabaseLibrary
 
         public static Hashtable[] Query(string sql)
         {
+            Debug.WriteLine("SQL: " + sql);
+
             Hashtable[] output;
             lock (_connection)
             {

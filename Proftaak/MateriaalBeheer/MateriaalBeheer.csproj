@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{28FA4196-6905-4EDF-B323-ABCD1000163E}</ProjectGuid>
+    <ProjectGuid>{E54B26A0-8D5B-4A4C-84E2-73EA07441E3E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Reserveer_Systeem</RootNamespace>
-    <AssemblyName>Reserveer Systeem</AssemblyName>
+    <RootNamespace>MateriaalBeheer</RootNamespace>
+    <AssemblyName>MateriaalBeheer</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,56 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Account.cs" />
-    <Compile Include="Classes\Evenement.cs" />
-    <Compile Include="Classes\Material.cs" />
-    <Compile Include="Classes\Person.cs" />
-    <Compile Include="frmDatum.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDatum.Designer.cs">
-      <DependentUpon>frmDatum.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmKaart.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmKaart.Designer.cs">
-      <DependentUpon>frmKaart.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmNewAccount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNewAccount.Designer.cs">
-      <DependentUpon>frmNewAccount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmSelectMaterial.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSelectMaterial.Designer.cs">
-      <DependentUpon>frmSelectMaterial.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmDatum.resx">
-      <DependentUpon>frmDatum.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmKaart.resx">
-      <DependentUpon>frmKaart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmNewAccount.resx">
-      <DependentUpon>frmNewAccount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectMaterial.resx">
-      <DependentUpon>frmSelectMaterial.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -105,7 +65,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -119,24 +78,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DatabaseLibrary\DatabaseLibrary.csproj">
-      <Project>{cd2ffa70-b471-4ce0-811e-e53425e2a764}</Project>
-      <Name>DatabaseLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\error.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\information.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Map-Image.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Map-Mask.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

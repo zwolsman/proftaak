@@ -33,30 +33,34 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtBankaccount = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtPhonenumber = new System.Windows.Forms.MaskedTextBox();
+            this.txtZipcode = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.picHelp = new System.Windows.Forms.PictureBox();
             this.toolTipIBAN = new System.Windows.Forms.ToolTip(this.components);
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picHelp)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNext
             // 
-            this.btnNext.Enabled = false;
             this.btnNext.Location = new System.Drawing.Point(415, 253);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 8;
             this.btnNext.Text = "Volgende";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // label1
             // 
@@ -73,13 +77,15 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(146, 21);
             this.textBox1.TabIndex = 10;
+            this.textBox1.Text = "Marvin";
             // 
-            // textBox2
+            // txtAddress
             // 
-            this.textBox2.Location = new System.Drawing.Point(167, 25);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 21);
-            this.textBox2.TabIndex = 12;
+            this.txtAddress.Location = new System.Drawing.Point(167, 25);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(146, 21);
+            this.txtAddress.TabIndex = 12;
+            this.txtAddress.Text = "Ekkerstraat 28";
             // 
             // label2
             // 
@@ -96,13 +102,15 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(146, 21);
             this.textBox3.TabIndex = 14;
+            this.textBox3.Text = "Zwolsman";
             // 
-            // textBox4
+            // txtBankaccount
             // 
-            this.textBox4.Location = new System.Drawing.Point(15, 145);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(207, 21);
-            this.textBox4.TabIndex = 16;
+            this.txtBankaccount.Location = new System.Drawing.Point(15, 145);
+            this.txtBankaccount.Name = "txtBankaccount";
+            this.txtBankaccount.Size = new System.Drawing.Size(207, 21);
+            this.txtBankaccount.TabIndex = 16;
+            this.txtBankaccount.Text = "167887963";
             // 
             // label4
             // 
@@ -113,21 +121,23 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "Telefoonnummer";
             // 
-            // maskedTextBox1
+            // txtPhonenumber
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(15, 105);
-            this.maskedTextBox1.Mask = "000 000 00 00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(146, 21);
-            this.maskedTextBox1.TabIndex = 17;
+            this.txtPhonenumber.Location = new System.Drawing.Point(15, 105);
+            this.txtPhonenumber.Mask = "000 000 00 00";
+            this.txtPhonenumber.Name = "txtPhonenumber";
+            this.txtPhonenumber.Size = new System.Drawing.Size(146, 21);
+            this.txtPhonenumber.TabIndex = 17;
+            this.txtPhonenumber.Text = "0402572102";
             // 
-            // maskedTextBox2
+            // txtZipcode
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(167, 65);
-            this.maskedTextBox2.Mask = "0000 00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(146, 21);
-            this.maskedTextBox2.TabIndex = 18;
+            this.txtZipcode.Location = new System.Drawing.Point(167, 65);
+            this.txtZipcode.Mask = "0000 >LL";
+            this.txtZipcode.Name = "txtZipcode";
+            this.txtZipcode.Size = new System.Drawing.Size(146, 21);
+            this.txtZipcode.TabIndex = 18;
+            this.txtZipcode.Text = "5616SP";
             // 
             // label3
             // 
@@ -172,21 +182,60 @@
             this.toolTipIBAN.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTipIBAN.ToolTipTitle = "IBAN";
             // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(12, 185);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(149, 21);
+            this.txtUsername.TabIndex = 23;
+            this.txtUsername.Text = "marvinn";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 169);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(99, 13);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Gebrukersnaam";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 209);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 13);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Wachtwoord";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(12, 225);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(149, 21);
+            this.txtPassword.TabIndex = 25;
+            this.txtPassword.Text = "wachtwoord";
+            this.txtPassword.UseSystemPasswordChar = true;
+            // 
             // frmNewAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 284);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.picHelp);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtZipcode);
+            this.Controls.Add(this.txtPhonenumber);
+            this.Controls.Add(this.txtBankaccount);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -205,17 +254,21 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtBankaccount;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox txtPhonenumber;
+        private System.Windows.Forms.MaskedTextBox txtZipcode;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox picHelp;
         private System.Windows.Forms.ToolTip toolTipIBAN;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtPassword;
     }
 }

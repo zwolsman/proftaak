@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseLibrary", "Database
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reserveer Systeem", "Reserveer Systeem\Reserveer Systeem.csproj", "{28FA4196-6905-4EDF-B323-ABCD1000163E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateriaalBeheer", "MateriaalBeheer\MateriaalBeheer.csproj", "{E54B26A0-8D5B-4A4C-84E2-73EA07441E3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{28FA4196-6905-4EDF-B323-ABCD1000163E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28FA4196-6905-4EDF-B323-ABCD1000163E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28FA4196-6905-4EDF-B323-ABCD1000163E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E54B26A0-8D5B-4A4C-84E2-73EA07441E3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E54B26A0-8D5B-4A4C-84E2-73EA07441E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E54B26A0-8D5B-4A4C-84E2-73EA07441E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E54B26A0-8D5B-4A4C-84E2-73EA07441E3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

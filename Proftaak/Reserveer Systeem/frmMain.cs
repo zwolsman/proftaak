@@ -81,5 +81,10 @@ namespace Reserveer_Systeem
 
             frmSelectMaterial.ShowDialog(this);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new frmKaart().ShowDialog(this);
+        }
     }
 }
