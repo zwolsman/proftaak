@@ -20,6 +20,8 @@ namespace Reserveer_Systeem
         private readonly Dictionary<int, Bitmap> evenementBitmaps = new Dictionary<int, Bitmap>();
         private readonly Dictionary<int, Evenement> evenements = new Dictionary<int, Evenement>();
 
+        public static Account selectedAccount;
+        public static Evenement SelectedEvenement;
         public frmMain()
         {
             InitializeComponent();
@@ -58,6 +60,7 @@ namespace Reserveer_Systeem
             if (listEvents.SelectedIndex == -1)
                 return;
 
+            SelectedEvenement = evenements[listEvents.SelectedIndex];
             lblEventInfo.Text = evenements[listEvents.SelectedIndex].Description;
             picLogo.Image = evenementBitmaps.ContainsKey(listEvents.SelectedIndex)
                 ? evenementBitmaps[listEvents.SelectedIndex]
@@ -66,7 +69,52 @@ namespace Reserveer_Systeem
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            new frmNewAccount().ShowDialog(this);
+            
+            if (radioExisting.Checked) //Show login
+            {
+                frmLogin frmLogin = new frmLogin() { Location = Location, StartPosition = FormStartPosition.CenterParent };
+
+                if (frmLogin.ShowDialog(this) == DialogResult.OK)
+                {
+                    selectedAccount = frmLogin.Account;
+                }
+                else
+                {
+                    MessageBox.Show("Geen geldig account, begin opnieuw.");
+                    return;
+                }
+            }
+            if (radioNew.Checked) //Show new
+            {
+                frmNewAccount frmAccount = new frmNewAccount() { Location = Location, StartPosition = FormStartPosition.CenterParent};
+
+                if (frmAccount.ShowDialog(this) == DialogResult.OK)
+                {
+                    selectedAccount = frmAccount.Account;
+                }
+                else
+                {
+                    MessageBox.Show("Geen geldig account, begin opnieuw.");
+                    return;
+                }
+            }
+
+            frmDatum frmDatum = new frmDatum() { Location = Location, StartPosition = FormStartPosition.CenterParent };
+            if (frmDatum.ShowDialog(this) != DialogResult.OK)
+            {
+                MessageBox.Show("Geen geldige datum ingevoerd. Probeer het opnieuw");
+                return;
+            }
+
+            frmKaart frmKaart = new frmKaart() {Location = Location, StartPosition = FormStartPosition.CenterParent };
+
+            if (frmKaart.ShowDialog(this) != DialogResult.OK)
+            {
+                MessageBox.Show("Geen plek gekozen! Probeer het opnieuw.");
+                return;
+            }
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)

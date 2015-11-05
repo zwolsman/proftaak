@@ -30,8 +30,8 @@
         {
             this.listEvents = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioExisting = new System.Windows.Forms.RadioButton();
+            this.radioNew = new System.Windows.Forms.RadioButton();
             this.lblEventInfo = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnDatum = new System.Windows.Forms.Button();
@@ -59,27 +59,27 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Selecteer een eventement";
             // 
-            // radioButton1
+            // radioExisting
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(160, 25);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(126, 17);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.Text = "Bestaand account";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioExisting.AutoSize = true;
+            this.radioExisting.Location = new System.Drawing.Point(160, 25);
+            this.radioExisting.Name = "radioExisting";
+            this.radioExisting.Size = new System.Drawing.Size(126, 17);
+            this.radioExisting.TabIndex = 2;
+            this.radioExisting.Text = "Bestaand account";
+            this.radioExisting.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioNew
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(160, 48);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(107, 17);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Nieuw account";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioNew.AutoSize = true;
+            this.radioNew.Checked = true;
+            this.radioNew.Location = new System.Drawing.Point(160, 48);
+            this.radioNew.Name = "radioNew";
+            this.radioNew.Size = new System.Drawing.Size(107, 17);
+            this.radioNew.TabIndex = 3;
+            this.radioNew.TabStop = true;
+            this.radioNew.Text = "Nieuw account";
+            this.radioNew.UseVisualStyleBackColor = true;
             // 
             // lblEventInfo
             // 
@@ -132,16 +132,18 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Materialen";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(149, 256);
+            this.button2.Location = new System.Drawing.Point(149, 253);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 10;
             this.button2.Text = "Kaart";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmMain
@@ -155,12 +157,13 @@
             this.Controls.Add(this.picLogo);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.lblEventInfo);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radioNew);
+            this.Controls.Add(this.radioExisting);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listEvents);
             this.Font = new System.Drawing.Font("Verdana", 8.25F);
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reserveer Systeem";
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
@@ -172,8 +175,8 @@
 
         private System.Windows.Forms.ListBox listEvents;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioExisting;
+        private System.Windows.Forms.RadioButton radioNew;
         private System.Windows.Forms.Label lblEventInfo;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.PictureBox picLogo;

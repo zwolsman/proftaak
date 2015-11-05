@@ -17,7 +17,13 @@ namespace Reserveer_Systeem
         public frmDatum()
         {
             InitializeComponent();
+            DialogResult = DialogResult.Abort;
+            dtFrom.MinDate = DateTime.Now;
+            dtTill.MinDate = DateTime.Now;
+            dtTill.MaxDate = frmMain.SelectedEvenement.EndDate;
         }
+
+        
 
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
@@ -56,6 +62,17 @@ namespace Reserveer_Systeem
 
             persons.Remove(index);
             listPersons.Items.RemoveAt(index);
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void dtValueChanged(object sender, EventArgs e)
+        {
+            btnNext.Enabled = dtTill.Value != dtFrom.Value;
         }
     }
 }

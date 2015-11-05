@@ -14,15 +14,37 @@ namespace Reserveer_Systeem
 {
     public partial class frmNewAccount : Form
     {
+        public Account Account { get; private set; }
+
         public frmNewAccount()
         {
             InitializeComponent();
+            DialogResult = DialogResult.Abort;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            Account account = GetFromForm();
-            DatabaseManager.InsertItem(account);
+            while (true)
+            {
+                Account account = GetFromForm();
+                if (DatabaseManager.InsertItem(account))
+                {
+                    Account = account;
+                    DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    if (
+                        MessageBox.Show("Kon account niet aanmaken. Probeer het opnieuw", "Account aanmaken",
+                            MessageBoxButtons.RetryCancel) == DialogResult.Retry)
+                    {
+                        continue;
+                    }
+
+                    Close();
+                }
+                break;
+            }
             Close();
         }
 
@@ -55,7 +77,6 @@ namespace Reserveer_Systeem
                     }
                     propInfo.SetValue(account, control.Text);
                 }
-                
             }
             return account;
         }

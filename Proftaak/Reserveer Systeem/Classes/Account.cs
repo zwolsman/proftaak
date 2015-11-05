@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Reserveer_Systeem
 {
-    class Account
+    public class Account
     {
         private string _rawPassword = "";
         public int ID { get; set; }

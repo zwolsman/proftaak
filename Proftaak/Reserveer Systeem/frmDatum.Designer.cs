@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtFrom = new System.Windows.Forms.DateTimePicker();
+            this.dtTill = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.picErrorVoornaam = new System.Windows.Forms.PictureBox();
@@ -56,19 +56,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Datum van aankomst";
             // 
-            // dateTimePicker1
+            // dtFrom
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 25);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(233, 21);
-            this.dateTimePicker1.TabIndex = 1;
+            this.dtFrom.Location = new System.Drawing.Point(12, 25);
+            this.dtFrom.Name = "dtFrom";
+            this.dtFrom.Size = new System.Drawing.Size(233, 21);
+            this.dtFrom.TabIndex = 1;
+            this.dtFrom.ValueChanged += new System.EventHandler(this.dtValueChanged);
             // 
-            // dateTimePicker2
+            // dtTill
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(12, 65);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(233, 21);
-            this.dateTimePicker2.TabIndex = 3;
+            this.dtTill.Location = new System.Drawing.Point(12, 65);
+            this.dtTill.Name = "dtTill";
+            this.dtTill.Size = new System.Drawing.Size(233, 21);
+            this.dtTill.TabIndex = 3;
+            this.dtTill.ValueChanged += new System.EventHandler(this.dtValueChanged);
             // 
             // label2
             // 
@@ -180,6 +182,7 @@
             this.btnNext.TabIndex = 7;
             this.btnNext.Text = "Volgende";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // frmDatum
             // 
@@ -188,13 +191,13 @@
             this.ClientSize = new System.Drawing.Size(502, 284);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dtTill);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtFrom);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Verdana", 8.25F);
             this.Name = "frmDatum";
-            this.Text = "frmDatum";
+            this.Text = "Reservering";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picErrorVoornaam)).EndInit();
@@ -207,8 +210,8 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtFrom;
+        private System.Windows.Forms.DateTimePicker dtTill;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnNext;

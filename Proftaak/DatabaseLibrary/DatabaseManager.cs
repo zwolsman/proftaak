@@ -19,6 +19,7 @@ namespace DatabaseLibrary
         private const string SQL_SELECT_SPECIFIC = "SELECT {0} FROM {1}";
         private const string SQL_INSERT = "INSERT INTO {0}({1}) VALUES ({2})";
         private const string SQL_UPDATE_WHERE = "UPDATE {0} SET {1} WHERE ID={2}";
+        private const string SQL_EXISTS = "SELECT * FROM {0} WHERE {1}";
 
         private const string CONNECTION_STRING_FORMAT = "Server={0};Database={1};User Id={2};Password={3};";
         private static SqlConnection _connection;
@@ -97,8 +98,6 @@ namespace DatabaseLibrary
             return output;
         }
 
-      
-
         public static Hashtable QueryFirst(string sql)
         {
             Hashtable[] result = Query(sql);
@@ -127,6 +126,7 @@ namespace DatabaseLibrary
 
             return Query(qur).Select(HashtableToItem<T>).ToList();
         }
+
         public static IEnumerable<T> GetItems<T>(dynamic searchCriteria)
         {
             string tableName = classMappings.ContainsKey(typeof(T).Name)
@@ -195,8 +195,39 @@ namespace DatabaseLibrary
             string qur = $"DELETE FROM {tableName} WHERE ID={hashtable["ID"]}";
             return Execute(qur) != -1;
         }
+
+        public static T ContainsItem<T>(T item, params string[] props)
+        {
+            string tableName = classMappings.ContainsKey(typeof(T).Name)
+             ? classMappings[typeof(T).Name]
+             : typeof(T).Name;
+
+            if (props == null)
+                return default(T);
+
+            string where = "";
+            for (int i = 0; i < props.Length; i++)
+            {
+                PropertyInfo propInfo = typeof (T).GetProperty(props[i]);
+
+                if(propInfo == null)
+                    continue;
+                where += $"{props[i]}={Helper.GetValue(propInfo.GetValue(item))}";
+                if (i + 1 < props.Length)
+                    where += " AND ";
+            }
+
+            if (where.EndsWith(" AND "))
+                where = where.Substring(0, where.Length - " AND ".Length);
+
+            string sql = string.Format(SQL_EXISTS, tableName, where);
+
+            return HashtableToItem<T>(QueryFirst(sql));
+        }
         private static T HashtableToItem<T>(Hashtable info)
         {
+            if (info == null)
+                return default(T);
             T returnObject = (T) Activator.CreateInstance(typeof (T));
             foreach (DictionaryEntry row in info)
             {
@@ -207,6 +238,9 @@ namespace DatabaseLibrary
                     Debug.WriteLine($"Error, can't find property {row.Key.ToString()}");
                     continue;
                 }
+                if (!propInfo.CanWrite)
+                    continue;
+
                 if (propInfo.PropertyType == typeof (string))
                 {
                     propInfo.SetValue(returnObject, row.Value.ToString());
