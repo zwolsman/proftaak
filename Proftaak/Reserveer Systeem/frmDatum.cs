@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DatabaseLibrary;
 
 namespace Reserveer_Systeem
 {
     public partial class frmDatum : Form
     {
         private readonly Dictionary<int, Person> persons = new Dictionary<int, Person>(); 
+
+        public static DateTime From { get; set; }
+        public static DateTime Till { get; set; }
 
         public frmDatum()
         {
@@ -34,7 +38,7 @@ namespace Reserveer_Systeem
             if (picErrorVoornaam.Visible || picErrorAchternaam.Visible) //End if there is an empty field
                 return;
 
-            Person person = new Person(txtVoornaam.Text, txtAchternaam.Text);
+            Person person = new Person(txtVoornaam.Text, txtAchternaam.Text) {Account = frmMain.Account.ID};
             if (persons.ContainsValue(person))
             {
                 picErrorVoornaam.Visible = true;
@@ -66,7 +70,18 @@ namespace Reserveer_Systeem
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            bool errors = false;
+            foreach (Person p in persons.Values.Where(p => !DatabaseManager.InsertItem(p)))
+            {
+                errors = true;
+                MessageBox.Show($"Er is iets fout gegaan met het toevoegen van {p}", "Fout", MessageBoxButtons.OK);
+            }
+
+
+            From = dtFrom.Value;
+            Till = dtTill.Value;
+
+            DialogResult = !errors ? DialogResult.OK : DialogResult.Abort;
             Close();
         }
 

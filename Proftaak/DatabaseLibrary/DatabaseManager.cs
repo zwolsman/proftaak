@@ -29,7 +29,8 @@ namespace DatabaseLibrary
         //Map class names to table names. 
         private static readonly Dictionary<string, string> classMappings = new Dictionary<string, string>()
         {
-            {"Evenement", "Event"} //Class evenement -> database table Event
+            {"Evenement", "Event"},             //Class evenement -> database table Event
+            {"LeasePlace", "Lease_Place" },     //Class LeasePlace -> database table Lease_Place
         };
 
 

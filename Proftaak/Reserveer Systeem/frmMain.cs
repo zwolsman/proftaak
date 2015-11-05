@@ -20,7 +20,7 @@ namespace Reserveer_Systeem
         private readonly Dictionary<int, Bitmap> evenementBitmaps = new Dictionary<int, Bitmap>();
         private readonly Dictionary<int, Evenement> evenements = new Dictionary<int, Evenement>();
 
-        public static Account selectedAccount;
+        public static Account Account;
         public static Evenement SelectedEvenement;
         public frmMain()
         {
@@ -76,7 +76,7 @@ namespace Reserveer_Systeem
 
                 if (frmLogin.ShowDialog(this) == DialogResult.OK)
                 {
-                    selectedAccount = frmLogin.Account;
+                    Account = frmLogin.Account;
                 }
                 else
                 {
@@ -90,7 +90,7 @@ namespace Reserveer_Systeem
 
                 if (frmAccount.ShowDialog(this) == DialogResult.OK)
                 {
-                    selectedAccount = frmAccount.Account;
+                    Account = frmAccount.Account;
                 }
                 else
                 {
