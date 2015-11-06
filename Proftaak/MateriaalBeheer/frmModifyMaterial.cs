@@ -17,6 +17,7 @@ namespace MateriaalBeheer
     {
         private readonly Dictionary<int, Evenement> evenementen = new Dictionary<int, Evenement>();
         private Dictionary<int, Material> materials = new Dictionary<int, Material>();
+        private Evenement selectedEvenement;
 
         public frmModifyMaterial()
         {
@@ -36,10 +37,11 @@ namespace MateriaalBeheer
 
         private void listEvent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            listMaterial.Items.Clear();
+            Clear();
             if (listEvent.SelectedIndex == -1)
                 return;
             materials.Clear();
+            selectedEvenement = evenementen[listEvent.SelectedIndex];
             foreach  (Material m in evenementen[listEvent.SelectedIndex].material)
             {
                 int index = listMaterial.Items.Add(m.Product);
@@ -52,10 +54,10 @@ namespace MateriaalBeheer
             if (listMaterial.SelectedIndex == -1)
                 return;
             Material m = materials[listMaterial.SelectedIndex];
-            tbProduct.Text = m.Product;
-            tbDescription.Text = m.Description;
-            tbPricePD.Text = m.PricePD.ToString();
-            tbPricePW.Text = m.PricePW.ToString();
+            txtProduct.Text = m.Product;
+            txtDescription.Text = m.Description;
+            txtPricePD.Text = m.PricePD.ToString();
+            txtPricePW.Text = m.PricePW.ToString();
         }
 
         private void btVerwijderen_Click(object sender, EventArgs e)
@@ -68,45 +70,64 @@ namespace MateriaalBeheer
 
         private void btWijzigen_Click(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(tbPricePD.Text, @"^\d+$"))
+            if (!Regex.IsMatch(txtPricePD.Text, @"^\d+$"))
             {
                 MessageBox.Show("Prijs per dag is geen integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!Regex.IsMatch(tbPricePW.Text, @"^\d+$"))
+            if (!Regex.IsMatch(txtPricePW.Text, @"^\d+$"))
             {
                 MessageBox.Show("Prijs per week is geen integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (selectedEvenement == null)
+            {
+                MessageBox.Show("Geen evenement geselecteerd!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Material m = materials[listMaterial.SelectedIndex];
-            m.Product = tbProduct.Text;
-            m.Description = tbDescription.Text;
-            m.PricePD = int.Parse(tbPricePD.Text);
-            m.PricePW = int.Parse(tbPricePW.Text);
+            m.Product = txtProduct.Text;
+            m.Description = txtDescription.Text;
+            m.PricePD = int.Parse(txtPricePD.Text);
+            m.PricePW = int.Parse(txtPricePW.Text);
             DatabaseManager.UpdateItem(m);
         }
 
         private void btToevoegen_Click(object sender, EventArgs e)
         {
-            if (!Regex.IsMatch(tbPricePD.Text, @"^\d+$"))
+            if (!Regex.IsMatch(txtPricePD.Text, @"^\d+$"))
             {
                 MessageBox.Show("Prijs per dag is geen integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!Regex.IsMatch(tbPricePW.Text, @"^\d+$"))
+            if (!Regex.IsMatch(txtPricePW.Text, @"^\d+$"))
             {
                 MessageBox.Show("Prijs per week is geen integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Material m = new Material();
-            m.Product = tbProduct.Text;
-            m.Description = tbDescription.Text;
-            m.PricePD = int.Parse(tbPricePD.Text);
-            m.PricePW = int.Parse(tbPricePW.Text);
+            Material m = new Material
+            {
+                Product = txtProduct.Text,
+                Description = txtDescription.Text,
+                PricePD = int.Parse(txtPricePD.Text),
+                PricePW = int.Parse(txtPricePW.Text),
+                Event = selectedEvenement.ID
+            };
             DatabaseManager.InsertItem(m);
             evenementen[listEvent.SelectedIndex].AddMaterial(m);
             int index = listMaterial.Items.Add(m.Product);
             materials.Add(index, m);
+        }
+
+        private void Clear()
+        {
+            selectedEvenement = null;
+            txtProduct.Clear();
+            listMaterial.Items.Clear();
+            txtDescription.Clear();
+            txtPricePD.Clear();
+            txtPricePW.Clear();
+
         }
     }
 }
