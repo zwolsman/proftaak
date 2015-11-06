@@ -105,6 +105,11 @@ namespace MateriaalBeheer
                 MessageBox.Show("Prijs per week is geen integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (selectedEvenement == null)
+            {
+                MessageBox.Show("Geen evenement geselecteerd!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Material m = new Material
             {
                 Product = txtProduct.Text,
