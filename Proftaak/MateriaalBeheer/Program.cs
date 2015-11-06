@@ -19,7 +19,11 @@ namespace MateriaalBeheer
             DatabaseManager.Open();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmModifyMaterial());
+
+            //Uncomment one of the commented lines below to test
+            //Application.Run(new frmModifyMaterial());
+            //Application.Run(new frmRentMaterial());
+            //Application.Run(new frmSelectEvent());
         }
     }
 }

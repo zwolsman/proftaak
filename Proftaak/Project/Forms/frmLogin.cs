@@ -62,6 +62,7 @@ namespace EvenementBeheerSysteem.Forms
                     control.Enabled = !locked;
             }
         }
+
         private void DisableControls(bool locked, params Type[] target)
         {
             foreach (Control control in Controls.Cast<Control>().Where(control => target.Contains(control.GetType())))

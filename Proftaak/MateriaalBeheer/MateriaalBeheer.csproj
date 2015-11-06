@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Phidget21.NET, Version=2.1.8.222, Culture=neutral, PublicKeyToken=c2b1f2a3594bce52, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Phidgets\Phidget21.NET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,16 +52,45 @@
   <ItemGroup>
     <Compile Include="Classes\Evenement.cs" />
     <Compile Include="Classes\Material.cs" />
+    <Compile Include="Classes\Rfid.cs" />
+    <Compile Include="Classes\RFIDPerson.cs" />
+    <Compile Include="frmEnterProdCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEnterProdCode.Designer.cs">
+      <DependentUpon>frmEnterProdCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModifyMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmModifyMaterial.Designer.cs">
       <DependentUpon>frmModifyMaterial.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRentMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRentMaterial.Designer.cs">
+      <DependentUpon>frmRentMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectEvent.Designer.cs">
+      <DependentUpon>frmSelectEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmEnterProdCode.resx">
+      <DependentUpon>frmEnterProdCode.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModifyMaterial.resx">
       <DependentUpon>frmModifyMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRentMaterial.resx">
+      <DependentUpon>frmRentMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectEvent.resx">
+      <DependentUpon>frmSelectEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

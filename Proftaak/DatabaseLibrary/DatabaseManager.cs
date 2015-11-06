@@ -31,6 +31,7 @@ namespace DatabaseLibrary
         {
             {"Evenement", "Event"},             //Class evenement -> database table Event
             {"LeasePlace", "Lease_Place" },     //Class LeasePlace -> database table Lease_Place
+            {"RFIDPerson", "RFID_Person" },     //Class RFIDPerson -> database table RFID_Person
         };
 
 
@@ -225,6 +226,7 @@ namespace DatabaseLibrary
 
             return HashtableToItem<T>(QueryFirst(sql));
         }
+
         private static T HashtableToItem<T>(Hashtable info)
         {
             if (info == null)
