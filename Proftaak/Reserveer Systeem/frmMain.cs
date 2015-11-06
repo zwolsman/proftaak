@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DatabaseLibrary;
+using Reserveer_Systeem.Classes;
 
 
 namespace Reserveer_Systeem
@@ -113,8 +114,22 @@ namespace Reserveer_Systeem
                 MessageBox.Show("Geen plek gekozen! Probeer het opnieuw.");
                 return;
             }
+            try
+            {
+                DatabaseManager.InsertItem(new LeasePlace()
+                {
+                    Account = Account.ID,
+                    Arrival = frmDatum.From,
+                    Departure = frmDatum.Till,
+                    Event = SelectedEvenement.ID,
+                    Place = frmKaart.SpotID
+                });
 
-
+            }
+            catch 
+            {
+                Console.WriteLine("Error insterting item");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
