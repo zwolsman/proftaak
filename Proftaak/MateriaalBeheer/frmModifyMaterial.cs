@@ -30,16 +30,16 @@ namespace MateriaalBeheer
             {
                 int index = listEvent.Items.Add(e.Name);
                 evenementen.Add(index, e);
-                e.material.AddRange(DatabaseManager.GetItems<Material>());
+                e.material.AddRange(DatabaseManager.GetItems<Material>(e));
             }
         }
 
         private void listEvent_SelectedIndexChanged(object sender, EventArgs e)
         {
+            listMaterial.Items.Clear();
             if (listEvent.SelectedIndex == -1)
                 return;
             materials.Clear();
-            listMaterial.Items.Clear();
             foreach  (Material m in evenementen[listEvent.SelectedIndex].material)
             {
                 int index = listMaterial.Items.Add(m.Product);
