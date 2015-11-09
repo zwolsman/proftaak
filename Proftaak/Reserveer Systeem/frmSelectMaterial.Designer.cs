@@ -46,9 +46,9 @@
             this.columnHeader7,
             this.columnHeader8});
             this.listMaterials.FullRowSelect = true;
-            this.listMaterials.Location = new System.Drawing.Point(12, 12);
+            this.listMaterials.Location = new System.Drawing.Point(14, 12);
             this.listMaterials.Name = "listMaterials";
-            this.listMaterials.Size = new System.Drawing.Size(478, 260);
+            this.listMaterials.Size = new System.Drawing.Size(476, 260);
             this.listMaterials.TabIndex = 0;
             this.listMaterials.UseCompatibleStateImageBehavior = false;
             this.listMaterials.View = System.Windows.Forms.View.Details;
@@ -75,12 +75,13 @@
             // 
             // frmSelectMaterial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 284);
             this.Controls.Add(this.listMaterials);
+            this.Font = new System.Drawing.Font("Verdana", 8.25F);
             this.Name = "frmSelectMaterial";
-            this.Text = "frmSelectMaterial";
+            this.Text = "Materiaal selecteren";
             this.ResumeLayout(false);
 
         }
