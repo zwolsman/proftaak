@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reserveer Systeem", "Reserv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateriaalBeheer", "MateriaalBeheer\MateriaalBeheer.csproj", "{E54B26A0-8D5B-4A4C-84E2-73EA07441E3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toegangscontrole", "Toegangscontrole\Toegangscontrole.csproj", "{F9818526-85A3-4499-B910-7556A91FF96F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{E54B26A0-8D5B-4A4C-84E2-73EA07441E3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E54B26A0-8D5B-4A4C-84E2-73EA07441E3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E54B26A0-8D5B-4A4C-84E2-73EA07441E3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9818526-85A3-4499-B910-7556A91FF96F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9818526-85A3-4499-B910-7556A91FF96F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9818526-85A3-4499-B910-7556A91FF96F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9818526-85A3-4499-B910-7556A91FF96F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
