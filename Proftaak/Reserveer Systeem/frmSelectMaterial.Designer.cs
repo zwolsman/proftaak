@@ -60,10 +60,12 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "Omschrijving";
+            this.columnHeader5.Width = 98;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Prijs per dag";
+            this.columnHeader6.Width = 92;
             // 
             // columnHeader7
             // 

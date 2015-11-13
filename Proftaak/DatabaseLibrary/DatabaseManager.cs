@@ -277,11 +277,10 @@ namespace DatabaseLibrary
              ? classMappings[typeof(T).Name]
              : typeof(T).Name;
 
-            if (from == null || till == null || !tableName.Equals("Item"))
+            if (!tableName.Equals("Item"))
                 return default(T);
 
             string sql = $"";
-
             return default(T);
         }
 
