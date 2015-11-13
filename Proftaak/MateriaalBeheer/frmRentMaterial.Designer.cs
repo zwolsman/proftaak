@@ -41,19 +41,19 @@
             // 
             this.listMaterial.FormattingEnabled = true;
             this.listMaterial.ItemHeight = 17;
-            this.listMaterial.Location = new System.Drawing.Point(14, 24);
+            this.listMaterial.Location = new System.Drawing.Point(11, 28);
             this.listMaterial.Margin = new System.Windows.Forms.Padding(2);
             this.listMaterial.Name = "listMaterial";
-            this.listMaterial.Size = new System.Drawing.Size(200, 276);
+            this.listMaterial.Size = new System.Drawing.Size(200, 310);
             this.listMaterial.TabIndex = 9;
             this.listMaterial.SelectedIndexChanged += new System.EventHandler(this.listMaterial_SelectedIndexChanged);
             // 
             // btHuren
             // 
-            this.btHuren.Location = new System.Drawing.Point(170, 315);
+            this.btHuren.Location = new System.Drawing.Point(11, 340);
             this.btHuren.Margin = new System.Windows.Forms.Padding(2);
             this.btHuren.Name = "btHuren";
-            this.btHuren.Size = new System.Drawing.Size(150, 19);
+            this.btHuren.Size = new System.Drawing.Size(200, 23);
             this.btHuren.TabIndex = 10;
             this.btHuren.Text = "Huren";
             this.btHuren.UseVisualStyleBackColor = true;
@@ -62,7 +62,7 @@
             // lblMateriaal
             // 
             this.lblMateriaal.AutoSize = true;
-            this.lblMateriaal.Location = new System.Drawing.Point(11, 9);
+            this.lblMateriaal.Location = new System.Drawing.Point(8, 9);
             this.lblMateriaal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMateriaal.Name = "lblMateriaal";
             this.lblMateriaal.Size = new System.Drawing.Size(166, 17);
@@ -71,10 +71,10 @@
             // 
             // btInnemen
             // 
-            this.btInnemen.Location = new System.Drawing.Point(330, 315);
+            this.btInnemen.Location = new System.Drawing.Point(215, 340);
             this.btInnemen.Margin = new System.Windows.Forms.Padding(2);
             this.btInnemen.Name = "btInnemen";
-            this.btInnemen.Size = new System.Drawing.Size(150, 23);
+            this.btInnemen.Size = new System.Drawing.Size(200, 23);
             this.btInnemen.TabIndex = 12;
             this.btInnemen.Text = "Innemen";
             this.btInnemen.UseVisualStyleBackColor = true;
@@ -82,10 +82,10 @@
             // 
             // btOverzichtReserveren
             // 
-            this.btOverzichtReserveren.Location = new System.Drawing.Point(10, 315);
+            this.btOverzichtReserveren.Location = new System.Drawing.Point(11, 367);
             this.btOverzichtReserveren.Margin = new System.Windows.Forms.Padding(2);
             this.btOverzichtReserveren.Name = "btOverzichtReserveren";
-            this.btOverzichtReserveren.Size = new System.Drawing.Size(150, 19);
+            this.btOverzichtReserveren.Size = new System.Drawing.Size(404, 23);
             this.btOverzichtReserveren.TabIndex = 14;
             this.btOverzichtReserveren.Text = "Bekijk gereserveerde materialen";
             this.btOverzichtReserveren.UseVisualStyleBackColor = true;
@@ -94,7 +94,7 @@
             // lblItem
             // 
             this.lblItem.AutoSize = true;
-            this.lblItem.Location = new System.Drawing.Point(225, 9);
+            this.lblItem.Location = new System.Drawing.Point(212, 9);
             this.lblItem.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblItem.Name = "lblItem";
             this.lblItem.Size = new System.Drawing.Size(141, 17);
@@ -105,18 +105,17 @@
             // 
             this.listItem.FormattingEnabled = true;
             this.listItem.ItemHeight = 17;
-            this.listItem.Location = new System.Drawing.Point(228, 24);
+            this.listItem.Location = new System.Drawing.Point(215, 28);
             this.listItem.Margin = new System.Windows.Forms.Padding(2);
             this.listItem.Name = "listItem";
-            this.listItem.Size = new System.Drawing.Size(200, 276);
+            this.listItem.Size = new System.Drawing.Size(200, 310);
             this.listItem.TabIndex = 9;
-            this.listItem.SelectedIndexChanged += new System.EventHandler(this.listItem_SelectedIndexChanged);
             // 
             // frmRentMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 341);
+            this.ClientSize = new System.Drawing.Size(425, 401);
             this.Controls.Add(this.btOverzichtReserveren);
             this.Controls.Add(this.btInnemen);
             this.Controls.Add(this.lblMateriaal);

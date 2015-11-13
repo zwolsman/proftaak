@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace MateriaalBeheer
 {
-    public partial class frmRentMaterial : Form
+    public partial class frmRentMaterial : Form //TODO: testen
     {
         private Evenement evenement = new Evenement();
         private Dictionary<int, Material> materiaal = new Dictionary<int, Material>();
@@ -44,24 +44,71 @@ namespace MateriaalBeheer
 
         private void AvailableItems()
         {
+            Clear();
+            foreach (Material m in DatabaseManager.GetItems<Material>(evenement))
+            {
+                foreach (Item i in DatabaseManager.AvailableItems<Item>(m, beschikMateriaalweergeven))
+                {
+                    m.AddItem(i);
+                }
+                if (m.Items.Count > 0)
+                {
+                    int index = listMaterial.Items.Add(m.Product);
+                    materiaal.Add(index, m);
+                }
+            }
+        }
 
+        private void LoadItems()
+        {
+            ClearItems();
+            foreach (Item i in materiaal[listMaterial.SelectedIndex].Items)
+            {
+                int index = listItem.Items.Add(i.Productcode);
+                item.Add(index, i);
+            }
+        }
+
+        private void Clear()
+        {
+            listMaterial.Items.Clear();
+            materiaal.Clear();
+            ClearItems();
+        }
+
+        private void ClearItems()
+        {
+            listItem.Items.Clear();
+            item.Clear();
         }
 
         private void btOverzichtReserveren_Click(object sender, EventArgs e)
         {
             if (beschikMateriaalweergeven)
             {
-                //TODO:
+                beschikMateriaalweergeven = !beschikMateriaalweergeven;
+                AvailableItems();
             }
             else
             {
-                //TODO:
+                beschikMateriaalweergeven = !beschikMateriaalweergeven;
+                AvailableItems();
             }
         }
 
         private void btHuren_Click(object sender, EventArgs e)
         {
             //TODO: check ff of dit kan/logisch is
+            if (listMaterial.SelectedIndex == -1)
+            {
+                MessageBox.Show("Geen materiaal geselecteerd.");
+                return;
+            }
+            if (listItem.SelectedIndex == -1)
+            {
+                MessageBox.Show("Geen item geselecteerd.");
+                return;
+            }
             #region
             DisableControls(true);
             try
@@ -113,12 +160,9 @@ namespace MateriaalBeheer
 
         private void listMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void listItem_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            if (listMaterial.SelectedIndex == -1)
+                return;
+            LoadItems();
         }
     }
 }
