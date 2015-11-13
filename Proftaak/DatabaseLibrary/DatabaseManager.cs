@@ -380,6 +380,8 @@ namespace DatabaseLibrary
             Hashtable table = new Hashtable();
             foreach (var p in typeof (T).GetProperties())
             {
+                if (p.PropertyType.Name.Equals(typeof(List<>).Name))
+                    continue;
                 table[p.Name] = p.GetValue(item);
             }
             return table;
