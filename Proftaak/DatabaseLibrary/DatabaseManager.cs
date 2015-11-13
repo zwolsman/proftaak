@@ -295,10 +295,10 @@ namespace DatabaseLibrary
             return Query(qur).Select(HashtableToItem<T>).ToList();
         }
 
-        public static IEnumerable<T> AvailableItems<T>(dynamic searchCriteria, bool reserved)
+        public static IEnumerable<T> AvailableItems<T>(dynamic searchCriteria, bool available)
         {
             //TODO: kijken of dit kan/testen
-            if (!reserved)
+            if (available)
                 return AvailableItems<T>(searchCriteria);
             string joinTable = classMappings.ContainsKey(searchCriteria.GetType().Name)
                 ? classMappings[searchCriteria.GetType().Name]
