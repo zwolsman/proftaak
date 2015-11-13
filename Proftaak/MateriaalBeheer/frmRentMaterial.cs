@@ -133,12 +133,53 @@ namespace MateriaalBeheer
             if (ProdCode.ShowDialog(this) == DialogResult.OK)
             {
                 string productcode = ProdCode.productcode;
-                //TODO: Take that productcode off the rentlist
-                
-                //boolean valid is true if productcode is valid and has been taken off the rentlist
-                Boolean valid = true; //true for now
-                if (valid)
+                if (!System.Text.RegularExpressions.Regex.IsMatch(productcode, @"^\d+$"))
+                {
+                    MessageBox.Show("Productcode is geen integer, probeer opnieuw.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
+                }
+                Item i = new Item()
+                {
+                    Productcode = int.Parse(productcode)
+                };
+                Item item = DatabaseManager.ContainsItem<Item>(i, "Productcode");
+                if (item == default(Item))
+                {
+                    MessageBox.Show("Productcode bestaat niet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                LeaseMaterial lm = new LeaseMaterial()
+                {
+                    Item = item.ID
+                };
+                LeaseMaterial lease = DatabaseManager.ContainsLease<LeaseMaterial>(lm, "Item");
+                if (lease == default(LeaseMaterial))
+                {
+                    MessageBox.Show("Item is niet verhuurd.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                ReturnMaterial rm = new ReturnMaterial()
+                {
+                    RFID = lease.RFID,
+                    Item = lease.Item
+                };
+                int renttime = (rm.ReturnDate - lease.LeaseDate).Days;
+                Material m = new Material()
+                {
+                    ID = item.Material
+                };
+                Material mat = DatabaseManager.ContainsItem<Material>(m, "ID");
+                int price = 0;
+                if(mat.PricePW > 0)
+                {
+                    price += (renttime / 7) * mat.PricePW + (renttime % 7) * mat.PricePD;
+                }
+                else
+                {
+                    price += renttime * mat.PricePD;
+                }
+                //TODO: Show popup with amount to pay and possibilities to pay now or to store it as negative value in the payment db
+                return;
             }
             else if(ProdCode.ShowDialog(this) == DialogResult.Cancel)
             {
