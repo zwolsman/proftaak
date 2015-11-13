@@ -58,60 +58,60 @@
     <Compile Include="Classes\ReturnMaterial.cs" />
     <Compile Include="Classes\Rfid.cs" />
     <Compile Include="Classes\RFIDPerson.cs" />
-    <Compile Include="frmEnterProdCode.cs">
+    <Compile Include="Forms\frmEnterProdCode.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEnterProdCode.Designer.cs">
+    <Compile Include="Forms\frmEnterProdCode.Designer.cs">
       <DependentUpon>frmEnterProdCode.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmModifyItem.cs">
+    <Compile Include="Forms\frmModifyItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmModifyItem.Designer.cs">
+    <Compile Include="Forms\frmModifyItem.Designer.cs">
       <DependentUpon>frmModifyItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmModifyMaterial.cs">
+    <Compile Include="Forms\frmModifyMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmModifyMaterial.Designer.cs">
+    <Compile Include="Forms\frmModifyMaterial.Designer.cs">
       <DependentUpon>frmModifyMaterial.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRentMaterial.cs">
+    <Compile Include="Forms\frmRentMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRentMaterial.Designer.cs">
+    <Compile Include="Forms\frmRentMaterial.Designer.cs">
       <DependentUpon>frmRentMaterial.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectEvent.cs">
+    <Compile Include="Forms\frmSelectEvent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectEvent.Designer.cs">
+    <Compile Include="Forms\frmSelectEvent.Designer.cs">
       <DependentUpon>frmSelectEvent.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectMaterial.cs">
+    <Compile Include="Forms\frmSelectMaterial.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSelectMaterial.Designer.cs">
+    <Compile Include="Forms\frmSelectMaterial.Designer.cs">
       <DependentUpon>frmSelectMaterial.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmEnterProdCode.resx">
+    <EmbeddedResource Include="Forms\frmEnterProdCode.resx">
       <DependentUpon>frmEnterProdCode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmModifyItem.resx">
+    <EmbeddedResource Include="Forms\frmModifyItem.resx">
       <DependentUpon>frmModifyItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmModifyMaterial.resx">
+    <EmbeddedResource Include="Forms\frmModifyMaterial.resx">
       <DependentUpon>frmModifyMaterial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRentMaterial.resx">
+    <EmbeddedResource Include="Forms\frmRentMaterial.resx">
       <DependentUpon>frmRentMaterial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectEvent.resx">
+    <EmbeddedResource Include="Forms\frmSelectEvent.resx">
       <DependentUpon>frmSelectEvent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectMaterial.resx">
+    <EmbeddedResource Include="Forms\frmSelectMaterial.resx">
       <DependentUpon>frmSelectMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
