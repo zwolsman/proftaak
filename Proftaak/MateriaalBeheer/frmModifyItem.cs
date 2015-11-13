@@ -216,6 +216,11 @@ namespace MateriaalBeheer //TODO: testen
                 MessageBox.Show("Geen materiaal geselecteerd!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (!Regex.IsMatch(txtProductcode.Text, @"^\d+$"))
+            {
+                MessageBox.Show("Productcode is geen integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Item i = selectedItem;
             i.Productcode = int.Parse(txtProductcode.Text);
             DatabaseManager.UpdateItem(i);
@@ -231,6 +236,11 @@ namespace MateriaalBeheer //TODO: testen
             if (selectedMaterial == null)
             {
                 MessageBox.Show("Geen materiaal geselecteerd!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!Regex.IsMatch(txtProductcode.Text, @"^\d+$"))
+            {
+                MessageBox.Show("Productcode is geen integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Item i = new Item
