@@ -16,5 +16,10 @@ namespace MediaSharingSystem
         {
             InitializeComponent();
         }
+
+        private void btnSignIn2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace MediaSharingSystem
 {
-    public partial class SignUpScreen : Form
+    public partial class PlaceMediaMessage : Form
     {
-        public SignUpScreen()
+        public PlaceMediaMessage()
         {
             InitializeComponent();
-        }
-
-        private void SignUpScreen_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

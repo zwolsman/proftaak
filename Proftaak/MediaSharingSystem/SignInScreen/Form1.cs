@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MediaSharingSystem
+namespace SignInScreen
 {
-    public partial class SignUpScreen : Form
+    public partial class Form1 : Form
     {
-        public SignUpScreen()
+        public Form1()
         {
             InitializeComponent();
-        }
-
-        private void SignUpScreen_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

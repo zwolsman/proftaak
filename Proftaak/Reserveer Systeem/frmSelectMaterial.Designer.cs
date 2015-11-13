@@ -60,10 +60,12 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "Omschrijving";
+            this.columnHeader5.Width = 98;
             // 
             // columnHeader6
             // 
             this.columnHeader6.Text = "Prijs per dag";
+            this.columnHeader6.Width = 92;
             // 
             // columnHeader7
             // 
@@ -75,7 +77,7 @@
             // 
             // frmSelectMaterial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 284);
             this.Controls.Add(this.listMaterials);
