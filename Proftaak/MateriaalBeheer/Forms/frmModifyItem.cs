@@ -11,7 +11,7 @@ using DatabaseLibrary;
 using MateriaalBeheer.Classes;
 using System.Text.RegularExpressions;
 
-namespace MateriaalBeheer //TODO: testen
+namespace MateriaalBeheer.Forms //TODO: testen
 {
     public partial class frmModifyItem : Form
     {
@@ -30,6 +30,7 @@ namespace MateriaalBeheer //TODO: testen
 
         private void LoadEvents()
         {
+            ClearAll();
             foreach (Evenement e in DatabaseManager.GetItems<Evenement>())
             {
                 int index = listEvent.Items.Add(e.Name);
@@ -60,7 +61,6 @@ namespace MateriaalBeheer //TODO: testen
             Clear();
             if (listEvent.SelectedIndex == -1)
                 return;
-            materials.Clear();
             selectedEvenement = evenementen[listEvent.SelectedIndex];
             foreach (Material m in selectedEvenement.material)
             {
@@ -106,8 +106,17 @@ namespace MateriaalBeheer //TODO: testen
                 MessageBox.Show("Geen materiaal geselecteerd!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if(selectedMaterial.Items.Count() > 0)
+            {
+                foreach (Item i in selectedMaterial.Items)
+                {
+                    DatabaseManager.DeleteItem(i);
+                }
+            }
             DatabaseManager.DeleteItem(selectedMaterial);
-            LoadMaterials(selectedEvenement);
+            int index = listEvent.SelectedIndex;
+            LoadEvents();
+            listEvent.SelectedIndex = index;
         }
 
         private void btWijzigen_Click(object sender, EventArgs e)
@@ -133,6 +142,11 @@ namespace MateriaalBeheer //TODO: testen
             m.PricePD = int.Parse(txtPricePD.Text);
             m.PricePW = int.Parse(txtPricePW.Text);
             DatabaseManager.UpdateItem(m);
+            int index = listEvent.SelectedIndex;
+            int indexM = listMaterial.SelectedIndex;
+            LoadEvents();
+            listEvent.SelectedIndex = index;
+            listMaterial.SelectedIndex = indexM;
         }
 
         private void btToevoegen_Click(object sender, EventArgs e)
@@ -161,23 +175,28 @@ namespace MateriaalBeheer //TODO: testen
                 Event = selectedEvenement.ID
             };
             DatabaseManager.InsertItem(m);
-            selectedEvenement.AddMaterial(m);
-            int index = listMaterial.Items.Add(m.Product);
-            materials.Add(index, m);
+            int index = listEvent.SelectedIndex;
+            LoadEvents();
+            listEvent.SelectedIndex = index;
+        }
+
+        private void ClearAll()
+        {
+            listEvent.Items.Clear();
+            evenementen.Clear();
+            Clear();
         }
 
         private void Clear()
         {
             selectedEvenement = null;
-            selectedMaterial = null;
-            selectedItem = null;
             txtProduct.Clear();
             listMaterial.Items.Clear();
-            listItem.Items.Clear();
+            materials.Clear();
             txtDescription.Clear();
             txtPricePD.Clear();
             txtPricePW.Clear();
-            txtProductcode.Clear();
+            ClearItems();
         }
 
         private void ClearItems()
@@ -185,6 +204,7 @@ namespace MateriaalBeheer //TODO: testen
             selectedMaterial = null;
             selectedItem = null;
             listItem.Items.Clear();
+            items.Clear();
             txtProductcode.Clear();
         }
 
@@ -201,7 +221,11 @@ namespace MateriaalBeheer //TODO: testen
                 return;
             }
             DatabaseManager.DeleteItem(selectedItem);
-            LoadItems(selectedMaterial);
+            int index = listEvent.SelectedIndex;
+            int indexM = listMaterial.SelectedIndex;
+            LoadEvents();
+            listEvent.SelectedIndex = index;
+            listMaterial.SelectedIndex = indexM;
         }
 
         private void btItemWijzigen_Click(object sender, EventArgs e)
@@ -224,6 +248,13 @@ namespace MateriaalBeheer //TODO: testen
             Item i = selectedItem;
             i.Productcode = int.Parse(txtProductcode.Text);
             DatabaseManager.UpdateItem(i);
+            int index = listEvent.SelectedIndex;
+            int indexM = listMaterial.SelectedIndex;
+            int indexI = listItem.SelectedIndex;
+            LoadEvents();
+            listEvent.SelectedIndex = index;
+            listMaterial.SelectedIndex = indexM;
+            listItem.SelectedIndex = indexI;
         }
 
         private void btItemToevoegen_Click(object sender, EventArgs e)
@@ -249,9 +280,11 @@ namespace MateriaalBeheer //TODO: testen
                 Productcode = int.Parse(txtProductcode.Text)
             };
             DatabaseManager.InsertItem(i);
-            selectedMaterial.AddItem(i);
-            int index = listItem.Items.Add(i.Productcode);
-            items.Add(index, i);
+            int index = listEvent.SelectedIndex;
+            int indexM = listMaterial.SelectedIndex;
+            LoadEvents();
+            listEvent.SelectedIndex = index;
+            listMaterial.SelectedIndex = indexM;
         }
     }
 }

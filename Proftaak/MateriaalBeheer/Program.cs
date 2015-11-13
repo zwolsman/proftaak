@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DatabaseLibrary;
+using MateriaalBeheer.Forms;
 
 namespace MateriaalBeheer
 {
@@ -21,9 +22,10 @@ namespace MateriaalBeheer
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Uncomment one of the commented lines below to test
-            //Application.Run(new frmModifyMaterial());
+            Application.Run(new frmModifyItem());
             //Application.Run(new frmRentMaterial());
             //Application.Run(new frmSelectEvent());
+            //Application.Run(new frmPayscreen(10,250,""));
         }
     }
 }

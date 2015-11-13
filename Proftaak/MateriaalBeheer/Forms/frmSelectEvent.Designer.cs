@@ -1,4 +1,4 @@
-﻿namespace MateriaalBeheer
+﻿namespace MateriaalBeheer.Forms
 {
     partial class frmSelectEvent
     {

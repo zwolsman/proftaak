@@ -1,4 +1,4 @@
-﻿namespace MateriaalBeheer
+﻿namespace MateriaalBeheer.Forms
 {
     partial class frmEnterProdCode
     {
@@ -37,9 +37,9 @@
             // btOk
             // 
             this.btOk.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btOk.Location = new System.Drawing.Point(49, 94);
+            this.btOk.Location = new System.Drawing.Point(41, 94);
             this.btOk.Name = "btOk";
-            this.btOk.Size = new System.Drawing.Size(75, 23);
+            this.btOk.Size = new System.Drawing.Size(83, 23);
             this.btOk.TabIndex = 0;
             this.btOk.Text = "Ok";
             this.btOk.UseVisualStyleBackColor = true;
@@ -58,9 +58,9 @@
             this.btCancel.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCancel.Location = new System.Drawing.Point(130, 94);
             this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(75, 23);
+            this.btCancel.Size = new System.Drawing.Size(90, 23);
             this.btCancel.TabIndex = 2;
-            this.btCancel.Text = "Anuleren";
+            this.btCancel.Text = "Annuleren";
             this.btCancel.UseVisualStyleBackColor = true;
             this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 

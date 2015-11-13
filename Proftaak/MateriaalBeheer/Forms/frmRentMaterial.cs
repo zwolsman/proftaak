@@ -11,7 +11,7 @@ using DatabaseLibrary;
 using MateriaalBeheer.Classes;
 using System.Diagnostics;
 
-namespace MateriaalBeheer
+namespace MateriaalBeheer.Forms
 {
     public partial class frmRentMaterial : Form //TODO: testen
     {
@@ -178,7 +178,18 @@ namespace MateriaalBeheer
                 {
                     price += renttime * mat.PricePD;
                 }
-                //TODO: Show popup with amount to pay and possibilities to pay now or to store it as negative value in the payment db
+                frmPayscreen payscreen = new frmPayscreen(renttime, price, rm.RFID) { Location = Location, StartPosition = FormStartPosition.CenterParent };
+                if(payscreen.ShowDialog(this) == DialogResult.OK)
+                {
+                    if (DatabaseManager.InsertItem<ReturnMaterial>(rm))
+                    {
+                        MessageBox.Show("Gelukt!");
+                        return;
+                    }
+                }
+                else if(payscreen.ShowDialog(this) == DialogResult.Cancel)
+                    return;
+                MessageBox.Show("Het is helaas niet gelukt. Probeer opnieuw.");
                 return;
             }
             else if(ProdCode.ShowDialog(this) == DialogResult.Cancel)

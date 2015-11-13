@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using MateriaalBeheer.Classes;
 using DatabaseLibrary;
 
-namespace MateriaalBeheer
+namespace MateriaalBeheer.Forms
 {
     public partial class frmSelectMaterial : Form
     {
@@ -38,7 +38,7 @@ namespace MateriaalBeheer
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (listMaterial.SelectedIndex > 0)
+            if (listMaterial.SelectedIndex >= 0)
             {
                 DialogResult = DialogResult.OK;
                 materiaal = materialen[listMaterial.SelectedIndex];

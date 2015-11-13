@@ -11,7 +11,7 @@ using DatabaseLibrary;
 using MateriaalBeheer.Classes;
 using System.Text.RegularExpressions;
 
-namespace MateriaalBeheer
+namespace MateriaalBeheer.Forms
 {
     public partial class frmModifyMaterial : Form
     {

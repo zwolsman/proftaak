@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using DatabaseLibrary;
 using MateriaalBeheer.Classes;
 
-namespace MateriaalBeheer
+namespace MateriaalBeheer.Forms
 {
     public partial class frmSelectEvent : Form
     {
@@ -36,7 +36,7 @@ namespace MateriaalBeheer
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (listEvent.SelectedIndex > 0)
+            if (listEvent.SelectedIndex >= 0)
             {
                 DialogResult = DialogResult.OK;
                 evenement = evenementen[listEvent.SelectedIndex];

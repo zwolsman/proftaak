@@ -1,4 +1,4 @@
-﻿namespace MateriaalBeheer
+﻿namespace MateriaalBeheer.Forms
 {
     partial class frmModifyItem
     {
@@ -228,6 +228,7 @@
             this.listItem.Name = "listItem";
             this.listItem.Size = new System.Drawing.Size(228, 191);
             this.listItem.TabIndex = 9;
+            this.listItem.SelectedIndexChanged += new System.EventHandler(this.listItem_SelectedIndexChanged);
             // 
             // label7
             // 
