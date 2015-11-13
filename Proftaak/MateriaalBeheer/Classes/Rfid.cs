@@ -57,6 +57,7 @@ namespace MateriaalBeheer.Classes
                 rp.RFID = tag;
                 if (DatabaseManager.ContainsItem(rp, "RFID").RFID.Equals(rp.RFID))
                 {
+                    //Niet geheel veilig maar oke
                     if (!beschikbaarMateriaalWeergeven)
                     {
                         ReservationMaterial rm = new ReservationMaterial()
