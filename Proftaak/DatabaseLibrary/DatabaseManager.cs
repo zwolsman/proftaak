@@ -276,16 +276,18 @@ namespace DatabaseLibrary
 
         public static IEnumerable<T> AvailableItems<T>(dynamic searchCriteria, DateTime from, DateTime till)
         {
-            //TODO:
+            //TODO: kijken of dit kan/testen
             string joinTable = classMappings.ContainsKey(searchCriteria.GetType().Name)
                 ? classMappings[searchCriteria.GetType().Name]
                 : searchCriteria.GetType().Name;
             string qur = string.Format(SQL_RESERVED_ITEMS2, joinTable, searchCriteria.ID, from.ToString(), till.ToString());
-            return Query(qur).Select(HashtableToItem<T>).ToList();
+            string que = string.Format(SQL_AVAILABLE_ITEMS, joinTable, searchCriteria.ID);
+            return Query(qur).Select(HashtableToItem<T>).ToList().Union(Query(que).Select(HashtableToItem<T>).ToList());
         }
 
         public static IEnumerable<T> AvailableItems<T>(dynamic searchCriteria)
         {
+            //TODO: kijken of dit kan/testen
             string joinTable = classMappings.ContainsKey(searchCriteria.GetType().Name)
                 ? classMappings[searchCriteria.GetType().Name]
                 : searchCriteria.GetType().Name;
@@ -295,6 +297,7 @@ namespace DatabaseLibrary
 
         public static IEnumerable<T> AvailableItems<T>(dynamic searchCriteria, bool reserved)
         {
+            //TODO: kijken of dit kan/testen
             if (!reserved)
                 return AvailableItems<T>(searchCriteria);
             string joinTable = classMappings.ContainsKey(searchCriteria.GetType().Name)
