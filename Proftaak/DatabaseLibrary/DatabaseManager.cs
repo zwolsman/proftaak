@@ -21,6 +21,9 @@ namespace DatabaseLibrary
         private const string SQL_UPDATE_WHERE = "UPDATE {0} SET {1} WHERE {2}={3}";
         private const string SQL_UPDATE_WHERE2 = "UPDATE {0} SET {1} WHERE {2}={3} AND {4}={5}";
         private const string SQL_EXISTS = "SELECT * FROM {0} WHERE {1}";
+        private const string SQL_AVAILABLE_ITEMS = "SELECT * FROM AvailableItems WHERE {0}={1}";
+        private const string SQL_RESERVED_ITEMS = "SELECT ID, Material, Productcode FROM ReservedItems WHERE {0}={1}";
+        private const string SQL_RESERVED_ITEMS2 = "SELECT ID, Material, Productcode FROM ReservedItems WHERE {0}={1} AND (Departure<{2} OR ReservationDate>{3})";
 
         private const string CONNECTION_STRING_FORMAT = "Server={0};Database={1};User Id={2};Password={3};";
         private static SqlConnection _connection;
@@ -271,18 +274,34 @@ namespace DatabaseLibrary
             return HashtableToItem<T>(QueryFirst(sql));
         }
 
-        public static T AvailableItems<T>(T item, DateTime from, DateTime till)
+        public static IEnumerable<T> AvailableItems<T>(dynamic searchCriteria, DateTime from, DateTime till)
         {
-            string tableName = classMappings.ContainsKey(typeof(T).Name)
-             ? classMappings[typeof(T).Name]
-             : typeof(T).Name;
+            //TODO:
+            string joinTable = classMappings.ContainsKey(searchCriteria.GetType().Name)
+                ? classMappings[searchCriteria.GetType().Name]
+                : searchCriteria.GetType().Name;
+            string qur = string.Format(SQL_RESERVED_ITEMS2, joinTable, searchCriteria.ID, from.ToString(), till.ToString());
+            return Query(qur).Select(HashtableToItem<T>).ToList();
+        }
 
-            if (from == null || till == null || !tableName.Equals("Item"))
-                return default(T);
+        public static IEnumerable<T> AvailableItems<T>(dynamic searchCriteria)
+        {
+            string joinTable = classMappings.ContainsKey(searchCriteria.GetType().Name)
+                ? classMappings[searchCriteria.GetType().Name]
+                : searchCriteria.GetType().Name;
+            string qur = string.Format(SQL_AVAILABLE_ITEMS, joinTable, searchCriteria.ID);
+            return Query(qur).Select(HashtableToItem<T>).ToList();
+        }
 
-            string sql = $"";
-
-            return default(T);
+        public static IEnumerable<T> AvailableItems<T>(dynamic searchCriteria, bool reserved)
+        {
+            if (!reserved)
+                return AvailableItems<T>(searchCriteria);
+            string joinTable = classMappings.ContainsKey(searchCriteria.GetType().Name)
+                ? classMappings[searchCriteria.GetType().Name]
+                : searchCriteria.GetType().Name;
+            string qur = string.Format(SQL_RESERVED_ITEMS, joinTable, searchCriteria.ID);
+            return Query(qur).Select(HashtableToItem<T>).ToList();
         }
 
         private static T HashtableToItem<T>(Hashtable info)
