@@ -15,7 +15,7 @@ namespace Reserveer_Systeem.Classes
 
         public int Place { get; set; }
 
-        public int Lease { get; set; }
+        //public int Lease { get; set; }//Dont need this only causes errors with insertions
 
         public DateTime Arrival { get; set; }
 
