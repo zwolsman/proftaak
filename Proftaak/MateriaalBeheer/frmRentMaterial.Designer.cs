@@ -46,6 +46,7 @@
             this.listMaterial.Name = "listMaterial";
             this.listMaterial.Size = new System.Drawing.Size(200, 276);
             this.listMaterial.TabIndex = 9;
+            this.listMaterial.SelectedIndexChanged += new System.EventHandler(this.listMaterial_SelectedIndexChanged);
             // 
             // btHuren
             // 
@@ -73,7 +74,7 @@
             this.btInnemen.Location = new System.Drawing.Point(330, 315);
             this.btInnemen.Margin = new System.Windows.Forms.Padding(2);
             this.btInnemen.Name = "btInnemen";
-            this.btInnemen.Size = new System.Drawing.Size(150, 19);
+            this.btInnemen.Size = new System.Drawing.Size(150, 23);
             this.btInnemen.TabIndex = 12;
             this.btInnemen.Text = "Innemen";
             this.btInnemen.UseVisualStyleBackColor = true;
@@ -96,7 +97,7 @@
             this.lblItem.Location = new System.Drawing.Point(225, 9);
             this.lblItem.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblItem.Name = "lblItem";
-            this.lblItem.Size = new System.Drawing.Size(166, 17);
+            this.lblItem.Size = new System.Drawing.Size(141, 17);
             this.lblItem.TabIndex = 11;
             this.lblItem.Text = "Beschikbare items:";
             // 
@@ -109,6 +110,7 @@
             this.listItem.Name = "listItem";
             this.listItem.Size = new System.Drawing.Size(200, 276);
             this.listItem.TabIndex = 9;
+            this.listItem.SelectedIndexChanged += new System.EventHandler(this.listItem_SelectedIndexChanged);
             // 
             // frmRentMaterial
             // 

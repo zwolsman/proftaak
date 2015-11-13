@@ -39,27 +39,12 @@ namespace MateriaalBeheer
                     MessageBox.Show("Geen geldig evenement, begin opnieuw.");
                 }
             }
-            LoadMaterial();
+            AvailableItems();
         }
 
-        private void LoadMaterial()
+        private void AvailableItems()
         {
-            materiaal.Clear();
-            foreach (Material m in DatabaseManager.GetItems<Material>())
-            {
-                int index = listMaterial.Items.Add(m.Product);
-                materiaal.Add(index, m);
-                LoadItem(m);
-            }
-        }
 
-        private void LoadItem(Material m)
-        {
-            materiaal.Clear();
-            foreach (Item  i in DatabaseManager.GetItems<Item>())
-            {
-                m.AddItem(i);
-            }
         }
 
         private void btOverzichtReserveren_Click(object sender, EventArgs e)
@@ -124,6 +109,16 @@ namespace MateriaalBeheer
                 else
                     control.Enabled = !locked;
             }
+        }
+
+        private void listMaterial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listItem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
