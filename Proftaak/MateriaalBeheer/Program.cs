@@ -22,7 +22,7 @@ namespace MateriaalBeheer
 
             //Uncomment one of the commented lines below to test
             //Application.Run(new frmModifyMaterial());
-            //Application.Run(new frmRentMaterial());
+            Application.Run(new frmRentMaterial());
             //Application.Run(new frmSelectEvent());
         }
     }

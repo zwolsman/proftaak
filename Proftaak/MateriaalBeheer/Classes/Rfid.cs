@@ -49,7 +49,7 @@ namespace MateriaalBeheer.Classes
             tag = string.Empty;
         }
 
-        public static Boolean Rent(Material m)
+        public static Boolean Rent(Item i, Boolean beschikbaarMateriaalWeergeven)
         {
             if (!tag.Equals(string.Empty))
             {
@@ -57,8 +57,21 @@ namespace MateriaalBeheer.Classes
                 rp.RFID = tag;
                 if (DatabaseManager.ContainsItem(rp, "RFID").RFID.Equals(rp.RFID))
                 {
-                    //TODO: execute rent need item number for that
-                    //DatabaseManager.InsertItem(LeaseMaterial);//
+                    if (!beschikbaarMateriaalWeergeven)
+                    {
+                        ReservationMaterial rm = new ReservationMaterial()
+                        {
+                            RFID = tag,
+                            Item = i.ID
+                        };
+                        DatabaseManager.DeleteDate(rm);
+                    }
+                    LeaseMaterial lm = new LeaseMaterial()
+                    {
+                        RFID = tag,
+                        Item = i.ID
+                    };
+                    DatabaseManager.InsertItem(i);
                     return true;
                 }
             }

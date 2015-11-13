@@ -51,7 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Evenement.cs" />
+    <Compile Include="Classes\Item.cs" />
+    <Compile Include="Classes\LeaseMaterial.cs" />
     <Compile Include="Classes\Material.cs" />
+    <Compile Include="Classes\ReservationMaterial.cs" />
+    <Compile Include="Classes\ReturnMaterial.cs" />
     <Compile Include="Classes\Rfid.cs" />
     <Compile Include="Classes\RFIDPerson.cs" />
     <Compile Include="frmEnterProdCode.cs">
@@ -59,6 +63,12 @@
     </Compile>
     <Compile Include="frmEnterProdCode.Designer.cs">
       <DependentUpon>frmEnterProdCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModifyItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifyItem.Designer.cs">
+      <DependentUpon>frmModifyItem.cs</DependentUpon>
     </Compile>
     <Compile Include="frmModifyMaterial.cs">
       <SubType>Form</SubType>
@@ -78,10 +88,19 @@
     <Compile Include="frmSelectEvent.Designer.cs">
       <DependentUpon>frmSelectEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSelectMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectMaterial.Designer.cs">
+      <DependentUpon>frmSelectMaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmEnterProdCode.resx">
       <DependentUpon>frmEnterProdCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifyItem.resx">
+      <DependentUpon>frmModifyItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModifyMaterial.resx">
       <DependentUpon>frmModifyMaterial.cs</DependentUpon>
@@ -91,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSelectEvent.resx">
       <DependentUpon>frmSelectEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectMaterial.resx">
+      <DependentUpon>frmSelectMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

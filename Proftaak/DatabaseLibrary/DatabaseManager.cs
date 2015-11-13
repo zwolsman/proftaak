@@ -18,7 +18,8 @@ namespace DatabaseLibrary
         private const string SQL_SELECT_ALL = "SELECT * FROM {0}";
         private const string SQL_SELECT_SPECIFIC = "SELECT {0} FROM {1}";
         private const string SQL_INSERT = "INSERT INTO {0}({1}) VALUES ({2})";
-        private const string SQL_UPDATE_WHERE = "UPDATE {0} SET {1} WHERE ID={2}";
+        private const string SQL_UPDATE_WHERE = "UPDATE {0} SET {1} WHERE {2}={3}";
+        private const string SQL_UPDATE_WHERE2 = "UPDATE {0} SET {1} WHERE {2}={3} AND {4}={5}";
         private const string SQL_EXISTS = "SELECT * FROM {0} WHERE {1}";
 
         private const string CONNECTION_STRING_FORMAT = "Server={0};Database={1};User Id={2};Password={3};";
@@ -32,6 +33,12 @@ namespace DatabaseLibrary
             {"Evenement", "Event"},             //Class evenement -> database table Event
             {"LeasePlace", "Lease_Place" },     //Class LeasePlace -> database table Lease_Place
             {"RFIDPerson", "RFID_Person" },     //Class RFIDPerson -> database table RFID_Person
+        };
+
+        private static readonly List<String> idList = new List<string>()
+        {
+            "ID",
+            "Cardnumber",
         };
 
 
@@ -167,12 +174,38 @@ namespace DatabaseLibrary
             string tableName = classMappings.ContainsKey(typeof(T).Name)
                ? classMappings[typeof(T).Name]
                : typeof(T).Name;
+            if (tableName.Contains("Material") && !tableName.Equals("Material"))
+                return UpdateDate(item);
+            Hashtable hashtable = ItemToHashtable<T>(item);
+
+            string newValues = "";
+            string id = "";
+            foreach (DictionaryEntry row in hashtable)
+            {
+                if (idList.Contains(row.Key.ToString()))
+                {
+                    id = row.Key.ToString();
+                    continue;
+                }
+                newValues += $"{row.Key} = {Helper.GetValue(row.Value)}, ";
+            }
+
+            newValues = newValues.Trim(',', ' ');
+            string qur = string.Format(SQL_UPDATE_WHERE, tableName, newValues, id, hashtable[id]);
+            return Execute(qur) != -1;
+        }
+
+        private static bool UpdateDate<T>(T item)
+        {
+            string tableName = classMappings.ContainsKey(typeof(T).Name)
+               ? classMappings[typeof(T).Name]
+               : typeof(T).Name;
             Hashtable hashtable = ItemToHashtable<T>(item);
 
             string newValues = "";
             foreach (DictionaryEntry row in hashtable)
             {
-                if (row.Key.ToString() == "ID")
+                if (row.Key.ToString() == "RFID" || row.Key.ToString() == "Item")
                 {
                     continue;
                 }
@@ -180,7 +213,7 @@ namespace DatabaseLibrary
             }
 
             newValues = newValues.Trim(',', ' ');
-            string qur = string.Format(SQL_UPDATE_WHERE, tableName, newValues, hashtable["ID"]);
+            string qur = string.Format(SQL_UPDATE_WHERE2, tableName, newValues, "RFID", hashtable["RFID"], "Item", hashtable["Item"]);
             return Execute(qur) != -1;
         }
 
@@ -195,6 +228,17 @@ namespace DatabaseLibrary
                 return false;
 
             string qur = $"DELETE FROM {tableName} WHERE ID={hashtable["ID"]}";
+            return Execute(qur) != -1;
+        }
+
+        public static bool DeleteDate<T>(T item)
+        {
+            string tableName = typeof(T).Name;
+            if (!tableName.Contains("Material") || tableName.Equals("Material"))
+                return false;
+            Hashtable hashtable = ItemToHashtable<T>(item);
+
+            string qur = $"DELETE FROM {tableName} WHERE RFID={hashtable["RFID"]} AND Item={hashtable["Item"]}";
             return Execute(qur) != -1;
         }
 
@@ -225,6 +269,20 @@ namespace DatabaseLibrary
             string sql = string.Format(SQL_EXISTS, tableName, where);
 
             return HashtableToItem<T>(QueryFirst(sql));
+        }
+
+        public static T AvailableItems<T>(T item, DateTime from, DateTime till)
+        {
+            string tableName = classMappings.ContainsKey(typeof(T).Name)
+             ? classMappings[typeof(T).Name]
+             : typeof(T).Name;
+
+            if (from == null || till == null || !tableName.Equals("Item"))
+                return default(T);
+
+            string sql = $"";
+
+            return default(T);
         }
 
         private static T HashtableToItem<T>(Hashtable info)
@@ -274,7 +332,5 @@ namespace DatabaseLibrary
             }
             return table;
         }
-
-       
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DatabaseLibrary;
 using MateriaalBeheer.Classes;
+using System.Diagnostics;
 
 namespace MateriaalBeheer
 {
@@ -16,6 +17,7 @@ namespace MateriaalBeheer
     {
         private Evenement evenement = new Evenement();
         private Dictionary<int, Material> materiaal = new Dictionary<int, Material>();
+        private Dictionary<int, Item> item = new Dictionary<int, Item>();
         private Boolean beschikMateriaalweergeven = true;
 
         public frmRentMaterial()
@@ -47,6 +49,16 @@ namespace MateriaalBeheer
             {
                 int index = listMaterial.Items.Add(m.Product);
                 materiaal.Add(index, m);
+                LoadItem(m);
+            }
+        }
+
+        private void LoadItem(Material m)
+        {
+            materiaal.Clear();
+            foreach (Item  i in DatabaseManager.GetItems<Item>())
+            {
+                m.AddItem(i);
             }
         }
 
@@ -54,23 +66,11 @@ namespace MateriaalBeheer
         {
             if (beschikMateriaalweergeven)
             {
-                materiaal.Clear();
-                foreach (Material m in DatabaseManager.GetItems<Material>())
-                {
-                    int index = listMaterial.Items.Add(m.Product);
-                    materiaal.Add(index, m);
-                }
-                beschikMateriaalweergeven = !beschikMateriaalweergeven;
+                //TODO:
             }
             else
             {
-                materiaal.Clear();
-                foreach (Material m in DatabaseManager.GetItems<Material>())
-                {
-                    int index = listMaterial.Items.Add(m.Product);
-                    materiaal.Add(index, m);
-                }
-                beschikMateriaalweergeven = !beschikMateriaalweergeven;
+                //TODO:
             }
         }
 
@@ -81,13 +81,14 @@ namespace MateriaalBeheer
             DisableControls(true);
             try
             {
-                while (!Rfid.Rent(materiaal[listMaterial.SelectedIndex]))
+                while (!Rfid.Rent(item[listItem.SelectedIndex], beschikMateriaalweergeven))
                 {
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Er is geen RFID-chip gezien, probeer het opnieuw.", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Debug.WriteLine(ex.Source + ": " + ex.Message);
             }
             DisableControls(false);
             #endregion
@@ -101,6 +102,7 @@ namespace MateriaalBeheer
             {
                 string productcode = ProdCode.productcode;
                 //TODO: Take that productcode off the rentlist
+                
                 //boolean valid is true if productcode is valid and has been taken off the rentlist
                 Boolean valid = true; //true for now
                 if (valid)

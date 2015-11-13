@@ -50,6 +50,7 @@ namespace Reserveer_Systeem
             catch (Exception ex)
             {
                 Debug.WriteLine($"Oops, couldnt load {url}");
+                Debug.WriteLine(ex.Source + ": " + ex.Message);
             }
         }
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DatabaseLibrary;
+using System.Diagnostics;
 
 namespace EvenementBeheerSysteem.Forms
 {
@@ -21,10 +22,12 @@ namespace EvenementBeheerSysteem.Forms
             Task.Run(() =>
             {
                 DatabaseManager.Initialize("sa", "Wachtwoord1", "127.0.0.1", "proftaak");
+                
                 try
                 {
+                    Debug.WriteLine("Trying to open database");
                     DatabaseManager.Open();
-
+                    Debug.WriteLine("Database connection made.");
                     Invoke((MethodInvoker) delegate()
                     {
                         lblStatus.Text = "Verbonden!";
@@ -38,6 +41,7 @@ namespace EvenementBeheerSysteem.Forms
                     {
                         lblStatus.Text = "Er is iets fout gegaan..";
                         lblStatus.ForeColor = Color.Red;
+                        Debug.WriteLine("Error");
                     });
                 }
                 DisableControls(false);
