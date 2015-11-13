@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateriaalBeheer", "Materiaa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toegangscontrole", "Toegangscontrole\Toegangscontrole.csproj", "{F9818526-85A3-4499-B910-7556A91FF96F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaSharingSystem", "..\..\..\Visual Studio 2015\Projects\MediaSharingSystem\MediaSharingSystem\MediaSharingSystem.csproj", "{C0A3E9D5-AAA0-43CE-9369-283F62D3AE03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{F9818526-85A3-4499-B910-7556A91FF96F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9818526-85A3-4499-B910-7556A91FF96F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9818526-85A3-4499-B910-7556A91FF96F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0A3E9D5-AAA0-43CE-9369-283F62D3AE03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A3E9D5-AAA0-43CE-9369-283F62D3AE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A3E9D5-AAA0-43CE-9369-283F62D3AE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A3E9D5-AAA0-43CE-9369-283F62D3AE03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
