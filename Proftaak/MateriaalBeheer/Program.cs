@@ -21,11 +21,7 @@ namespace MateriaalBeheer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Uncomment one of the commented lines below to test
-            Application.Run(new frmModifyItem());
-            //Application.Run(new frmRentMaterial());
-            //Application.Run(new frmSelectEvent());
-            //Application.Run(new frmPayscreen(10,250,""));
+            Application.Run(new frmMain());
         }
     }
 }

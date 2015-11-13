@@ -64,6 +64,12 @@
     <Compile Include="Forms\frmEnterProdCode.Designer.cs">
       <DependentUpon>frmEnterProdCode.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmModifyItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\frmEnterProdCode.resx">
       <DependentUpon>frmEnterProdCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmModifyItem.resx">
       <DependentUpon>frmModifyItem.cs</DependentUpon>

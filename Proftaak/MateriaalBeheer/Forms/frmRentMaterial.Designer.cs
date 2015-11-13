@@ -65,9 +65,9 @@
             this.lblMateriaal.Location = new System.Drawing.Point(8, 9);
             this.lblMateriaal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMateriaal.Name = "lblMateriaal";
-            this.lblMateriaal.Size = new System.Drawing.Size(166, 17);
+            this.lblMateriaal.Size = new System.Drawing.Size(175, 17);
             this.lblMateriaal.TabIndex = 11;
-            this.lblMateriaal.Text = "Beschikbaar materiaal:";
+            this.lblMateriaal.Text = "Beschikbare materialen:";
             // 
             // btInnemen
             // 

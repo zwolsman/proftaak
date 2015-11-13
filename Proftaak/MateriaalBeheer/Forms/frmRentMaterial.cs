@@ -15,6 +15,12 @@ namespace MateriaalBeheer.Forms
 {
     public partial class frmRentMaterial : Form //TODO: testen
     {
+        private const string bsk = "Beschikbare";
+        private const string grd = "Gereserveerde";
+        private const string lblitem = "{0} items:";
+        private const string lblmateriaal = "{0} materialen:";
+        private const string btbekijk = "Bekijk {0} materialen";
+
         private Evenement evenement = new Evenement();
         private Dictionary<int, Material> materiaal = new Dictionary<int, Material>();
         private Dictionary<int, Item> item = new Dictionary<int, Item>();
@@ -87,11 +93,17 @@ namespace MateriaalBeheer.Forms
             if (beschikMateriaalweergeven)
             {
                 beschikMateriaalweergeven = !beschikMateriaalweergeven;
+                lblItem.Text = string.Format(lblitem, grd);
+                lblMateriaal.Text = string.Format(lblmateriaal, grd);
+                btOverzichtReserveren.Text = string.Format(btbekijk, bsk.ToLower());
                 AvailableItems();
             }
             else
             {
                 beschikMateriaalweergeven = !beschikMateriaalweergeven;
+                lblItem.Text = string.Format(lblitem, bsk);
+                lblMateriaal.Text = string.Format(lblmateriaal, bsk);
+                btOverzichtReserveren.Text = string.Format(btbekijk, grd.ToLower());
                 AvailableItems();
             }
         }
