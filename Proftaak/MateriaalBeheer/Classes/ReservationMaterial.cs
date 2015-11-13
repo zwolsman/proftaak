@@ -10,6 +10,6 @@ namespace MateriaalBeheer.Classes
     {
         public string RFID { get; set; }
         public int Item { get; set; }
-        public DateTime LeaseDate { get; set; } = DateTime.Now;
+        public DateTime ReservationDate { get; set; } = DateTime.Now;
     }
 }
