@@ -21,6 +21,7 @@ namespace DatabaseLibrary
         private const string SQL_UPDATE_WHERE = "UPDATE {0} SET {1} WHERE {2}={3}";
         private const string SQL_UPDATE_WHERE2 = "UPDATE {0} SET {1} WHERE {2}={3} AND {4}={5}";
         private const string SQL_EXISTS = "SELECT * FROM {0} WHERE {1}";
+        private const string SQL_EXISTS_MAX = "SELECT RFID, Item, MAX(LeaseDate) FROM {0} WHERE {1} GROUP BY RFID, Item";
         private const string SQL_AVAILABLE_ITEMS = "SELECT * FROM AvailableItems WHERE {0}={1}";
         private const string SQL_RESERVED_ITEMS = "SELECT ID, Material, Productcode FROM ReservedItems WHERE {0}={1}";
         private const string SQL_RESERVED_ITEMS2 = "SELECT ID, Material, Productcode FROM ReservedItems WHERE {0}={1} AND (Departure<{2} OR ReservationDate>{3})";
@@ -270,6 +271,35 @@ namespace DatabaseLibrary
                 where = where.Substring(0, where.Length - " AND ".Length);
 
             string sql = string.Format(SQL_EXISTS, tableName, where);
+
+            return HashtableToItem<T>(QueryFirst(sql));
+        }
+
+        public static T ContainsLease<T>(T item, params string[] props)
+        {
+            string tableName = classMappings.ContainsKey(typeof(T).Name)
+             ? classMappings[typeof(T).Name]
+             : typeof(T).Name;
+
+            if (props == null)
+                return default(T);
+
+            string where = "";
+            for (int i = 0; i < props.Length; i++)
+            {
+                PropertyInfo propInfo = typeof(T).GetProperty(props[i]);
+
+                if (propInfo == null)
+                    continue;
+                where += $"{props[i]}={Helper.GetValue(propInfo.GetValue(item))}";
+                if (i + 1 < props.Length)
+                    where += " AND ";
+            }
+
+            if (where.EndsWith(" AND "))
+                where = where.Substring(0, where.Length - " AND ".Length);
+
+            string sql = string.Format(SQL_EXISTS_MAX, tableName, where);
 
             return HashtableToItem<T>(QueryFirst(sql));
         }
