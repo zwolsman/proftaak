@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MateriaalBeheer", "Materiaa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toegangscontrole", "Toegangscontrole\Toegangscontrole.csproj", "{F9818526-85A3-4499-B910-7556A91FF96F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaSharingSystem", "..\..\..\Visual Studio 2015\Projects\MediaSharingSystem\MediaSharingSystem\MediaSharingSystem.csproj", "{C0A3E9D5-AAA0-43CE-9369-283F62D3AE03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaSharingSystem", "MediaSharingSystem\MediaSharingSystem\MediaSharingSystem.csproj", "{C0A3E9D5-AAA0-43CE-9369-283F62D3AE03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
