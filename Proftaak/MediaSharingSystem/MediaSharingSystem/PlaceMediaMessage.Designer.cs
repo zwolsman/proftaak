@@ -89,6 +89,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Verdana", 8.25F);
             this.label1.Location = new System.Drawing.Point(27, 124);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";

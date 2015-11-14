@@ -42,35 +42,41 @@
             // 
             // lbl_Email
             // 
+            this.lbl_Email.AutoSize = true;
             this.lbl_Email.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.lbl_Email.Location = new System.Drawing.Point(33, 210);
+            this.lbl_Email.Location = new System.Drawing.Point(45, 257);
+            this.lbl_Email.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Email.Name = "lbl_Email";
-            this.lbl_Email.Size = new System.Drawing.Size(220, 24);
+            this.lbl_Email.Size = new System.Drawing.Size(50, 17);
             this.lbl_Email.TabIndex = 18;
             this.lbl_Email.Text = "Email:";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(36, 237);
+            this.textBox2.Location = new System.Drawing.Point(48, 292);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(220, 20);
+            this.textBox2.Size = new System.Drawing.Size(292, 22);
             this.textBox2.TabIndex = 17;
             this.textBox2.UseSystemPasswordChar = true;
             // 
             // lblUsername
             // 
+            this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.lblUsername.Location = new System.Drawing.Point(33, 144);
+            this.lblUsername.Location = new System.Drawing.Point(45, 177);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(220, 24);
+            this.lblUsername.Size = new System.Drawing.Size(84, 17);
             this.lblUsername.TabIndex = 15;
             this.lblUsername.Text = "Username:";
             // 
             // txt_Username
             // 
-            this.txt_Username.Location = new System.Drawing.Point(36, 171);
+            this.txt_Username.Location = new System.Drawing.Point(48, 210);
+            this.txt_Username.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_Username.Name = "txt_Username";
-            this.txt_Username.Size = new System.Drawing.Size(220, 20);
+            this.txt_Username.Size = new System.Drawing.Size(292, 22);
             this.txt_Username.TabIndex = 16;
             // 
             // EyeCTEventLogo
@@ -78,18 +84,20 @@
             this.EyeCTEventLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EyeCTEventLogo.BackgroundImage")));
             this.EyeCTEventLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.EyeCTEventLogo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.EyeCTEventLogo.Location = new System.Drawing.Point(105, 21);
+            this.EyeCTEventLogo.Location = new System.Drawing.Point(140, 26);
+            this.EyeCTEventLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EyeCTEventLogo.Name = "EyeCTEventLogo";
-            this.EyeCTEventLogo.Size = new System.Drawing.Size(75, 74);
+            this.EyeCTEventLogo.Size = new System.Drawing.Size(99, 90);
             this.EyeCTEventLogo.TabIndex = 13;
             this.EyeCTEventLogo.TabStop = false;
             // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.btnBack.Location = new System.Drawing.Point(33, 422);
+            this.btnBack.Location = new System.Drawing.Point(44, 519);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(92, 34);
+            this.btnBack.Size = new System.Drawing.Size(123, 42);
             this.btnBack.TabIndex = 24;
             this.btnBack.Text = "< Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -97,9 +105,10 @@
             // btnSend
             // 
             this.btnSend.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.btnSend.Location = new System.Drawing.Point(166, 422);
+            this.btnSend.Location = new System.Drawing.Point(221, 519);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(87, 34);
+            this.btnSend.Size = new System.Drawing.Size(116, 42);
             this.btnSend.TabIndex = 23;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -110,18 +119,19 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Verdana", 8.25F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(36, 103);
+            this.label1.Location = new System.Drawing.Point(48, 127);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 26);
+            this.label1.Size = new System.Drawing.Size(297, 32);
             this.label1.TabIndex = 25;
             this.label1.Text = "Forgot Password";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ForgotPasswordScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 503);
+            this.ClientSize = new System.Drawing.Size(376, 619);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSend);
@@ -130,6 +140,7 @@
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.txt_Username);
             this.Controls.Add(this.EyeCTEventLogo);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ForgotPasswordScreen";
             this.Text = "ForgotPasswordScreen";
             ((System.ComponentModel.ISupportInitialize)(this.EyeCTEventLogo)).EndInit();
