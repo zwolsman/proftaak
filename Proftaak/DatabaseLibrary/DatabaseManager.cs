@@ -25,6 +25,7 @@ namespace DatabaseLibrary
         private const string SQL_AVAILABLE_ITEMS = "SELECT * FROM AvailableItems WHERE {0}={1}";
         private const string SQL_RESERVED_ITEMS = "SELECT ID, Material, Productcode FROM ReservedItems WHERE {0}={1}";
         private const string SQL_RESERVED_ITEMS2 = "SELECT ID, Material, Productcode FROM ReservedItems WHERE {0}={1} AND (Departure<{2} OR ReservationDate>{3})";
+        private const string SQL_SELECT_LEASEPLACEID = "SELECT t.ID FROM (SELECT lp.ID, p.ID AS Person FROM lease_place lp LEFT JOIN Person p ON p.Account = lp.Account OR p.Lease = lp.Lease) t WHERE t.Person IN (SELECT person FROM rfid_person WHERE RFID = {0})";
 
         private const string CONNECTION_STRING_FORMAT = "Server={0};Database={1};User Id={2};Password={3};";
         private static SqlConnection _connection;
@@ -335,6 +336,13 @@ namespace DatabaseLibrary
                 : searchCriteria.GetType().Name;
             string qur = string.Format(SQL_RESERVED_ITEMS, joinTable, searchCriteria.ID);
             return Query(qur).Select(HashtableToItem<T>).ToList();
+        }
+
+        public static int GetLeasePlaceID(string RFID)
+        {
+            string qry = string.Format(SQL_SELECT_LEASEPLACEID, RFID);
+            Hashtable t = QueryFirst(qry);
+            return int.Parse(t["ID"].ToString());
         }
 
         private static T HashtableToItem<T>(Hashtable info)
