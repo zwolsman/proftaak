@@ -42,9 +42,10 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.btnBack.Location = new System.Drawing.Point(23, 432);
+            this.btnBack.Location = new System.Drawing.Point(31, 532);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(92, 34);
+            this.btnBack.Size = new System.Drawing.Size(123, 42);
             this.btnBack.TabIndex = 32;
             this.btnBack.Text = "< Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -54,9 +55,10 @@
             this.btnGenInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnGenInfo.Font = new System.Drawing.Font("Verdana", 8.25F);
             this.btnGenInfo.ForeColor = System.Drawing.Color.White;
-            this.btnGenInfo.Location = new System.Drawing.Point(64, 37);
+            this.btnGenInfo.Location = new System.Drawing.Point(85, 46);
+            this.btnGenInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGenInfo.Name = "btnGenInfo";
-            this.btnGenInfo.Size = new System.Drawing.Size(199, 38);
+            this.btnGenInfo.Size = new System.Drawing.Size(265, 47);
             this.btnGenInfo.TabIndex = 31;
             this.btnGenInfo.Text = "Place Media Message";
             this.btnGenInfo.UseVisualStyleBackColor = false;
@@ -66,18 +68,20 @@
             this.EyeCTEventLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EyeCTEventLogo.BackgroundImage")));
             this.EyeCTEventLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.EyeCTEventLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EyeCTEventLogo.Location = new System.Drawing.Point(20, 37);
+            this.EyeCTEventLogo.Location = new System.Drawing.Point(27, 46);
+            this.EyeCTEventLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EyeCTEventLogo.Name = "EyeCTEventLogo";
-            this.EyeCTEventLogo.Size = new System.Drawing.Size(37, 37);
+            this.EyeCTEventLogo.Size = new System.Drawing.Size(49, 45);
             this.EyeCTEventLogo.TabIndex = 30;
             this.EyeCTEventLogo.TabStop = false;
             // 
             // btnSend
             // 
             this.btnSend.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.btnSend.Location = new System.Drawing.Point(171, 432);
+            this.btnSend.Location = new System.Drawing.Point(228, 532);
+            this.btnSend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(87, 34);
+            this.btnSend.Size = new System.Drawing.Size(116, 42);
             this.btnSend.TabIndex = 34;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -85,17 +89,19 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(20, 101);
+            this.label1.Location = new System.Drawing.Point(27, 124);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(238, 212);
+            this.label1.Size = new System.Drawing.Size(317, 261);
             this.label1.TabIndex = 35;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.button1.Location = new System.Drawing.Point(142, 328);
+            this.button1.Location = new System.Drawing.Point(31, 402);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 37);
+            this.button1.Size = new System.Drawing.Size(155, 46);
             this.button1.TabIndex = 36;
             this.button1.Text = "Add Image";
             this.button1.UseVisualStyleBackColor = true;
@@ -103,16 +109,17 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.textBox1.Location = new System.Drawing.Point(20, 111);
+            this.textBox1.Location = new System.Drawing.Point(27, 137);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(238, 23);
+            this.textBox1.Size = new System.Drawing.Size(316, 23);
             this.textBox1.TabIndex = 37;
             // 
             // PlaceMediaMessage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 503);
+            this.ClientSize = new System.Drawing.Size(376, 619);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -120,6 +127,7 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnGenInfo);
             this.Controls.Add(this.EyeCTEventLogo);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PlaceMediaMessage";
             this.Text = "PlaceMediaMessage";
             ((System.ComponentModel.ISupportInitialize)(this.EyeCTEventLogo)).EndInit();
