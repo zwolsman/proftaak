@@ -7,21 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MateriaalBeheer.Classes;
+using DatabaseLibrary;
 
 namespace MateriaalBeheer.Forms
 {
     public partial class frmPayscreen : Form
     {
+        private int price;
         private string rfid;
 
-        public frmPayscreen(int days, int price, string rfid)
+        public frmPayscreen(int days, int price, string rfid, string product)
         {
             InitializeComponent();
             DialogResult = DialogResult.Abort;
             this.rfid = rfid;
+            this.price = price;
             float f = price;
             f = f / 100;
-            lblInfo.Text = "Gehuurd voor " + days.ToString() + " dagen\nvoor de prijs van \u20AC" + f.ToString();
+            lblInfo.Text = char.ToUpper(product[0]) + product.Substring(1) + " gehuurd voor " + days.ToString() + " dagen.\nVoor de prijs van \u20AC" + f.ToString();
         }
 
         private void btPayNow_Click(object sender, EventArgs e)
@@ -32,7 +36,14 @@ namespace MateriaalBeheer.Forms
 
         private void btAddBill_Click(object sender, EventArgs e)
         {
-            //TODO:
+            int i = DatabaseManager.GetLeasePlaceID(rfid);
+            Payment p = new Payment()
+            {
+                LeasePlace = i,
+                Amount = 0 - price,
+                Description = lblInfo.Text,
+            };
+            DatabaseManager.InsertItem<Payment>(p);
             DialogResult = DialogResult.OK;
             Close();
         }

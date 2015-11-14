@@ -54,6 +54,7 @@
     <Compile Include="Classes\Item.cs" />
     <Compile Include="Classes\LeaseMaterial.cs" />
     <Compile Include="Classes\Material.cs" />
+    <Compile Include="Classes\Payment.cs" />
     <Compile Include="Classes\ReservationMaterial.cs" />
     <Compile Include="Classes\ReturnMaterial.cs" />
     <Compile Include="Classes\Rfid.cs" />

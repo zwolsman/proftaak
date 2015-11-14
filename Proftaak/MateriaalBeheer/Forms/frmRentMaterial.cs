@@ -190,7 +190,7 @@ namespace MateriaalBeheer.Forms
                 {
                     price += renttime * mat.PricePD;
                 }
-                frmPayscreen payscreen = new frmPayscreen(renttime, price, rm.RFID) { Location = Location, StartPosition = FormStartPosition.CenterParent };
+                frmPayscreen payscreen = new frmPayscreen(renttime, price, rm.RFID, mat.Product) { Location = Location, StartPosition = FormStartPosition.CenterParent };
                 if(payscreen.ShowDialog(this) == DialogResult.OK)
                 {
                     if (DatabaseManager.InsertItem<ReturnMaterial>(rm))
