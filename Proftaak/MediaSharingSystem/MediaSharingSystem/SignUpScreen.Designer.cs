@@ -29,61 +29,66 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpScreen));
-            this.lbl_Password = new System.Windows.Forms.Label();
-            this.txt_Password = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.txt_UsernameSignIn = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.EyeCTEventLogo = new System.Windows.Forms.PictureBox();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.txt_Email = new System.Windows.Forms.TextBox();
-            this.btnSignIn2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.btnSignUp = new System.Windows.Forms.Button();
+            this.lblEyeCTAccount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.EyeCTEventLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbl_Password
+            // lblPassword
             // 
-            this.lbl_Password.AutoSize = true;
-            this.lbl_Password.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.lbl_Password.Location = new System.Drawing.Point(27, 214);
-            this.lbl_Password.Name = "lbl_Password";
-            this.lbl_Password.Size = new System.Drawing.Size(81, 17);
-            this.lbl_Password.TabIndex = 18;
-            this.lbl_Password.Text = "Password:";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.lblPassword.Location = new System.Drawing.Point(36, 263);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(81, 17);
+            this.lblPassword.TabIndex = 18;
+            this.lblPassword.Text = "Password:";
             // 
-            // txt_Password
+            // txtPassword
             // 
-            this.txt_Password.Location = new System.Drawing.Point(30, 238);
-            this.txt_Password.Name = "txt_Password";
-            this.txt_Password.Size = new System.Drawing.Size(220, 20);
-            this.txt_Password.TabIndex = 17;
-            this.txt_Password.UseSystemPasswordChar = true;
+            this.txtPassword.Location = new System.Drawing.Point(40, 293);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(292, 22);
+            this.txtPassword.TabIndex = 17;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.lblUsername.Location = new System.Drawing.Point(30, 154);
+            this.lblUsername.Location = new System.Drawing.Point(40, 190);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(84, 17);
             this.lblUsername.TabIndex = 15;
             this.lblUsername.Text = "Username:";
             // 
-            // txt_UsernameSignIn
+            // txtUsername
             // 
-            this.txt_UsernameSignIn.Location = new System.Drawing.Point(30, 180);
-            this.txt_UsernameSignIn.Name = "txt_UsernameSignIn";
-            this.txt_UsernameSignIn.Size = new System.Drawing.Size(220, 20);
-            this.txt_UsernameSignIn.TabIndex = 16;
+            this.txtUsername.Location = new System.Drawing.Point(40, 222);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(292, 22);
+            this.txtUsername.TabIndex = 16;
             // 
             // EyeCTEventLogo
             // 
             this.EyeCTEventLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EyeCTEventLogo.BackgroundImage")));
             this.EyeCTEventLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.EyeCTEventLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EyeCTEventLogo.Location = new System.Drawing.Point(106, 38);
+            this.EyeCTEventLogo.Location = new System.Drawing.Point(141, 47);
+            this.EyeCTEventLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EyeCTEventLogo.Name = "EyeCTEventLogo";
-            this.EyeCTEventLogo.Size = new System.Drawing.Size(75, 74);
+            this.EyeCTEventLogo.Size = new System.Drawing.Size(99, 91);
             this.EyeCTEventLogo.TabIndex = 13;
             this.EyeCTEventLogo.TabStop = false;
             // 
@@ -91,57 +96,62 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.lblEmail.Location = new System.Drawing.Point(30, 272);
+            this.lblEmail.Location = new System.Drawing.Point(40, 335);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(57, 17);
             this.lblEmail.TabIndex = 21;
             this.lblEmail.Text = "E-mail:";
             // 
-            // txt_Email
+            // txtEmail
             // 
-            this.txt_Email.Location = new System.Drawing.Point(30, 297);
-            this.txt_Email.Name = "txt_Email";
-            this.txt_Email.Size = new System.Drawing.Size(220, 20);
-            this.txt_Email.TabIndex = 20;
-            this.txt_Email.UseSystemPasswordChar = true;
+            this.txtEmail.Location = new System.Drawing.Point(40, 366);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(292, 22);
+            this.txtEmail.TabIndex = 20;
+            this.txtEmail.UseSystemPasswordChar = true;
             // 
-            // btnSignIn2
+            // btnSignUp
             // 
-            this.btnSignIn2.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.btnSignIn2.Location = new System.Drawing.Point(106, 336);
-            this.btnSignIn2.Name = "btnSignIn2";
-            this.btnSignIn2.Size = new System.Drawing.Size(75, 34);
-            this.btnSignIn2.TabIndex = 22;
-            this.btnSignIn2.Text = "Sign In";
-            this.btnSignIn2.UseVisualStyleBackColor = true;
+            this.btnSignUp.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.btnSignUp.Location = new System.Drawing.Point(141, 414);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSignUp.Name = "btnSignUp";
+            this.btnSignUp.Size = new System.Drawing.Size(100, 42);
+            this.btnSignUp.TabIndex = 22;
+            this.btnSignUp.Text = "Sign Up";
+            this.btnSignUp.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblEyeCTAccount
             // 
-            this.label1.BackColor = System.Drawing.Color.Red;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(34, 121);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 26);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "EyeCT Account";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblEyeCTAccount.BackColor = System.Drawing.Color.Red;
+            this.lblEyeCTAccount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEyeCTAccount.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.lblEyeCTAccount.ForeColor = System.Drawing.Color.White;
+            this.lblEyeCTAccount.Location = new System.Drawing.Point(45, 149);
+            this.lblEyeCTAccount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEyeCTAccount.Name = "lblEyeCTAccount";
+            this.lblEyeCTAccount.Size = new System.Drawing.Size(297, 32);
+            this.lblEyeCTAccount.TabIndex = 23;
+            this.lblEyeCTAccount.Text = "EyeCT Account";
+            this.lblEyeCTAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SignUpScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 503);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnSignIn2);
+            this.ClientSize = new System.Drawing.Size(376, 619);
+            this.Controls.Add(this.lblEyeCTAccount);
+            this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.txt_Email);
-            this.Controls.Add(this.lbl_Password);
-            this.Controls.Add(this.txt_Password);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.txt_UsernameSignIn);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.EyeCTEventLogo);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SignUpScreen";
             this.Text = "SignUpScreen";
             this.Load += new System.EventHandler(this.SignUpScreen_Load);
@@ -152,14 +162,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lbl_Password;
-        private System.Windows.Forms.TextBox txt_Password;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.TextBox txt_UsernameSignIn;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.PictureBox EyeCTEventLogo;
         private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.TextBox txt_Email;
-        private System.Windows.Forms.Button btnSignIn2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Button btnSignUp;
+        private System.Windows.Forms.Label lblEyeCTAccount;
     }
 }

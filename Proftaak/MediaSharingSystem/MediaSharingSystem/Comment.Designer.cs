@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Comment));
             this.btnComment = new System.Windows.Forms.Button();
             this.EyeCTEventLogo = new System.Windows.Forms.PictureBox();
-            this.lblUpdateInfo_front = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.lblMessage = new System.Windows.Forms.Label();
+            this.btnLike = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblComment = new System.Windows.Forms.Label();
+            this.txtComment = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.EyeCTEventLogo)).BeginInit();
             this.SuspendLayout();
@@ -65,29 +65,29 @@
             this.EyeCTEventLogo.TabIndex = 32;
             this.EyeCTEventLogo.TabStop = false;
             // 
-            // lblUpdateInfo_front
+            // lblMessage
             // 
-            this.lblUpdateInfo_front.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblUpdateInfo_front.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.lblUpdateInfo_front.Location = new System.Drawing.Point(43, 113);
-            this.lblUpdateInfo_front.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUpdateInfo_front.Name = "lblUpdateInfo_front";
-            this.lblUpdateInfo_front.Size = new System.Drawing.Size(289, 183);
-            this.lblUpdateInfo_front.TabIndex = 36;
-            this.lblUpdateInfo_front.Text = "Media Messages";
-            this.lblUpdateInfo_front.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblUpdateInfo_front.UseWaitCursor = true;
+            this.lblMessage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblMessage.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.lblMessage.Location = new System.Drawing.Point(43, 113);
+            this.lblMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(289, 183);
+            this.lblMessage.TabIndex = 36;
+            this.lblMessage.Text = "Media Messages";
+            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMessage.UseWaitCursor = true;
             // 
-            // button3
+            // btnLike
             // 
-            this.button3.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.button3.Location = new System.Drawing.Point(43, 300);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 42);
-            this.button3.TabIndex = 35;
-            this.button3.Text = "Like";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnLike.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.btnLike.Location = new System.Drawing.Point(43, 300);
+            this.btnLike.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLike.Name = "btnLike";
+            this.btnLike.Size = new System.Drawing.Size(75, 42);
+            this.btnLike.TabIndex = 35;
+            this.btnLike.Text = "Like";
+            this.btnLike.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -98,24 +98,24 @@
             this.label1.Size = new System.Drawing.Size(324, 420);
             this.label1.TabIndex = 34;
             // 
-            // label2
+            // lblComment
             // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.label2.Location = new System.Drawing.Point(43, 346);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(289, 158);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "Comment";
-            this.label2.UseWaitCursor = true;
+            this.lblComment.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblComment.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.lblComment.Location = new System.Drawing.Point(43, 346);
+            this.lblComment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblComment.Name = "lblComment";
+            this.lblComment.Size = new System.Drawing.Size(289, 158);
+            this.lblComment.TabIndex = 37;
+            this.lblComment.Text = "Comment";
+            this.lblComment.UseWaitCursor = true;
             // 
-            // textBox1
+            // txtComment
             // 
-            this.textBox1.Location = new System.Drawing.Point(55, 369);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(264, 22);
-            this.textBox1.TabIndex = 38;
+            this.txtComment.Location = new System.Drawing.Point(55, 369);
+            this.txtComment.Name = "txtComment";
+            this.txtComment.Size = new System.Drawing.Size(264, 22);
+            this.txtComment.TabIndex = 38;
             // 
             // btnBack
             // 
@@ -134,10 +134,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 619);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblUpdateInfo_front);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.txtComment);
+            this.Controls.Add(this.lblComment);
+            this.Controls.Add(this.lblMessage);
+            this.Controls.Add(this.btnLike);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnComment);
             this.Controls.Add(this.EyeCTEventLogo);
@@ -153,11 +153,11 @@
 
         private System.Windows.Forms.Button btnComment;
         private System.Windows.Forms.PictureBox EyeCTEventLogo;
-        private System.Windows.Forms.Label lblUpdateInfo_front;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.Button btnLike;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblComment;
+        private System.Windows.Forms.TextBox txtComment;
         private System.Windows.Forms.Button btnBack;
     }
 }

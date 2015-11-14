@@ -29,55 +29,55 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MediaHomeScreenAdmin));
-            this.button4 = new System.Windows.Forms.Button();
-            this.lblUpdateInfo_front = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnComment = new System.Windows.Forms.Button();
+            this.lblMessage = new System.Windows.Forms.Label();
+            this.btnLike = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnProfile = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPlaceMediaMessage = new System.Windows.Forms.Button();
             this.lblEventName = new System.Windows.Forms.Label();
             this.btnGenInfo = new System.Windows.Forms.Button();
             this.EyeCTEventLogo = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.EyeCTEventLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // button4
+            // btnComment
             // 
-            this.button4.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.button4.Location = new System.Drawing.Point(102, 405);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 42);
-            this.button4.TabIndex = 38;
-            this.button4.Text = "Comment";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnComment.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.btnComment.Location = new System.Drawing.Point(102, 405);
+            this.btnComment.Margin = new System.Windows.Forms.Padding(4);
+            this.btnComment.Name = "btnComment";
+            this.btnComment.Size = new System.Drawing.Size(93, 42);
+            this.btnComment.TabIndex = 38;
+            this.btnComment.Text = "Comment";
+            this.btnComment.UseVisualStyleBackColor = true;
             // 
-            // lblUpdateInfo_front
+            // lblMessage
             // 
-            this.lblUpdateInfo_front.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblUpdateInfo_front.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.lblUpdateInfo_front.Location = new System.Drawing.Point(43, 218);
-            this.lblUpdateInfo_front.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUpdateInfo_front.Name = "lblUpdateInfo_front";
-            this.lblUpdateInfo_front.Size = new System.Drawing.Size(289, 183);
-            this.lblUpdateInfo_front.TabIndex = 37;
-            this.lblUpdateInfo_front.Text = "Media Messages";
-            this.lblUpdateInfo_front.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblUpdateInfo_front.UseWaitCursor = true;
+            this.lblMessage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblMessage.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.lblMessage.Location = new System.Drawing.Point(43, 218);
+            this.lblMessage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(289, 183);
+            this.lblMessage.TabIndex = 37;
+            this.lblMessage.Text = "Media Messages";
+            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMessage.UseWaitCursor = true;
             // 
-            // button3
+            // btnLike
             // 
-            this.button3.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.button3.Location = new System.Drawing.Point(43, 405);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(51, 42);
-            this.button3.TabIndex = 36;
-            this.button3.Text = "Like";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnLike.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.btnLike.Location = new System.Drawing.Point(43, 405);
+            this.btnLike.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLike.Name = "btnLike";
+            this.btnLike.Size = new System.Drawing.Size(51, 42);
+            this.btnLike.TabIndex = 36;
+            this.btnLike.Text = "Like";
+            this.btnLike.UseVisualStyleBackColor = true;
             // 
             // btnBack
             // 
@@ -90,16 +90,16 @@
             this.btnBack.Text = "< Back";
             this.btnBack.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnProfile
             // 
-            this.button2.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.button2.Location = new System.Drawing.Point(171, 531);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(179, 42);
-            this.button2.TabIndex = 34;
-            this.button2.Text = "Profile";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnProfile.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.btnProfile.Location = new System.Drawing.Point(171, 531);
+            this.btnProfile.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Size = new System.Drawing.Size(179, 42);
+            this.btnProfile.TabIndex = 34;
+            this.btnProfile.Text = "Profile";
+            this.btnProfile.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -110,18 +110,18 @@
             this.label1.Size = new System.Drawing.Size(324, 310);
             this.label1.TabIndex = 33;
             // 
-            // button1
+            // btnPlaceMediaMessage
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.button1.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(26, 153);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(324, 47);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Place Media Message";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnPlaceMediaMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnPlaceMediaMessage.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.btnPlaceMediaMessage.ForeColor = System.Drawing.Color.White;
+            this.btnPlaceMediaMessage.Location = new System.Drawing.Point(26, 153);
+            this.btnPlaceMediaMessage.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPlaceMediaMessage.Name = "btnPlaceMediaMessage";
+            this.btnPlaceMediaMessage.Size = new System.Drawing.Size(324, 47);
+            this.btnPlaceMediaMessage.TabIndex = 32;
+            this.btnPlaceMediaMessage.Text = "Place Media Message";
+            this.btnPlaceMediaMessage.UseVisualStyleBackColor = false;
             // 
             // lblEventName
             // 
@@ -162,42 +162,42 @@
             this.EyeCTEventLogo.TabIndex = 29;
             this.EyeCTEventLogo.TabStop = false;
             // 
-            // button5
+            // btnNext
             // 
-            this.button5.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.button5.Location = new System.Drawing.Point(227, 405);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(105, 42);
-            this.button5.TabIndex = 39;
-            this.button5.Text = "Next >";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnNext.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.btnNext.Location = new System.Drawing.Point(227, 405);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(105, 42);
+            this.btnNext.TabIndex = 39;
+            this.btnNext.Text = "Next >";
+            this.btnNext.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnRemove
             // 
-            this.button6.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.button6.Location = new System.Drawing.Point(43, 459);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(152, 42);
-            this.button6.TabIndex = 40;
-            this.button6.Text = "Remove Message";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnRemove.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.btnRemove.Location = new System.Drawing.Point(43, 459);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(152, 42);
+            this.btnRemove.TabIndex = 40;
+            this.btnRemove.Text = "Remove Message";
+            this.btnRemove.UseVisualStyleBackColor = true;
             // 
             // MediaHomeScreenAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 619);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.lblUpdateInfo_front);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnComment);
+            this.Controls.Add(this.lblMessage);
+            this.Controls.Add(this.btnLike);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPlaceMediaMessage);
             this.Controls.Add(this.lblEventName);
             this.Controls.Add(this.btnGenInfo);
             this.Controls.Add(this.EyeCTEventLogo);
@@ -210,17 +210,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label lblUpdateInfo_front;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnComment;
+        private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.Button btnLike;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnProfile;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPlaceMediaMessage;
         private System.Windows.Forms.Label lblEventName;
         private System.Windows.Forms.Button btnGenInfo;
         private System.Windows.Forms.PictureBox EyeCTEventLogo;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnRemove;
     }
 }
