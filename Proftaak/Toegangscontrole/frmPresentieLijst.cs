@@ -32,11 +32,11 @@ namespace Toegangscontrole
         private void LoadList()
         {
             persons.Clear();
-            /*IEnumerable<Person> ip = DatabaseManager.GetPersons<Person>(true, evenement);
+            IEnumerable<Person> ip = DatabaseManager.GetPersons<Person>(true, evenement);
             if (ip == null)
                 return;
-            persons.AddRange(ip);*/
-            persons.AddRange(DatabaseManager.GetItems<Person>());
+            persons.AddRange(ip);
+            //persons.AddRange(DatabaseManager.GetItems<Person>());//For use in testing to generate more people in the list
             foreach (Person p in persons)
             {
                 listPresence.Items.Add(new ListViewItem(new[]
@@ -50,39 +50,32 @@ namespace Toegangscontrole
 
         private void btPrint_Click(object sender, EventArgs e)
         {
-            try
-            {
-                file = Path.GetTempFileName();
-                Console.WriteLine(file);
-                FileInfo info = new FileInfo(file);
-                info.Attributes = FileAttributes.Temporary;
-                Console.WriteLine("Attributes set");
-                StreamWriter stream = File.AppendText(file);
-                Console.WriteLine("Opened streamwriter");
-                foreach (Person p in persons)
-                {
-                    string s = $"{p.Surname}, {p.Name} {p.Affix}";
-                    stream.WriteLine(s);
-                }
-                Console.WriteLine("Finished writing");
-                stream.Flush();
-                stream.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error while making temp file: " + ex.Message);
-            }
+
+            file = Path.GetTempFileName();
+            Console.WriteLine(file);
+            FileInfo info = new FileInfo(file);
+            info.Attributes = FileAttributes.Temporary;
+            Console.WriteLine("Attributes set");
+            Console.WriteLine("Writing temp file in: " + file);
+            WriteFile(file);
             printDialog1.AllowSomePages = true;
             printDialog1.ShowHelp = true;
             printDialog1.Document = printDocument1;
             DialogResult result = printDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                fileToPrint = new StreamReader(file);
-                printFont = new Font("Arial", 10);
-                printDocument1.PrintPage += new PrintPageEventHandler(PrintPage);
-                printDocument1.Print();
-                fileToPrint.Close();
+                try
+                {
+                    fileToPrint = new StreamReader(file);
+                    printFont = new Font("Arial", 10);
+                    printDocument1.PrintPage += new PrintPageEventHandler(PrintPage);
+                    printDocument1.Print();
+                    fileToPrint.Close();
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("Error while printing: " + ex.Message);
+                }
             }
 
             try
@@ -122,7 +115,35 @@ namespace Toegangscontrole
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            DialogResult result = folderBrowserDialog1.ShowDialog(this);
+            if (result == DialogResult.OK)
+            {
+                string path = folderBrowserDialog1.SelectedPath;
+                string file = path + $"\\Presentielijst_{DateTime.Now.ToString("yyyy-MM-ddTHH-mm")}.txt";
+                Console.WriteLine("Writing file in: " + file);
+                File.Create(file).Dispose();
+                WriteFile(file);
+                Console.WriteLine("Wrote file in: " + file);
+            }
+        }
 
+        private void WriteFile(string filename)
+        {
+            try
+            {
+                StreamWriter stream = File.AppendText(filename);
+                foreach (Person p in persons)
+                {
+                    string s = $"{p.Surname}, {p.Name} {p.Affix}";
+                    stream.WriteLine(s);
+                }
+                stream.Flush();
+                stream.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error while writing file: " + ex.Message);
+            }
         }
     }
 }
