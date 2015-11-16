@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Evenement.cs" />
     <Compile Include="Classes\Person.cs" />
     <Compile Include="frmToegangsControle.cs">
       <SubType>Form</SubType>

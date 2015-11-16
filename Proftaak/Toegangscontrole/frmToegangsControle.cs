@@ -20,13 +20,14 @@ namespace Toegangscontrole
     {
         private RFID rfid;
         private System.Timers.Timer timer;
+        private Evenement evenement;
 
         private const string INFO = "Houd uw pas voor de lezer";
         private const string ERROR = "Er is iets fout gegaan./nProbeer het opnieuw.";
         private const string WELKOM = "Welkom op het evenement terrein";
         private const string TOTZIENS = "Prettige dag en tot de volgende keer";
 
-        public frmToegangsControle()
+        public frmToegangsControle(Evenement e)
         {
             InitializeComponent();
             lblInfo.Text = INFO;
@@ -34,6 +35,7 @@ namespace Toegangscontrole
             timer.Elapsed += OnTimer;
             timer.AutoReset = false;
             timer.Enabled = true;
+            evenement = e;
             Start();
         }
 
