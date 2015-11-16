@@ -27,6 +27,7 @@ namespace DatabaseLibrary
         private const string SQL_RESERVED_ITEMS2 = "SELECT ID, Material, Productcode FROM ReservedItems WHERE {0}={1} AND (Departure<{2} OR ReservationDate>{3})";
         private const string SQL_SELECT_LEASEPLACEID = "SELECT t.ID FROM (SELECT lp.ID, p.ID AS Person FROM lease_place lp LEFT JOIN Person p ON p.Account = lp.Account OR p.Lease = lp.Lease) t WHERE t.Person IN (SELECT person FROM rfid_person WHERE RFID = {0})";
         private const string SQL_SELECT_PERSON_FORM_RFID = "SELECT p.* FROM Person p, RFID_Person rp WHERE p.ID=rp.Person AND rp.RFID={0}";
+        private const string SQL_SELECT_Persons = "SELECT p.* FROM Person p, Lease_Place lp WHERE p.Present={0} AND(p.Account= lp.Account OR p.Lease= lp.Lease) AND lp.Event={1} ";
 
         private const string CONNECTION_STRING_FORMAT = "Server={0};Database={1};User Id={2};Password={3};";
         private static SqlConnection _connection;
@@ -350,6 +351,15 @@ namespace DatabaseLibrary
         {
             string qry = string.Format(SQL_SELECT_PERSON_FORM_RFID, RFID);
             return HashtableToItem<T>(QueryFirst(qry));
+        }
+
+        public static IEnumerable<T> GetPersons<T>(bool present, dynamic searchCriteria)
+        {
+            string s = "N";
+            if (present)
+                s = "Y";
+            string qry = string.Format(SQL_SELECT_Persons, s, searchCriteria.ID);
+            return Query(qry).Select(HashtableToItem<T>).ToList();
         }
 
         private static T HashtableToItem<T>(Hashtable info)
