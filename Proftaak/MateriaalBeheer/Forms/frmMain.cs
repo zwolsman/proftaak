@@ -19,12 +19,12 @@ namespace MateriaalBeheer.Forms
 
         private void btModify_Click(object sender, EventArgs e)
         {
-            new frmModifyItem().ShowDialog(this);
+            new frmModifyItem(){ Location = Location, StartPosition = FormStartPosition.CenterParent }.ShowDialog(this);
         }
 
         private void btRent_Click(object sender, EventArgs e)
         {
-            new frmRentMaterial().ShowDialog(this);
+            new frmRentMaterial(){ Location = Location, StartPosition = FormStartPosition.CenterParent }.ShowDialog(this);
         }
     }
 }
