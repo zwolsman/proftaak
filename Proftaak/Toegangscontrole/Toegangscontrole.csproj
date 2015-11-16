@@ -88,6 +88,12 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPortier.resx">
+      <DependentUpon>frmPortier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPresentieLijst.resx">
+      <DependentUpon>frmPresentieLijst.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmToegangsControle.resx">
       <DependentUpon>frmToegangsControle.cs</DependentUpon>
     </EmbeddedResource>
