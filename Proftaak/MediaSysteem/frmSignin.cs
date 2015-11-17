@@ -34,7 +34,7 @@ namespace MediaSysteem
             else
             {
                 Globals.Account = account;
-                MessageBox.Show("User signed in!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+             //   MessageBox.Show("User signed in!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();
             }

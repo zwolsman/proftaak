@@ -66,6 +66,7 @@ namespace MediaSysteem
             };
 
             DatabaseManager.UpdateItem(account);
+            Close();
         }
     }
 }

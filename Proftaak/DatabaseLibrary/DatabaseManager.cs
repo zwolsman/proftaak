@@ -129,7 +129,6 @@ namespace DatabaseLibrary
           return GetItem<T>(defaultDatabase);
         }
 
-
         public static T GetItem<T>(dynamic searchCriteria)
         {
             return GetItems<T>(searchCriteria)[0];
@@ -326,8 +325,6 @@ namespace DatabaseLibrary
 
             return HashtableToItem<T>(QueryFirst(sql));
         }
-
-
 
         public static T ContainsLease<T>(T item, params string[] props)
         {

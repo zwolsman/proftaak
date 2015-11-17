@@ -13,12 +13,50 @@ namespace MediaSysteem
 {
     public partial class MessageControl : UserControl
     {
+        private readonly Size normalSize = new Size(234, 79);
+        private readonly Size writingComment = new Size(234, 131);
 
-        private MediaAccount user;
-        private CategoryInstance category;
+        public EventHandler<MessageInstance> CommentPostedHandler;
+        public EventHandler<MessageInstance> MessageDeleteHandler;
+
+        private bool _isWriting;
+
+        private bool IsWriting
+        {
+            get { return _isWriting; }
+            set
+            {
+                _isWriting = value;
+                OnIsWritingChanged(IsWriting);
+            }
+        }
+
+        private void OnIsWritingChanged(bool isWriting)
+        {
+            //Size = isWriting ? writingComment : normalSize;
+            if (isWriting)
+            {
+                Controls.Add(txtMessage);
+                Controls.Add(btnSubmitComment);
+                Controls.Add(label1);
+            }
+            else
+            {
+                Controls.Remove(txtMessage);
+                Controls.Remove(btnSubmitComment);
+                Controls.Remove(label1);
+            }
+        }
+
+
+        private readonly MediaAccount user;
+        private readonly CategoryInstance category;
+        public MessageInstance Message { get; }
+
         public MessageControl(MessageInstance message)
         {
             InitializeComponent();
+            this.Message = message;
             user = new MediaAccount() {ID = message.MediaAccount};
             category = new CategoryInstance() {ID = message.Category};
 
@@ -32,11 +70,45 @@ namespace MediaSysteem
             lblMessage.Text = message.Report;
 
             lblTitle.Text = string.IsNullOrEmpty(message.Title) ? category.Name : $"{message.Title} - {category.Name}";
+            IsWriting = false;
+            if (Globals.Account.ID != message.MediaAccount)
+                Controls.Remove(lblRemove);
         }
 
-        private void lblPopout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            if (DatabaseManager.DeleteItem(Message))
+                MessageDeleteHandler?.Invoke(this, Message);
+        }
 
+        private void btnSubmitComment_Click(object sender, EventArgs e)
+        {
+            CommentPostedHandler?.Invoke(this, new MessageInstance()
+            {
+                Category = category.ID,
+                Datum = DateTime.Now,
+                MediaAccount = Globals.Account.ID,
+                Report = txtMessage.Text,
+                Message = Message.ID,
+                Title = $"Comment on '{Message.Title}'"
+            });
+            IsWriting = false;
+            txtMessage.Clear();
+        }
+
+        private void txtMessage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Escape)
+            {
+                e.Handled = true;
+                IsWriting = false;
+                txtMessage.Clear();
+            }
+        }
+
+        private void linkAddComment_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            IsWriting = !IsWriting;
         }
     }
 }

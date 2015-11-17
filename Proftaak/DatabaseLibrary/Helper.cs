@@ -33,7 +33,8 @@ namespace DatabaseLibrary
         {
             if (val is string)
             {
-                return $"'{val}'";
+
+                return $"'{val.ToString().Replace("'", "''")}'";
             }
             if (val is int)
             {

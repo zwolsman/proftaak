@@ -35,6 +35,8 @@
             // 
             // lblEventName
             // 
+            this.lblEventName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblEventName.BackColor = System.Drawing.Color.Red;
             this.lblEventName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblEventName.ForeColor = System.Drawing.Color.White;
@@ -47,6 +49,8 @@
             // 
             // picLogo
             // 
+            this.picLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.picLogo.Location = new System.Drawing.Point(12, 12);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(261, 74);

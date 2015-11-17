@@ -22,7 +22,7 @@ namespace MediaSysteem
             if (!string.IsNullOrEmpty(Globals.Account.Picture))
                 picProfile.ImageLocation = Globals.Account.Picture;
             Messages.CollectionChanged += Messages_CollectionChanged;
-
+            
             
             InitTimeline();
             InitCategories();
@@ -58,14 +58,38 @@ namespace MediaSysteem
 
         private void Messages_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            foreach (MessageInstance message in e.NewItems)
-            {
-                MessageControl control = new MessageControl(message);
-                control.AutoSize = true;
-                control.Dock = DockStyle.Top;
-                flowLayoutPosts.Controls.Add(control);
+            if(e.NewItems != null)
+                foreach (MessageInstance message in e.NewItems)
+                {
+                    MessageControl control = new MessageControl(message)
+                    {
+                        AutoSize = true,
+                        Dock = DockStyle.Top
+                    };
+
+                    control.CommentPostedHandler += CommentPostedHandler;
+                    control.MessageDeleteHandler += MessageDeleteHandler;
+                    flowLayoutPosts.Controls.Add(control);
                
+                }
+
+          
+        }
+
+        private void MessageDeleteHandler(object sender, MessageInstance messageInstance)
+        {
+            Messages.Remove(messageInstance);
+            foreach (MessageControl control in flowLayoutPosts.Controls)
+            {
+                if (control.Message.ID == messageInstance.ID)
+                    flowLayoutPosts.Controls.Remove(control);
             }
+        }
+
+        private void CommentPostedHandler(object sender, MessageInstance messageInstance)
+        {
+            DatabaseManager.InsertItem(messageInstance);
+            Messages.Add(messageInstance);
         }
 
         private void InitTimeline()
@@ -97,6 +121,11 @@ namespace MediaSysteem
                 Messages.Add(message);
             }
 
+        }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            new frmProfile().Show(this);
         }
     }
 }
