@@ -3,7 +3,7 @@ using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.OracleClient;
+using Oracle.DataAccess.Client;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
@@ -28,6 +28,7 @@ namespace DatabaseLibrary
         private const string SQL_SELECT_LEASEPLACEID = "SELECT t.ID FROM (SELECT lp.ID, p.ID AS Person FROM lease_place lp LEFT JOIN Person p ON p.Account = lp.Account OR p.Lease = lp.Lease) t WHERE t.Person IN (SELECT person FROM rfid_person WHERE RFID = {0})";
 
         private const string CONNECTION_STRING_FORMAT = "Server={0};Database={1};User Id={2};Password={3};";
+        private const string ORACLE_STRING_FORMAT = "Data Access={0};User Id={1};Password={2};";
         private static SqlConnection _connection;
         private static string connectionString = "";
         public static bool IsConnected => _connection != null && _connection.State == ConnectionState.Open;
@@ -54,6 +55,10 @@ namespace DatabaseLibrary
         {
             connectionString = string.Format(CONNECTION_STRING_FORMAT, server, database, username, password);
             defaultDatabase = database;
+        }
+        public static void Initialize(string username, string password, string server) //Oracle Initializer
+        {
+            connectionString = string.Format(ORACLE_STRING_FORMAT, server, username, password);
         }
 
         public static void Open()
