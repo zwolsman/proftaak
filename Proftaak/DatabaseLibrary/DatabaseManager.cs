@@ -26,23 +26,24 @@ namespace DatabaseLibrary
         private const string SQL_RESERVED_ITEMS = "SELECT ID, Material, Productcode FROM ReservedItems WHERE {0}={1}";
         private const string SQL_RESERVED_ITEMS2 = "SELECT ID, Material, Productcode FROM ReservedItems WHERE {0}={1} AND (Departure<{2} OR ReservationDate>{3})";
         private const string SQL_SELECT_LEASEPLACEID = "SELECT t.ID FROM (SELECT lp.ID, p.ID AS Person FROM lease_place lp LEFT JOIN Person p ON p.Account = lp.Account OR p.Lease = lp.Lease) t WHERE t.Person IN (SELECT person FROM rfid_person WHERE RFID = {0})";
-        private const string SQL_SELECT_PERSON_FORM_RFID = "SELECT p.* FROM Person p, RFID_Person rp WHERE p.ID=rp.Person AND rp.RFID={0}";
-        private const string SQL_SELECT_Persons = "SELECT p.* FROM Person p, Lease_Place lp WHERE p.Present={0} AND (p.Account= lp.Account OR p.Lease= lp.Lease) AND lp.Event={1} ";
 
         private const string CONNECTION_STRING_FORMAT = "Server={0};Database={1};User Id={2};Password={3};";
         private static SqlConnection _connection;
         private static string connectionString = "";
         public static bool IsConnected => _connection != null && _connection.State == ConnectionState.Open;
 
+        private static string defaultDatabase = "";
         //Map class names to table names. 
         private static readonly Dictionary<string, string> classMappings = new Dictionary<string, string>()
         {
-            {"Evenement", "Event"},             //Class evenement -> database table Event
-            {"LeasePlace", "Lease_Place" },     //Class LeasePlace -> database table Lease_Place
-            {"RFIDPerson", "RFID_Person" },     //Class RFIDPerson -> database table RFID_Person
+            {"Evenement", "Event"},             //Class evenement -> database table Event           (Proftaak)
+            {"LeasePlace", "Lease_Place" },     //Class LeasePlace -> database table Lease_Place    (Proftaak)
+            {"RFIDPerson", "RFID_Person" },     //Class RFIDPerson -> database table RFID_Person    (Proftaak)
+            {"MessageInstance", "Message" },    //Class MessageInstance -> database table Message   (Media)
+            {"CategoryInstance", "Category"}    //Class CategoryInstance -> databse table Category  (Media)
         };
 
-        private static readonly List<String> idList = new List<string>()
+        private static readonly List<string> idList = new List<string>()
         {
             "ID",
             "Cardnumber",
@@ -52,6 +53,7 @@ namespace DatabaseLibrary
         public static void Initialize(string username, string password, string server, string database)
         {
             connectionString = string.Format(CONNECTION_STRING_FORMAT, server, database, username, password);
+            defaultDatabase = database;
         }
 
         public static void Open()
@@ -124,23 +126,43 @@ namespace DatabaseLibrary
 
         public static T GetItem<T>()
         {
-            string tableName = classMappings.ContainsKey(typeof (T).Name)
-                ? classMappings[typeof (T).Name]
-                : typeof (T).Name;
+          return GetItem<T>(defaultDatabase);
+        }
+
+        public static T GetItem<T>(dynamic searchCriteria)
+        {
+            return GetItems<T>(searchCriteria)[0];
+        }
+
+        public static T GetItem<T>(string database)
+        {
+            string tableName = classMappings.ContainsKey(typeof(T).Name)
+              ? classMappings[typeof(T).Name]
+              : typeof(T).Name;
+            //tableName = database + "." + tableName;
+            tableName = $"[{database}].[dbo].[{tableName}]";
+
             string qur = string.Format(SQL_SELECT_ALL, tableName);
 
             return HashtableToItem<T>(QueryFirst(qur));
         }
 
-        public static IEnumerable<T> GetItems<T>()
+        public static IEnumerable<T> GetItems<T>(string database)
         {
             string tableName = classMappings.ContainsKey(typeof (T).Name)
                 ? classMappings[typeof (T).Name]
                 : typeof (T).Name;
+            //[proftaak_new].[dbo].[Event]
+            tableName = $"[{database}].[dbo].[{tableName}]";
             string qur = string.Format(SQL_SELECT_ALL, tableName);
 
 
             return Query(qur).Select(HashtableToItem<T>).ToList();
+        }
+
+        public static IEnumerable<T> GetItems<T>()
+        {
+            return GetItems<T>(defaultDatabase);
         }
 
         public static IEnumerable<T> GetItems<T>(dynamic searchCriteria)
@@ -158,11 +180,14 @@ namespace DatabaseLibrary
 
         }
 
-        public static bool InsertItem<T>(T item)
+        public static bool InsertItem<T>(T item, string database)
         {
             string tableName = classMappings.ContainsKey(typeof (T).Name)
                 ? classMappings[typeof (T).Name]
                 : typeof (T).Name;
+            //tableName = database + "." + tableName;
+            tableName = $"[{database}].[dbo].[{tableName}]";
+
             Hashtable hashtable = ItemToHashtable<T>(item);
             string columnNames =
                 hashtable.Keys.Cast<object>()
@@ -176,13 +201,29 @@ namespace DatabaseLibrary
             return Execute(qur) != -1;
         }
 
+        public static bool InsertItem<T>(T item)
+        {
+            return InsertItem<T>(item, defaultDatabase);
+        }
+
         public static bool UpdateItem<T>(T item)
         {
+            return UpdateItem(item, defaultDatabase);
+        }
+
+        public static bool UpdateItem<T>(T item, string database)
+        {
             string tableName = classMappings.ContainsKey(typeof(T).Name)
-               ? classMappings[typeof(T).Name]
-               : typeof(T).Name;
+              ? classMappings[typeof(T).Name]
+              : typeof(T).Name;
+
+            tableName = $"[{database}].[dbo].[{tableName}]";
+
+
             if (tableName.Contains("Material") && !tableName.Equals("Material"))
                 return UpdateDate(item);
+
+
             Hashtable hashtable = ItemToHashtable<T>(item);
 
             string newValues = "";
@@ -251,9 +292,16 @@ namespace DatabaseLibrary
 
         public static T ContainsItem<T>(T item, params string[] props)
         {
+            return ContainsItem<T>(item, defaultDatabase, props);
+        }
+
+        public static T ContainsItem<T>(T item, string database, params string[] props)
+        {
             string tableName = classMappings.ContainsKey(typeof(T).Name)
-             ? classMappings[typeof(T).Name]
-             : typeof(T).Name;
+            ? classMappings[typeof(T).Name]
+            : typeof(T).Name;
+
+            tableName = $"[{database}].[dbo].[{tableName}]";
 
             if (props == null)
                 return default(T);
@@ -261,9 +309,9 @@ namespace DatabaseLibrary
             string where = "";
             for (int i = 0; i < props.Length; i++)
             {
-                PropertyInfo propInfo = typeof (T).GetProperty(props[i]);
+                PropertyInfo propInfo = typeof(T).GetProperty(props[i]);
 
-                if(propInfo == null)
+                if (propInfo == null)
                     continue;
                 where += $"{props[i]}={Helper.GetValue(propInfo.GetValue(item))}";
                 if (i + 1 < props.Length)
@@ -347,24 +395,6 @@ namespace DatabaseLibrary
             return int.Parse(t["ID"].ToString());
         }
 
-        public static T GetPerson<T>(string RFID)
-        {
-            string qry = string.Format(SQL_SELECT_PERSON_FORM_RFID, RFID);
-            return HashtableToItem<T>(QueryFirst(qry));
-        }
-
-        public static IEnumerable<T> GetPersons<T>(bool present, dynamic searchCriteria)
-        {
-            string s = "N";
-            if (present)
-                s = "Y";
-            string qry = string.Format(SQL_SELECT_Persons, s, searchCriteria.ID);
-            Hashtable[] h = Query(qry);
-            if (h == null)
-                return null;
-            return h.Select(HashtableToItem<T>).ToList();
-        }
-
         private static T HashtableToItem<T>(Hashtable info)
         {
             if (info == null)
@@ -387,14 +417,13 @@ namespace DatabaseLibrary
                     propInfo.SetValue(returnObject, row.Value.ToString());
                     continue;
                 }
-                if (propInfo.PropertyType == typeof (int))
+                if (propInfo.PropertyType == typeof (int) || propInfo.PropertyType == typeof(int?))
                 {
-                    if(row.Value.ToString().Equals(""))
-                        propInfo.SetValue(returnObject, null);
-                    propInfo.SetValue(returnObject, int.Parse(row.Value.ToString()));
+
+                    if(!string.IsNullOrEmpty(row.Value.ToString()))
+                        propInfo.SetValue(returnObject, int.Parse(row.Value.ToString()));
                     continue;
                 }
-
                 if (propInfo.PropertyType == typeof (DateTime))
                 {
                     propInfo.SetValue(returnObject, DateTime.Parse(row.Value.ToString()));
@@ -411,8 +440,6 @@ namespace DatabaseLibrary
             foreach (var p in typeof (T).GetProperties())
             {
                 if (p.PropertyType.Name.Equals(typeof(List<>).Name))
-                    continue;
-                if (p.GetValue(item) == null)
                     continue;
                 table[p.Name] = p.GetValue(item);
             }

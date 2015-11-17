@@ -39,7 +39,7 @@
             this.btPortier.Name = "btPortier";
             this.btPortier.Size = new System.Drawing.Size(160, 23);
             this.btPortier.TabIndex = 0;
-            this.btPortier.Text = "Toegangscontrole";
+            this.btPortier.Text = "Portier";
             this.btPortier.UseVisualStyleBackColor = true;
             this.btPortier.Click += new System.EventHandler(this.btPortier_Click);
             // 
@@ -49,7 +49,7 @@
             this.btCheckIn.Name = "btCheckIn";
             this.btCheckIn.Size = new System.Drawing.Size(160, 23);
             this.btCheckIn.TabIndex = 1;
-            this.btCheckIn.Text = "Portier";
+            this.btCheckIn.Text = "Toegangscontrole";
             this.btCheckIn.UseVisualStyleBackColor = true;
             this.btCheckIn.Click += new System.EventHandler(this.btCheckIn_Click);
             // 

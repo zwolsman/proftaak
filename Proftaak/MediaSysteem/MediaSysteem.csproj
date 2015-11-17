@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EB7E248E-179B-48ED-9F11-9997E967503D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MediaSysteem</RootNamespace>
+    <AssemblyName>MediaSysteem</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Category.cs" />
+    <Compile Include="Classes\Evenement.cs" />
+    <Compile Include="Classes\Globals.cs" />
+    <Compile Include="Classes\MediaAccount.cs" />
+    <Compile Include="Classes\Message.cs" />
+    <Compile Include="frmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBase.Designer.cs">
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProfile.Designer.cs">
+      <DependentUpon>frmProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSignin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSignin.Designer.cs">
+      <DependentUpon>frmSignin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSignup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSignup.Designer.cs">
+      <DependentUpon>frmSignup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStartup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStartup.Designer.cs">
+      <DependentUpon>frmStartup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTimeline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTimeline.Designer.cs">
+      <DependentUpon>frmTimeline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MessageControl.Designer.cs">
+      <DependentUpon>MessageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBase.resx">
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProfile.resx">
+      <DependentUpon>frmProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSignin.resx">
+      <DependentUpon>frmSignin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSignup.resx">
+      <DependentUpon>frmSignup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStartup.resx">
+      <DependentUpon>frmStartup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTimeline.resx">
+      <DependentUpon>frmTimeline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageControl.resx">
+      <DependentUpon>MessageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseLibrary\DatabaseLibrary.csproj">
+      <Project>{cd2ffa70-b471-4ce0-811e-e53425e2a764}</Project>
+      <Name>DatabaseLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DropDownControls\DropDownControls.csproj">
+      <Project>{1a0eb623-3edd-4ba6-80ee-0fa61a708542}</Project>
+      <Name>DropDownControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image_add.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
