@@ -53,7 +53,7 @@ namespace DatabaseLibrary
                 DateTime v = (DateTime) val;
                 return $"'{v.Year}-{v.Month}-{v.Day}'";
             }
-            return "";
+            return "NULL";
         }
 
         public static string MD5(string input) => new MD5CryptoServiceProvider().ComputeHash(Encoding.UTF8.GetBytes(input)).Aggregate("", (current, b) => current + b.ToString("x2"));

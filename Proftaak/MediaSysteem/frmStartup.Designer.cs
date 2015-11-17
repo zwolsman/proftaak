@@ -82,6 +82,7 @@
             this.btnSignin.TabIndex = 4;
             this.btnSignin.Text = "Sign in";
             this.btnSignin.UseVisualStyleBackColor = true;
+            this.btnSignin.Click += new System.EventHandler(this.btnSignin_Click);
             // 
             // comboEvents
             // 

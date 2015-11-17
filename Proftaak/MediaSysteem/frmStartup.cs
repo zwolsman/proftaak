@@ -75,5 +75,16 @@ namespace MediaSysteem
         {
             new frmSignup().Show(this);
         }
+
+        private void btnSignin_Click(object sender, EventArgs e)
+        {
+
+            if (new frmSignin().ShowDialog(this) == DialogResult.OK)
+            {
+                new frmTimeline().Show(this);  
+            }
+            //new frmSignin().Show(this);
+
+        }
     }
 }

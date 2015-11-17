@@ -36,12 +36,14 @@ namespace DatabaseLibrary
         //Map class names to table names. 
         private static readonly Dictionary<string, string> classMappings = new Dictionary<string, string>()
         {
-            {"Evenement", "Event"},             //Class evenement -> database table Event
-            {"LeasePlace", "Lease_Place" },     //Class LeasePlace -> database table Lease_Place
-            {"RFIDPerson", "RFID_Person" },     //Class RFIDPerson -> database table RFID_Person
+            {"Evenement", "Event"},             //Class evenement -> database table Event           (Proftaak)
+            {"LeasePlace", "Lease_Place" },     //Class LeasePlace -> database table Lease_Place    (Proftaak)
+            {"RFIDPerson", "RFID_Person" },     //Class RFIDPerson -> database table RFID_Person    (Proftaak)
+            {"MessageInstance", "Message" },    //Class MessageInstance -> database table Message   (Media)
+            {"CategoryInstance", "Category"}    //Class CategoryInstance -> databse table Category  (Media)
         };
 
-        private static readonly List<String> idList = new List<string>()
+        private static readonly List<string> idList = new List<string>()
         {
             "ID",
             "Cardnumber",
@@ -127,6 +129,12 @@ namespace DatabaseLibrary
           return GetItem<T>(defaultDatabase);
         }
 
+
+        public static T GetItem<T>(dynamic searchCriteria)
+        {
+            return GetItems<T>(searchCriteria)[0];
+        }
+
         public static T GetItem<T>(string database)
         {
             string tableName = classMappings.ContainsKey(typeof(T).Name)
@@ -201,11 +209,22 @@ namespace DatabaseLibrary
 
         public static bool UpdateItem<T>(T item)
         {
+            return UpdateItem(item, defaultDatabase);
+        }
+
+        public static bool UpdateItem<T>(T item, string database)
+        {
             string tableName = classMappings.ContainsKey(typeof(T).Name)
-               ? classMappings[typeof(T).Name]
-               : typeof(T).Name;
+              ? classMappings[typeof(T).Name]
+              : typeof(T).Name;
+
+            tableName = $"[{database}].[dbo].[{tableName}]";
+
+
             if (tableName.Contains("Material") && !tableName.Equals("Material"))
                 return UpdateDate(item);
+
+
             Hashtable hashtable = ItemToHashtable<T>(item);
 
             string newValues = "";
@@ -401,12 +420,13 @@ namespace DatabaseLibrary
                     propInfo.SetValue(returnObject, row.Value.ToString());
                     continue;
                 }
-                if (propInfo.PropertyType == typeof (int))
+                if (propInfo.PropertyType == typeof (int) || propInfo.PropertyType == typeof(int?))
                 {
-                    propInfo.SetValue(returnObject, int.Parse(row.Value.ToString()));
+
+                    if(!string.IsNullOrEmpty(row.Value.ToString()))
+                        propInfo.SetValue(returnObject, int.Parse(row.Value.ToString()));
                     continue;
                 }
-
                 if (propInfo.PropertyType == typeof (DateTime))
                 {
                     propInfo.SetValue(returnObject, DateTime.Parse(row.Value.ToString()));
