@@ -19,7 +19,7 @@ namespace DatabaseLibrary
                 if (val is int && int.Parse(val.ToString()) == -1)
                 {
                     //TODO fix primary key shit werkt niet goed als je items gaat verwijderen en weer toevoegen
-                    values += $"(SELECT COUNT(*) FROM {tableName}) + 1, ";
+                    values += $"ISNULL((SELECT MAX(ID) FROM {tableName}), -1) + 1, ";
                 }
                 else
                 {

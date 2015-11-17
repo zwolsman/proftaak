@@ -70,7 +70,6 @@ namespace MediaSysteem
                     control.CommentPostedHandler += CommentPostedHandler;
                     control.MessageDeleteHandler += MessageDeleteHandler;
                     flowLayoutPosts.Controls.Add(control);
-               
                 }
 
           
@@ -89,6 +88,7 @@ namespace MediaSysteem
         private void CommentPostedHandler(object sender, MessageInstance messageInstance)
         {
             DatabaseManager.InsertItem(messageInstance);
+            messageInstance = DatabaseManager.ContainsItem(messageInstance, new[] {"MediaAccount", "Category", "Title", "Report"});
             Messages.Add(messageInstance);
         }
 
@@ -118,6 +118,7 @@ namespace MediaSysteem
 
             if (DatabaseManager.InsertItem(message))
             {
+                message = DatabaseManager.ContainsItem(message, new[] { "MediaAccount", "Category", "Title", "Report" });
                 Messages.Add(message);
             }
 

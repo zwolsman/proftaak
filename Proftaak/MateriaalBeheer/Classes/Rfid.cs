@@ -13,6 +13,7 @@ namespace MateriaalBeheer.Classes
     {
         private static RFID rfid;
         private static string tag;
+        private static bool started = false;
 
         public static void Start()
         {
@@ -27,6 +28,7 @@ namespace MateriaalBeheer.Classes
                 rfid.waitForAttachment();
                 rfid.Antenna = true;
                 rfid.LED = true;
+                started = true;
             }
             catch (PhidgetException ex)
             {
@@ -51,6 +53,8 @@ namespace MateriaalBeheer.Classes
 
         public static Boolean Rent(Item i, Boolean beschikbaarMateriaalWeergeven)
         {
+            if (!started)
+                Start();
             if (!tag.Equals(string.Empty))
             {
                 RFIDPerson rp = new RFIDPerson();
@@ -62,17 +66,17 @@ namespace MateriaalBeheer.Classes
                     {
                         ReservationMaterial rm = new ReservationMaterial()
                         {
-                            RFID = tag,
+                            RFID = rp.RFID,
                             Item = i.ID
                         };
                         DatabaseManager.DeleteDate(rm);
                     }
                     LeaseMaterial lm = new LeaseMaterial()
                     {
-                        RFID = tag,
+                        RFID = rp.RFID,
                         Item = i.ID
                     };
-                    DatabaseManager.InsertItem(i);
+                    DatabaseManager.InsertItem<LeaseMaterial>(lm);
                     return true;
                 }
             }
