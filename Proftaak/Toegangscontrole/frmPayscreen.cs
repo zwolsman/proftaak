@@ -7,41 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MateriaalBeheer.Classes;
 using DatabaseLibrary;
+using Toegangscontrole.Classes;
 
-namespace MateriaalBeheer.Forms
+namespace Toegangscontrole
 {
     public partial class frmPayscreen : Form
     {
-        private int price;
+        private float price;
         private string rfid;
 
-        public frmPayscreen(int days, int price, string rfid, string product)
+        public frmPayscreen(int price, string rfid)
         {
             InitializeComponent();
             DialogResult = DialogResult.Abort;
             this.rfid = rfid;
             this.price = price;
-            float f = price;
-            f = f / 100;
-            lblInfo.Text = char.ToUpper(product[0]) + product.Substring(1) + " gehuurd voor " + days.ToString() + " dagen.\nVoor de prijs van \u20AC" + f.ToString();
+            this.price = this.price / 100;
+            lblInfo.Text = "Nog te betalen: \u20AC" + this.price.ToString();
         }
 
         private void btPayNow_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-            Close();
-        }
-
-        private void btAddBill_Click(object sender, EventArgs e)
         {
             int i = DatabaseManager.GetLeasePlaceID(rfid);
             Payment p = new Payment()
             {
                 LeasePlace = i,
-                Amount = 0 - price,
-                Description = "Huur:" + lblInfo.Text,
+                Amount = (int)(price*100),
+                Description = "Betaald bij portier:" + price.ToString(),
             };
             DatabaseManager.InsertItem<Payment>(p);
             DialogResult = DialogResult.OK;

@@ -25,7 +25,9 @@ namespace DatabaseLibrary
         private const string SQL_AVAILABLE_ITEMS = "SELECT * FROM AvailableItems WHERE {0}={1}";
         private const string SQL_RESERVED_ITEMS = "SELECT ID, Material, Productcode FROM ReservedItems WHERE {0}={1}";
         private const string SQL_RESERVED_ITEMS2 = "SELECT ID, Material, Productcode FROM ReservedItems WHERE {0}={1} AND (Departure<{2} OR ReservationDate>{3})";
-        private const string SQL_SELECT_LEASEPLACEID = "SELECT t.ID FROM (SELECT lp.ID, p.ID AS Person FROM lease_place lp LEFT JOIN Person p ON p.Account = lp.Account OR p.Lease = lp.Lease) t WHERE t.Person IN (SELECT person FROM rfid_person WHERE RFID = {0})";
+        private const string SQL_SELECT_LEASEPLACEID = "SELECT t.ID FROM (SELECT lp.ID, p.ID AS Person FROM lease_place lp LEFT JOIN Person p ON p.Account=lp.Account OR p.Lease=lp.Lease) t WHERE t.Person IN (SELECT person FROM rfid_person WHERE RFID='{0}')";
+        private const string SQL_SELECT_PERSON_FORM_RFID = "SELECT p.* FROM Person p, RFID_Person rp WHERE p.ID=rp.Person AND rp.RFID='{0}'";
+        private const string SQL_SELECT_Persons = "SELECT p.* FROM Person p, Lease_Place lp WHERE p.Present='{0}' AND (p.Account= lp.Account OR p.Lease= lp.Lease) AND lp.Event={1} ";
 
         private const string CONNECTION_STRING_FORMAT = "Server={0};Database={1};User Id={2};Password={3};";
         private const string ORACLE_STRING_FORMAT = "Data Access={0};User Id={1};Password={2};";
@@ -219,8 +221,8 @@ namespace DatabaseLibrary
         public static bool UpdateItem<T>(T item, string database)
         {
             string tableName = classMappings.ContainsKey(typeof(T).Name)
-              ? classMappings[typeof(T).Name]
-              : typeof(T).Name;
+               ? classMappings[typeof(T).Name]
+               : typeof(T).Name;
 
             tableName = $"[{database}].[dbo].[{tableName}]";
 
@@ -291,7 +293,7 @@ namespace DatabaseLibrary
                 return false;
             Hashtable hashtable = ItemToHashtable<T>(item);
 
-            string qur = $"DELETE FROM {tableName} WHERE RFID={hashtable["RFID"]} AND Item={hashtable["Item"]}";
+            string qur = $"DELETE FROM {tableName} WHERE RFID='{hashtable["RFID"]}' AND Item={hashtable["Item"]}";
             return Execute(qur) != -1;
         }
 
@@ -303,8 +305,8 @@ namespace DatabaseLibrary
         public static T ContainsItem<T>(T item, string database, params string[] props)
         {
             string tableName = classMappings.ContainsKey(typeof(T).Name)
-            ? classMappings[typeof(T).Name]
-            : typeof(T).Name;
+             ? classMappings[typeof(T).Name]
+             : typeof(T).Name;
 
             tableName = $"[{database}].[dbo].[{tableName}]";
 
@@ -400,6 +402,24 @@ namespace DatabaseLibrary
             return int.Parse(t["ID"].ToString());
         }
 
+        public static T GetPerson<T>(string RFID)
+        {
+            string qry = string.Format(SQL_SELECT_PERSON_FORM_RFID, RFID);
+            return HashtableToItem<T>(QueryFirst(qry));
+        }
+
+        public static IEnumerable<T> GetPersons<T>(bool present, dynamic searchCriteria)
+        {
+            string s = "N";
+            if (present)
+                s = "Y";
+            string qry = string.Format(SQL_SELECT_Persons, s, searchCriteria.ID);
+            Hashtable[] h = Query(qry);
+            if (h == null)
+                return null;
+            return h.Select(HashtableToItem<T>).ToList();
+        }
+
         private static T HashtableToItem<T>(Hashtable info)
         {
             if (info == null)
@@ -426,7 +446,7 @@ namespace DatabaseLibrary
                 {
 
                     if(!string.IsNullOrEmpty(row.Value.ToString()))
-                        propInfo.SetValue(returnObject, int.Parse(row.Value.ToString()));
+                    propInfo.SetValue(returnObject, int.Parse(row.Value.ToString()));
                     continue;
                 }
                 if (propInfo.PropertyType == typeof (DateTime))
