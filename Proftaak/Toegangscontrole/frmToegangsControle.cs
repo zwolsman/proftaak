@@ -23,7 +23,7 @@ namespace Toegangscontrole
         private Evenement evenement;
 
         private const string INFO = "Houd uw pas voor de lezer";
-        private const string ERROR = "Er is iets fout gegaan./nProbeer het opnieuw.";
+        private const string ERROR = "Er is iets fout gegaan. Probeer het opnieuw.";
         private const string WELKOM = "Welkom op het evenement terrein";
         private const string TOTZIENS = "Prettige dag en tot de volgende keer";
 
@@ -31,7 +31,7 @@ namespace Toegangscontrole
         {
             InitializeComponent();
             lblInfo.Text = INFO;
-            timer = new System.Timers.Timer(1000);
+            timer = new System.Timers.Timer(2000);
             timer.Elapsed += OnTimer;
             timer.AutoReset = false;
             timer.Enabled = true;
@@ -62,11 +62,12 @@ namespace Toegangscontrole
         private void rfid_Tag(object sender, TagEventArgs e)
         {
             Debug.WriteLine("Event fired by RFID: " + e.Tag);
+            string tag = e.Tag;
             //Debug.WriteLine("Last RFID: " + rfid.LastTag);
             string s = ERROR;
             //Get preson this tag belongs to and return that person with DatabaseManager
             try {
-                Person p = DatabaseManager.GetPerson<Person>(rfid.LastTag);
+                Person p = DatabaseManager.GetPerson<Person>(tag);
                 if(p.ChangePresence())
                 {
                     s = WELKOM;
@@ -95,7 +96,19 @@ namespace Toegangscontrole
         private void OnTimer(object sender, ElapsedEventArgs e)
         {
             pictureBox1.BackColor = Control.DefaultBackColor;
-            lblInfo.Text = INFO;
+            SetText(INFO);
+        }
+
+        private void SetText(string text)
+        {
+            if (lblInfo.InvokeRequired)
+            {
+                lblInfo.Invoke(new Action(() => lblInfo.Text = text));
+            }
+            else
+            {
+                lblInfo.Text = text;
+            }
         }
 
         private void lblInfo_SizeChanged(object sender, EventArgs e)
