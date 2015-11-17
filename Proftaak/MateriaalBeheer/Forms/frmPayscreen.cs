@@ -41,7 +41,7 @@ namespace MateriaalBeheer.Forms
             {
                 LeasePlace = i,
                 Amount = 0 - price,
-                Description = lblInfo.Text,
+                Description = "Huur:" + lblInfo.Text,
             };
             DatabaseManager.InsertItem<Payment>(p);
             DialogResult = DialogResult.OK;
