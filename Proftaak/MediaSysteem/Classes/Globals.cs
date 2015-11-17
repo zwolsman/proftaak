@@ -28,5 +28,7 @@ namespace MediaSysteem
         {
             EvenementChanged?.Invoke(null, e);
         }
+
+        public static MediaAccount Account { get; set; }
     }
 }

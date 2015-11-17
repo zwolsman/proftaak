@@ -42,12 +42,15 @@ namespace MediaSysteem
             string email = txtEmail.Text;
 
 
-            if (!DatabaseManager.InsertItem(new MediaAccount()
+            MediaAccount account = new MediaAccount()
             {
                 Username = username,
                 Password = password,
                 Email = email
-            }))
+            };
+
+
+            if (!DatabaseManager.InsertItem(account))
             {
                 MessageBox.Show("Could not create user. Please try again with a different username", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -55,6 +58,13 @@ namespace MediaSysteem
             else
             {
                 MessageBox.Show("Account created!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                account = DatabaseManager.ContainsItem(new MediaAccount()
+                {
+                    Username = username,
+                    Password = password,
+                    Email = email
+                }, new [] {"Username", "Password"});
+                Globals.Account = account;
                 DialogResult = DialogResult.OK;
                 Close();
             }

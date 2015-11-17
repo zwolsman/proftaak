@@ -22,16 +22,18 @@ namespace MediaSysteem
         public frmStartup()
         {
             InitializeComponent();
-            DatabaseManager.Initialize("sa", "Wachtwoord1", "127.0.0.1", "proftaak");
+            DatabaseManager.Initialize("sa", "Wachtwoord1", "127.0.0.1", "media");
             DatabaseManager.Open();
-
+            
             InitEvents();
-            comboEvents.SelectedIndex = 0;
+            if(comboEvents.Items.Count > 0) { 
+                comboEvents.SelectedIndex = 0;
+            }
         }
 
         private void InitEvents()
         {
-            foreach (Evenement evenement in DatabaseManager.GetItems<Evenement>())
+            foreach (Evenement evenement in DatabaseManager.GetItems<Evenement>("proftaak"))
             {
                 
                 int index = comboEvents.Items.Add(evenement.Name);
@@ -47,6 +49,10 @@ namespace MediaSysteem
                 Bitmap logo = new Bitmap(new MemoryStream(new WebClient().DownloadData(url)));
                 evenementBitmaps.Add(id, logo);
                 evenements[id].LoadedLogo = logo;
+                if (id == 0)
+                {
+                    Globals.SelectedEvenement = evenements[0];
+                }
             }
             catch (Exception ex)
             {
@@ -57,6 +63,7 @@ namespace MediaSysteem
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lblEventInfo.Text = evenements[comboEvents.SelectedIndex].Description;
             //Save it for global usage
             evenements[comboEvents.SelectedIndex].LoadedLogo = evenementBitmaps.ContainsKey(comboEvents.SelectedIndex)
                 ? evenementBitmaps[comboEvents.SelectedIndex]

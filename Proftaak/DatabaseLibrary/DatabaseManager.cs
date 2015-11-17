@@ -132,7 +132,8 @@ namespace DatabaseLibrary
             string tableName = classMappings.ContainsKey(typeof(T).Name)
               ? classMappings[typeof(T).Name]
               : typeof(T).Name;
-            tableName = database + "." + tableName;
+            //tableName = database + "." + tableName;
+            tableName = $"[{database}].[dbo].[{tableName}]";
 
             string qur = string.Format(SQL_SELECT_ALL, tableName);
 
@@ -144,7 +145,8 @@ namespace DatabaseLibrary
             string tableName = classMappings.ContainsKey(typeof (T).Name)
                 ? classMappings[typeof (T).Name]
                 : typeof (T).Name;
-            tableName = database + "." + tableName;
+            //[proftaak_new].[dbo].[Event]
+            tableName = $"[{database}].[dbo].[{tableName}]";
             string qur = string.Format(SQL_SELECT_ALL, tableName);
 
 
@@ -176,7 +178,8 @@ namespace DatabaseLibrary
             string tableName = classMappings.ContainsKey(typeof (T).Name)
                 ? classMappings[typeof (T).Name]
                 : typeof (T).Name;
-            tableName = database + "." + tableName;
+            //tableName = database + "." + tableName;
+            tableName = $"[{database}].[dbo].[{tableName}]";
 
             Hashtable hashtable = ItemToHashtable<T>(item);
             string columnNames =
@@ -271,9 +274,16 @@ namespace DatabaseLibrary
 
         public static T ContainsItem<T>(T item, params string[] props)
         {
+            return ContainsItem<T>(item, defaultDatabase, props);
+        }
+
+        public static T ContainsItem<T>(T item, string database, params string[] props)
+        {
             string tableName = classMappings.ContainsKey(typeof(T).Name)
-             ? classMappings[typeof(T).Name]
-             : typeof(T).Name;
+            ? classMappings[typeof(T).Name]
+            : typeof(T).Name;
+
+            tableName = $"[{database}].[dbo].[{tableName}]";
 
             if (props == null)
                 return default(T);
@@ -281,9 +291,9 @@ namespace DatabaseLibrary
             string where = "";
             for (int i = 0; i < props.Length; i++)
             {
-                PropertyInfo propInfo = typeof (T).GetProperty(props[i]);
+                PropertyInfo propInfo = typeof(T).GetProperty(props[i]);
 
-                if(propInfo == null)
+                if (propInfo == null)
                     continue;
                 where += $"{props[i]}={Helper.GetValue(propInfo.GetValue(item))}";
                 if (i + 1 < props.Length)
@@ -297,6 +307,8 @@ namespace DatabaseLibrary
 
             return HashtableToItem<T>(QueryFirst(sql));
         }
+
+
 
         public static T ContainsLease<T>(T item, params string[] props)
         {
