@@ -32,6 +32,7 @@ namespace DatabaseLibrary
         private static string connectionString = "";
         public static bool IsConnected => _connection != null && _connection.State == ConnectionState.Open;
 
+        private static string defaultDatabase = "";
         //Map class names to table names. 
         private static readonly Dictionary<string, string> classMappings = new Dictionary<string, string>()
         {
@@ -50,6 +51,7 @@ namespace DatabaseLibrary
         public static void Initialize(string username, string password, string server, string database)
         {
             connectionString = string.Format(CONNECTION_STRING_FORMAT, server, database, username, password);
+            defaultDatabase = database;
         }
 
         public static void Open()
@@ -122,23 +124,36 @@ namespace DatabaseLibrary
 
         public static T GetItem<T>()
         {
-            string tableName = classMappings.ContainsKey(typeof (T).Name)
-                ? classMappings[typeof (T).Name]
-                : typeof (T).Name;
+          return GetItem<T>(defaultDatabase);
+        }
+
+        public static T GetItem<T>(string database)
+        {
+            string tableName = classMappings.ContainsKey(typeof(T).Name)
+              ? classMappings[typeof(T).Name]
+              : typeof(T).Name;
+            tableName = database + "." + tableName;
+
             string qur = string.Format(SQL_SELECT_ALL, tableName);
 
             return HashtableToItem<T>(QueryFirst(qur));
         }
 
-        public static IEnumerable<T> GetItems<T>()
+        public static IEnumerable<T> GetItems<T>(string database)
         {
             string tableName = classMappings.ContainsKey(typeof (T).Name)
                 ? classMappings[typeof (T).Name]
                 : typeof (T).Name;
+            tableName = database + "." + tableName;
             string qur = string.Format(SQL_SELECT_ALL, tableName);
 
 
             return Query(qur).Select(HashtableToItem<T>).ToList();
+        }
+
+        public static IEnumerable<T> GetItems<T>()
+        {
+            return GetItems<T>(defaultDatabase);
         }
 
         public static IEnumerable<T> GetItems<T>(dynamic searchCriteria)
@@ -156,11 +171,13 @@ namespace DatabaseLibrary
 
         }
 
-        public static bool InsertItem<T>(T item)
+        public static bool InsertItem<T>(T item, string database)
         {
             string tableName = classMappings.ContainsKey(typeof (T).Name)
                 ? classMappings[typeof (T).Name]
                 : typeof (T).Name;
+            tableName = database + "." + tableName;
+
             Hashtable hashtable = ItemToHashtable<T>(item);
             string columnNames =
                 hashtable.Keys.Cast<object>()
@@ -172,6 +189,11 @@ namespace DatabaseLibrary
 
             string qur = string.Format(SQL_INSERT, tableName, columnNames, columnValues);
             return Execute(qur) != -1;
+        }
+
+        public static bool InsertItem<T>(T item)
+        {
+            return InsertItem<T>(item, defaultDatabase);
         }
 
         public static bool UpdateItem<T>(T item)
