@@ -52,12 +52,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Evenement.cs" />
+    <Compile Include="Classes\Payment.cs" />
     <Compile Include="Classes\Person.cs" />
+    <Compile Include="Classes\Rfid.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPayscreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPayscreen.Designer.cs">
+      <DependentUpon>frmPayscreen.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPortier.cs">
       <SubType>Form</SubType>
@@ -87,6 +95,9 @@
     </Compile>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPayscreen.resx">
+      <DependentUpon>frmPayscreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPortier.resx">
       <DependentUpon>frmPortier.cs</DependentUpon>
