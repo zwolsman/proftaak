@@ -245,7 +245,7 @@ namespace DatabaseLibrary
                 return false;
             Hashtable hashtable = ItemToHashtable<T>(item);
 
-            string qur = $"DELETE FROM {tableName} WHERE RFID={hashtable["RFID"]} AND Item={hashtable["Item"]}";
+            string qur = $"DELETE FROM {tableName} WHERE RFID='{hashtable["RFID"]}' AND Item={hashtable["Item"]}";
             return Execute(qur) != -1;
         }
 

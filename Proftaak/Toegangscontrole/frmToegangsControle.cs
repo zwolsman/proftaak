@@ -62,7 +62,7 @@ namespace Toegangscontrole
         private void rfid_Tag(object sender, TagEventArgs e)
         {
             Debug.WriteLine("Event fired by RFID: " + e.Tag);
-            Debug.WriteLine("Last RFID: " + rfid.LastTag);
+            //Debug.WriteLine("Last RFID: " + rfid.LastTag);
             string s = ERROR;
             //Get preson this tag belongs to and return that person with DatabaseManager
             try {

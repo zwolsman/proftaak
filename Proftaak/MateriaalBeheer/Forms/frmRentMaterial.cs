@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DatabaseLibrary;
 using MateriaalBeheer.Classes;
 using System.Diagnostics;
+using Phidgets;
 
 namespace MateriaalBeheer.Forms
 {
@@ -129,13 +130,14 @@ namespace MateriaalBeheer.Forms
                 {
                 }
             }
-            catch (Exception ex)
+            catch (PhidgetException ex)
             {
                 MessageBox.Show("Er is geen RFID-chip gezien, probeer het opnieuw.", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Debug.WriteLine(ex.Source + ": " + ex.Message);
             }
             DisableControls(false);
             #endregion
+            AvailableItems();
         }
 
         private void btInnemen_Click(object sender, EventArgs e)
@@ -196,6 +198,7 @@ namespace MateriaalBeheer.Forms
                     if (DatabaseManager.InsertItem<ReturnMaterial>(rm))
                     {
                         MessageBox.Show("Gelukt!");
+                        AvailableItems();
                         return;
                     }
                 }
