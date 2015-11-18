@@ -127,6 +127,8 @@ namespace MediaSysteem
         private void btnProfile_Click(object sender, EventArgs e)
         {
             new frmProfile().Show(this);
+            if (!string.IsNullOrEmpty(Globals.Account.Picture))
+                picProfile.ImageLocation = Globals.Account.Picture;
         }
     }
 }

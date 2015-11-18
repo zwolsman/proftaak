@@ -65,7 +65,13 @@ namespace MediaSysteem
                 Picture = picProfile.ImageLocation
             };
 
-            DatabaseManager.UpdateItem(account);
+            if (!DatabaseManager.UpdateItem(account))
+            {
+                MessageBox.Show("Something went wrong saving your information", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+            Globals.Account = account;
             Close();
         }
     }
