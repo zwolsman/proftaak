@@ -38,7 +38,10 @@
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSubmitComment = new System.Windows.Forms.Button();
+            this.lblLikes = new System.Windows.Forms.Label();
+            this.picAction = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAction)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -70,11 +73,11 @@
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
+            this.lblTitle.AutoEllipsis = true;
             this.lblTitle.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(52, 29);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(91, 13);
+            this.lblTitle.Size = new System.Drawing.Size(157, 13);
             this.lblTitle.TabIndex = 3;
             this.lblTitle.Text = "title - category";
             // 
@@ -85,7 +88,7 @@
             this.lblMessage.AutoEllipsis = true;
             this.lblMessage.Location = new System.Drawing.Point(3, 45);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(228, 15);
+            this.lblMessage.Size = new System.Drawing.Size(231, 15);
             this.lblMessage.TabIndex = 4;
             this.lblMessage.Text = "Message";
             // 
@@ -93,7 +96,7 @@
             // 
             this.lblRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblRemove.AutoSize = true;
-            this.lblRemove.Location = new System.Drawing.Point(177, 3);
+            this.lblRemove.Location = new System.Drawing.Point(180, 3);
             this.lblRemove.Name = "lblRemove";
             this.lblRemove.Size = new System.Drawing.Size(54, 13);
             this.lblRemove.TabIndex = 5;
@@ -122,6 +125,7 @@
             // 
             // label1
             // 
+            this.label1.AutoEllipsis = true;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 79);
             this.label1.Name = "label1";
@@ -139,11 +143,33 @@
             this.btnSubmitComment.UseVisualStyleBackColor = true;
             this.btnSubmitComment.Click += new System.EventHandler(this.btnSubmitComment_Click);
             // 
+            // lblLikes
+            // 
+            this.lblLikes.Location = new System.Drawing.Point(95, 60);
+            this.lblLikes.Name = "lblLikes";
+            this.lblLikes.Size = new System.Drawing.Size(136, 13);
+            this.lblLikes.TabIndex = 10;
+            this.lblLikes.Text = "1000 likes";
+            this.lblLikes.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // picAction
+            // 
+            this.picAction.Image = global::MediaSysteem.Properties.Resources.thumb_up;
+            this.picAction.Location = new System.Drawing.Point(215, 26);
+            this.picAction.Name = "picAction";
+            this.picAction.Size = new System.Drawing.Size(16, 16);
+            this.picAction.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.picAction.TabIndex = 11;
+            this.picAction.TabStop = false;
+            this.picAction.Click += new System.EventHandler(this.picAction_Click);
+            // 
             // MessageControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.picAction);
+            this.Controls.Add(this.lblLikes);
             this.Controls.Add(this.btnSubmitComment);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtMessage);
@@ -156,8 +182,9 @@
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Verdana", 8.25F);
             this.Name = "MessageControl";
-            this.Size = new System.Drawing.Size(234, 131);
+            this.Size = new System.Drawing.Size(237, 131);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAction)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,5 +202,7 @@
         private System.Windows.Forms.TextBox txtMessage;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSubmitComment;
+        private System.Windows.Forms.Label lblLikes;
+        private System.Windows.Forms.PictureBox picAction;
     }
 }

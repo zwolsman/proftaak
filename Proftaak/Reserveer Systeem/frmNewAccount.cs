@@ -29,7 +29,7 @@ namespace Reserveer_Systeem
                 Account account = GetFromForm();
                 if (DatabaseManager.InsertItem(account))
                 {
-                    Account = DatabaseManager.ContainsItem(account, "Username", "Password");
+                    Account = DatabaseManager.ContainsItem(account, new [] {"Username", "Password"});
                     if (
                         DatabaseManager.InsertItem(new Person(txtFirstname.Text, txtLastname.Text)
                         {

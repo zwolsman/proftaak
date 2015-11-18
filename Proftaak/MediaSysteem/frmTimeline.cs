@@ -126,7 +126,11 @@ namespace MediaSysteem
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            new frmProfile().Show(this);
+            new frmProfile().ShowDialog(this);
+            if (!string.IsNullOrEmpty(Globals.Account.Picture))
+                picProfile.ImageLocation = Globals.Account.Picture;
+            foreach(MessageControl control in flowLayoutPosts.Controls)
+                control.Reload();
         }
     }
 }
