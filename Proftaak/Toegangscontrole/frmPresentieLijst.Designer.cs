@@ -69,7 +69,7 @@
             // 
             // btPrint
             // 
-            this.btPrint.Location = new System.Drawing.Point(13, 417);
+            this.btPrint.Location = new System.Drawing.Point(12, 417);
             this.btPrint.Name = "btPrint";
             this.btPrint.Size = new System.Drawing.Size(190, 23);
             this.btPrint.TabIndex = 1;
@@ -93,7 +93,7 @@
             // 
             // frmPresentieLijst
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(412, 452);
             this.Controls.Add(this.btSave);

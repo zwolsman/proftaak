@@ -105,6 +105,9 @@
     <EmbeddedResource Include="frmPresentieLijst.resx">
       <DependentUpon>frmPresentieLijst.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectEvent.resx">
+      <DependentUpon>frmSelectEvent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmToegangsControle.resx">
       <DependentUpon>frmToegangsControle.cs</DependentUpon>
     </EmbeddedResource>

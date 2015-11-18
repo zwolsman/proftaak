@@ -36,10 +36,9 @@
             // lblInfo
             // 
             this.lblInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(88, 27);
+            this.lblInfo.Location = new System.Drawing.Point(12, 27);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(78, 17);
+            this.lblInfo.Size = new System.Drawing.Size(234, 13);
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "Payscreen";
             this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -67,7 +66,7 @@
             // 
             // frmPayscreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(258, 135);
             this.Controls.Add(this.btCancel);
@@ -77,7 +76,6 @@
             this.Name = "frmPayscreen";
             this.Text = "frmPayscreen";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
