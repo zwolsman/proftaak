@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Phidgets;
 using Phidgets.Events;
@@ -19,7 +13,7 @@ namespace Toegangscontrole
     public partial class frmToegangsControle : Form
     {
         private RFID rfid;
-        private System.Timers.Timer timer;
+        private readonly System.Timers.Timer timer;
         private Evenement evenement;
 
         private const string INFO = "Houd uw pas voor de lezer";
@@ -68,14 +62,7 @@ namespace Toegangscontrole
             //Get preson this tag belongs to and return that person with DatabaseManager
             try {
                 Person p = DatabaseManager.GetPerson<Person>(tag);
-                if(p.ChangePresence())
-                {
-                    s = WELKOM;
-                }
-                else
-                {
-                    s = TOTZIENS;
-                }
+                s = p.ChangePresence() ? WELKOM : TOTZIENS;
                 DatabaseManager.UpdateItem<Person>(p);
                 pictureBox1.BackColor = Color.Green;
             }
@@ -109,11 +96,6 @@ namespace Toegangscontrole
             {
                 lblInfo.Text = text;
             }
-        }
-
-        private void lblInfo_SizeChanged(object sender, EventArgs e)
-        {
-            lblInfo.Left = (this.ClientSize.Width - lblInfo.Size.Width) / 2;
         }
     }
 }

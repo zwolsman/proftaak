@@ -41,7 +41,6 @@
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "Toegangscontrole";
             this.lblInfo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblInfo.SizeChanged += new System.EventHandler(this.lblInfo_SizeChanged);
             // 
             // pictureBox1
             // 
