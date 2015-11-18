@@ -231,5 +231,10 @@ namespace MateriaalBeheer.Forms
                 return;
             LoadItems();
         }
+
+        private void listItem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btHuren.Enabled = listItem.SelectedIndex != -1;
+        }
     }
 }

@@ -49,6 +49,7 @@
             // 
             // btHuren
             // 
+            this.btHuren.Enabled = false;
             this.btHuren.Location = new System.Drawing.Point(11, 340);
             this.btHuren.Margin = new System.Windows.Forms.Padding(2);
             this.btHuren.Name = "btHuren";
@@ -108,6 +109,7 @@
             this.listItem.Name = "listItem";
             this.listItem.Size = new System.Drawing.Size(200, 303);
             this.listItem.TabIndex = 9;
+            this.listItem.SelectedIndexChanged += new System.EventHandler(this.listItem_SelectedIndexChanged);
             // 
             // frmRentMaterial
             // 
