@@ -37,9 +37,10 @@
             // btOk
             // 
             this.btOk.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btOk.Location = new System.Drawing.Point(41, 94);
+            this.btOk.Location = new System.Drawing.Point(35, 76);
+            this.btOk.Margin = new System.Windows.Forms.Padding(2);
             this.btOk.Name = "btOk";
-            this.btOk.Size = new System.Drawing.Size(83, 23);
+            this.btOk.Size = new System.Drawing.Size(75, 23);
             this.btOk.TabIndex = 0;
             this.btOk.Text = "Ok";
             this.btOk.UseVisualStyleBackColor = true;
@@ -48,17 +49,19 @@
             // txtProdCode
             // 
             this.txtProdCode.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProdCode.Location = new System.Drawing.Point(12, 65);
+            this.txtProdCode.Location = new System.Drawing.Point(10, 53);
+            this.txtProdCode.Margin = new System.Windows.Forms.Padding(2);
             this.txtProdCode.Name = "txtProdCode";
-            this.txtProdCode.Size = new System.Drawing.Size(249, 23);
+            this.txtProdCode.Size = new System.Drawing.Size(219, 20);
             this.txtProdCode.TabIndex = 1;
             // 
             // btCancel
             // 
             this.btCancel.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCancel.Location = new System.Drawing.Point(130, 94);
+            this.btCancel.Location = new System.Drawing.Point(114, 76);
+            this.btCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(90, 23);
+            this.btCancel.Size = new System.Drawing.Size(75, 23);
             this.btCancel.TabIndex = 2;
             this.btCancel.Text = "Annuleren";
             this.btCancel.UseVisualStyleBackColor = true;
@@ -66,23 +69,25 @@
             // 
             // lblProdCode
             // 
-            this.lblProdCode.AutoSize = true;
             this.lblProdCode.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProdCode.Location = new System.Drawing.Point(38, 45);
+            this.lblProdCode.Location = new System.Drawing.Point(10, 37);
+            this.lblProdCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProdCode.Name = "lblProdCode";
-            this.lblProdCode.Size = new System.Drawing.Size(182, 17);
+            this.lblProdCode.Size = new System.Drawing.Size(219, 13);
             this.lblProdCode.TabIndex = 3;
             this.lblProdCode.Text = "Voer productnummer in:\r\n";
             // 
             // frmEnterProdCode
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 195);
+            this.ClientSize = new System.Drawing.Size(239, 158);
             this.Controls.Add(this.lblProdCode);
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.txtProdCode);
             this.Controls.Add(this.btOk);
+            this.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmEnterProdCode";
             this.Text = "frmEnterProdCode";
             this.ResumeLayout(false);
