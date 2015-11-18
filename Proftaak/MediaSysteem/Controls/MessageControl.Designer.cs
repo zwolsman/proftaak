@@ -1,4 +1,6 @@
-﻿namespace MediaSysteem
+﻿using MediaSysteem.Controls;
+
+namespace MediaSysteem
 {
     partial class MessageControl
     {
@@ -35,8 +37,7 @@
             this.lblMessage = new System.Windows.Forms.Label();
             this.lblRemove = new System.Windows.Forms.LinkLabel();
             this.linkAddComment = new System.Windows.Forms.LinkLabel();
-            this.txtMessage = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtMessage = new MediaSysteem.Controls.CueTextBox();
             this.btnSubmitComment = new System.Windows.Forms.Button();
             this.lblLikes = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -117,21 +118,12 @@
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(72, 8);
+            this.txtMessage.Cue = "Enter comment here";
+            this.txtMessage.Location = new System.Drawing.Point(3, 8);
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(159, 21);
+            this.txtMessage.Size = new System.Drawing.Size(228, 21);
             this.txtMessage.TabIndex = 7;
             this.txtMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMessage_KeyDown);
-            // 
-            // label1
-            // 
-            this.label1.AutoEllipsis = true;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Comment";
             // 
             // btnSubmitComment
             // 
@@ -164,7 +156,6 @@
             // panelComment
             // 
             this.panelComment.Controls.Add(this.txtMessage);
-            this.panelComment.Controls.Add(this.label1);
             this.panelComment.Controls.Add(this.btnSubmitComment);
             this.panelComment.Location = new System.Drawing.Point(3, 3);
             this.panelComment.Name = "panelComment";
@@ -249,8 +240,7 @@
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.LinkLabel lblRemove;
         private System.Windows.Forms.LinkLabel linkAddComment;
-        private System.Windows.Forms.TextBox txtMessage;
-        private System.Windows.Forms.Label label1;
+        private CueTextBox txtMessage;
         private System.Windows.Forms.Button btnSubmitComment;
         private System.Windows.Forms.Label lblLikes;
         private System.Windows.Forms.PictureBox picAction;
