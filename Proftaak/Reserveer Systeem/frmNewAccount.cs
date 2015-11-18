@@ -27,23 +27,37 @@ namespace Reserveer_Systeem
             while (true)
             {
                 Account account = GetFromForm();
-                if (DatabaseManager.InsertItem(account))
+                try
                 {
-                    Account = DatabaseManager.ContainsItem(account, new [] {"Username", "Password"});
-                    if (
-                        DatabaseManager.InsertItem(new Person(txtFirstname.Text, txtLastname.Text)
-                        {
-                            Account = Account.ID,
-                            MainTenant = "Y"
-                        }))
+                    if (DatabaseManager.InsertItem(account))
                     {
-                        DialogResult = DialogResult.OK;
+                        Account = DatabaseManager.ContainsItem(account, new[] {"Username", "Password"});
+                        if (
+                            DatabaseManager.InsertItem(new Person(txtFirstname.Text, txtLastname.Text)
+                            {
+                                Account = Account.ID,
+                                MainTenant = "Y"
+                            }))
+                        {
+                            DialogResult = DialogResult.OK;
+                        }
+                        else
+                        {
+                            if (
+                                MessageBox.Show("Kon account niet aanmaken. Probeer het opnieuw", "Account aanmaken",
+                                    MessageBoxButtons.RetryCancel) == DialogResult.Retry)
+                            {
+                                continue;
+                            }
+
+                            Close();
+                        }
                     }
                     else
                     {
                         if (
-                       MessageBox.Show("Kon account niet aanmaken. Probeer het opnieuw", "Account aanmaken",
-                           MessageBoxButtons.RetryCancel) == DialogResult.Retry)
+                            MessageBox.Show("Kon account niet aanmaken. Probeer het opnieuw", "Account aanmaken",
+                                MessageBoxButtons.RetryCancel) == DialogResult.Retry)
                         {
                             continue;
                         }
@@ -51,16 +65,10 @@ namespace Reserveer_Systeem
                         Close();
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    if (
-                        MessageBox.Show("Kon account niet aanmaken. Probeer het opnieuw", "Account aanmaken",
-                            MessageBoxButtons.RetryCancel) == DialogResult.Retry)
-                    {
-                        continue;
-                    }
-
-                    Close();
+                    MessageBox.Show("Gebruikersnaam is al in gebruik. Probeer een andere");
+                    return;
                 }
                 break;
             }

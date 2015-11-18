@@ -113,6 +113,7 @@
             this.btnDatum.TabIndex = 8;
             this.btnDatum.Text = "Datum test";
             this.btnDatum.UseVisualStyleBackColor = true;
+            this.btnDatum.Visible = false;
             this.btnDatum.Click += new System.EventHandler(this.button1_Click);
             // 
             // picLogo

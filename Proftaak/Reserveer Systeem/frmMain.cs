@@ -115,16 +115,25 @@ namespace Reserveer_Systeem
                 MessageBox.Show("Geen plek gekozen! Probeer het opnieuw.");
                 return;
             }
+            frmSelectMaterial frmMaterial = new frmSelectMaterial(SelectedEvenement) { Location = Location, StartPosition = FormStartPosition.CenterParent };
+            if (frmMaterial.ShowDialog(this) == DialogResult.OK)
+            {
+                //TODO RICK FIX DEZE SHIZZLE
+            }
             try
             {
-                DatabaseManager.InsertItem(new LeasePlace()
+                if (DatabaseManager.InsertItem(new LeasePlace()
                 {
                     Account = Account.ID,
                     Arrival = frmDatum.From,
                     Departure = frmDatum.Till,
                     Event = SelectedEvenement.ID,
                     Place = frmKaart.SpotID
-                });
+                }))
+                {
+                    MessageBox.Show("U bent aangemeld! RFID word klaar gezet", "Succes", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
 
             }
             catch 
