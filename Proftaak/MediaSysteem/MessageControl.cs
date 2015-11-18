@@ -60,34 +60,45 @@ namespace MediaSysteem
 
         private void OnIsWritingChanged(bool isWriting)
         {
-            //Size = isWriting ? writingComment : normalSize;
             if (isWriting)
             {
-                Controls.Add(txtMessage);
-                Controls.Add(btnSubmitComment);
-                Controls.Add(label1);
+                Controls.Add(flowLayoutPanel1);
+                flowLayoutPanel1.Controls.Add(panelComment);
             }
             else
             {
-                Controls.Remove(txtMessage);
-                Controls.Remove(btnSubmitComment);
-                Controls.Remove(label1);
+                flowLayoutPanel1.Controls.Remove(panelComment);
+                if(!hasMedia)
+                    Controls.Remove(flowLayoutPanel1);
             }
         }
 
 
         private MediaAccount user;
         private CategoryInstance category;
+        private bool hasMedia = false;
         public MessageInstance Message { get; }
 
         public MessageControl(MessageInstance message)
         {
             InitializeComponent();
-
+            
             this.Message = message;
             user = new MediaAccount() {ID = message.MediaAccount};
             category = new CategoryInstance() {ID = message.Category};
 
+            if (Message.Media != null)
+            {
+                Media media = new Media() {ID = Message.Media.Value};
+                media = DatabaseManager.ContainsItem(media, new [] {"ID"});
+                picMedia.ImageLocation = media.Url;
+                hasMedia = true;
+            }
+            else
+            {
+                flowLayoutPanel1.Controls.Remove(panelMedia);
+                Controls.Remove(flowLayoutPanel1);
+            }
             user = DatabaseManager.ContainsItem(user, new[] {"ID"});
             category = DatabaseManager.ContainsItem(category, new[] {"ID"});
             Likes =
@@ -99,7 +110,7 @@ namespace MediaSysteem
                     new[] {"Message", "MediaAccount"}) !=
                 null;
 
-            pictureBox1.ImageLocation = user.Picture;
+            picUser.ImageLocation = user.Picture;
             lblUsername.Text = user.Username;
             lblDate.Text = message.Datum.ToShortDateString();
             lblMessage.Text = message.Report;
@@ -156,7 +167,7 @@ namespace MediaSysteem
             category = DatabaseManager.ContainsItem(category, new[] {"ID"});
 
 
-            pictureBox1.ImageLocation = user.Picture;
+            picUser.ImageLocation = user.Picture;
             lblUsername.Text = user.Username;
             lblDate.Text = Message.Datum.ToShortDateString();
             lblMessage.Text = Message.Report;
@@ -186,6 +197,16 @@ namespace MediaSysteem
                     Likes--;
                 }
             }
+        }
+
+        private void MessageControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picMedia_Click(object sender, EventArgs e)
+        {
+            new frmPicture(picMedia.Image).Show(this);
         }
     }
 }

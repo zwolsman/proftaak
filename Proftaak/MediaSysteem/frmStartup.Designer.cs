@@ -66,6 +66,7 @@
             // 
             // btnSignup
             // 
+            this.btnSignup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSignup.Location = new System.Drawing.Point(14, 380);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(125, 23);
@@ -76,6 +77,7 @@
             // 
             // btnSignin
             // 
+            this.btnSignin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSignin.Location = new System.Drawing.Point(148, 380);
             this.btnSignin.Name = "btnSignin";
             this.btnSignin.Size = new System.Drawing.Size(125, 23);
@@ -86,6 +88,7 @@
             // 
             // comboEvents
             // 
+            this.comboEvents.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.comboEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboEvents.FormattingEnabled = true;
             this.comboEvents.Location = new System.Drawing.Point(95, 353);
@@ -96,6 +99,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(11, 356);
             this.label1.Name = "label1";

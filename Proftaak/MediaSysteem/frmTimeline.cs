@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -115,6 +116,19 @@ namespace MediaSysteem
                 MediaAccount = Globals.Account.ID,
                 Category = ((CategoryInstance)comboTreeBox1.SelectedNode.Tag).ID
             };
+            if (AttachedPicture)
+            {
+                
+                Media media = new Media() {Url = lblPath.Text};
+                if (DatabaseManager.ContainsItem(media, new[] {"Url"}) == null)
+                {
+                    DatabaseManager.InsertItem(media);
+                }
+                media = DatabaseManager.ContainsItem(media, new[] { "Url" });
+                message.Media = media.ID;
+            }
+
+         
 
             if (DatabaseManager.InsertItem(message))
             {
@@ -131,6 +145,45 @@ namespace MediaSysteem
                 picProfile.ImageLocation = Globals.Account.Picture;
             foreach(MessageControl control in flowLayoutPosts.Controls)
                 control.Reload();
+        }
+
+        private bool AttachedPicture = false;
+        private void btnAddImage_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "";
+
+                ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
+                string sep = string.Empty;
+
+                foreach (var c in codecs)
+                {
+                    string codecName = c.CodecName.Substring(8).Replace("Codec", "Files").Trim();
+                    ofd.Filter = string.Format("{0}{1}{2} ({3})|{3}", ofd.Filter, sep, codecName, c.FilenameExtension);
+                    sep = "|";
+                }
+
+                ofd.Filter = string.Format("{0}{1}{2} ({3})|{3}", ofd.Filter, sep, "All Files", "*.*");
+
+                ofd.DefaultExt = ".png";
+                ofd.Multiselect = false;
+                if (ofd.ShowDialog(this) == DialogResult.OK)
+                {
+                    lblPath.Text = ofd.FileName;
+                    AttachedPicture = true;
+                }
+                else
+                {
+                    AttachedPicture = false;
+                }
+            }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Close();
+            Globals.Account = null;
         }
     }
 }

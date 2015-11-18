@@ -50,6 +50,7 @@
     <Compile Include="Classes\Evenement.cs" />
     <Compile Include="Classes\Globals.cs" />
     <Compile Include="Classes\Like.cs" />
+    <Compile Include="Classes\Media.cs" />
     <Compile Include="Classes\MediaAccount.cs" />
     <Compile Include="Classes\Message.cs" />
     <Compile Include="frmBase.cs">
@@ -57,6 +58,12 @@
     </Compile>
     <Compile Include="frmBase.Designer.cs">
       <DependentUpon>frmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPicture.Designer.cs">
+      <DependentUpon>frmPicture.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProfile.cs">
       <SubType>Form</SubType>
@@ -98,6 +105,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBase.resx">
       <DependentUpon>frmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPicture.resx">
+      <DependentUpon>frmPicture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProfile.resx">
       <DependentUpon>frmProfile.cs</DependentUpon>
