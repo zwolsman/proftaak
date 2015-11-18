@@ -18,9 +18,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaSharingSystem", "MediaSharingSystem\MediaSharingSystem\MediaSharingSystem.csproj", "{C0A3E9D5-AAA0-43CE-9369-283F62D3AE03}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaSysteem", "MediaSysteem\MediaSysteem.csproj", "{EB7E248E-179B-48ED-9F11-9997E967503D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{1A0EB623-3EDD-4BA6-80EE-0FA61A708542} = {1A0EB623-3EDD-4BA6-80EE-0FA61A708542}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DropDownControls", "DropDownControls\DropDownControls.csproj", "{1A0EB623-3EDD-4BA6-80EE-0FA61A708542}"
 EndProject

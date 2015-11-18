@@ -3,7 +3,7 @@ using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using Oracle.DataAccess.Client;
+//using Oracle.DataAccess.Client;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
