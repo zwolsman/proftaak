@@ -49,6 +49,7 @@
     <Compile Include="Classes\Category.cs" />
     <Compile Include="Classes\Evenement.cs" />
     <Compile Include="Classes\Globals.cs" />
+    <Compile Include="Classes\Like.cs" />
     <Compile Include="Classes\MediaAccount.cs" />
     <Compile Include="Classes\Message.cs" />
     <Compile Include="frmBase.cs">
@@ -151,6 +152,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\image_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thumb_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thumb_up.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

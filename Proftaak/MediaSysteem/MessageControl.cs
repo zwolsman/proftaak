@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DatabaseLibrary;
+using MediaSysteem.Properties;
 
 namespace MediaSysteem
 {
@@ -28,6 +29,32 @@ namespace MediaSysteem
             {
                 _isWriting = value;
                 OnIsWritingChanged(IsWriting);
+            }
+        }
+
+        private int _likes;
+
+        private int Likes
+        {
+            get { return _likes; }
+            set
+            {
+                _likes = value;
+                lblLikes.Text = Likes == 1 ? "1 like" : $"{Likes.ToString("N0")} likes";
+            }
+        }
+
+        private bool _didLike;
+
+        private bool DidLike
+        {
+            get { return _didLike; }
+            set
+            {
+                _didLike = value;
+                picAction.Image = DidLike
+                    ? global::MediaSysteem.Properties.Resources.thumb_down
+                    : global::MediaSysteem.Properties.Resources.thumb_up;
             }
         }
 
@@ -56,13 +83,21 @@ namespace MediaSysteem
         public MessageControl(MessageInstance message)
         {
             InitializeComponent();
+
             this.Message = message;
             user = new MediaAccount() {ID = message.MediaAccount};
             category = new CategoryInstance() {ID = message.Category};
 
             user = DatabaseManager.ContainsItem(user, new[] {"ID"});
             category = DatabaseManager.ContainsItem(category, new[] {"ID"});
-
+            Likes =
+                int.Parse(
+                    DatabaseManager.QueryFirst("SELECT COUNT(*) FROM Likes WHERE message=" + message.ID)["Column1"]
+                        .ToString());
+            DidLike =
+                DatabaseManager.ContainsItem(new Likes() {Message = message.ID, MediaAccount = Globals.Account.ID},
+                    new[] {"Message", "MediaAccount"}) !=
+                null;
 
             pictureBox1.ImageLocation = user.Picture;
             lblUsername.Text = user.Username;
@@ -114,11 +149,11 @@ namespace MediaSysteem
 
         public void Reload()
         {
-            user = new MediaAccount() { ID = Message.MediaAccount };
-            category = new CategoryInstance() { ID = Message.Category };
+            user = new MediaAccount() {ID = Message.MediaAccount};
+            category = new CategoryInstance() {ID = Message.Category};
 
-            user = DatabaseManager.ContainsItem(user, new[] { "ID" });
-            category = DatabaseManager.ContainsItem(category, new[] { "ID" });
+            user = DatabaseManager.ContainsItem(user, new[] {"ID"});
+            category = DatabaseManager.ContainsItem(category, new[] {"ID"});
 
 
             pictureBox1.ImageLocation = user.Picture;
@@ -130,6 +165,27 @@ namespace MediaSysteem
             IsWriting = false;
             if (Globals.Account.ID != Message.MediaAccount)
                 Controls.Remove(lblRemove);
+        }
+
+        private void picAction_Click(object sender, EventArgs e)
+        {
+            Likes like = new Likes() {Message = Message.ID, MediaAccount = Globals.Account.ID};
+            if (!DidLike)
+            {
+                if (DatabaseManager.InsertItem(like))
+                {
+                    DidLike = true;
+                    Likes++;
+                }
+            }
+            else
+            {
+                if (DatabaseManager.Execute($"DELETE FROM Likes WHERE Message={like.Message} AND MediaAccount={like.MediaAccount}") != -1)
+                {
+                    DidLike = false;
+                    Likes--;
+                }
+            }
         }
     }
 }
