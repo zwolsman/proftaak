@@ -106,7 +106,7 @@ namespace MateriaalBeheer.Forms //TODO: testen
                 MessageBox.Show("Geen materiaal geselecteerd!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if(selectedMaterial.Items.Count() > 0)
+            if(selectedMaterial.Items.Any())
             {
                 foreach (Item i in selectedMaterial.Items)
                 {
@@ -139,8 +139,8 @@ namespace MateriaalBeheer.Forms //TODO: testen
             Material m = selectedMaterial;
             m.Product = txtProduct.Text;
             m.Description = txtDescription.Text;
-            m.PricePD = int.Parse(txtPricePD.Text);
-            m.PricePW = int.Parse(txtPricePW.Text);
+            m.PricePD = (int) (double.Parse(txtPricePD.Text) * 100);
+            m.PricePW = (int) (double.Parse(txtPricePW.Text) * 100);
             DatabaseManager.UpdateItem(m);
             int index = listEvent.SelectedIndex;
             int indexM = listMaterial.SelectedIndex;
@@ -170,8 +170,8 @@ namespace MateriaalBeheer.Forms //TODO: testen
             {
                 Product = txtProduct.Text,
                 Description = txtDescription.Text,
-                PricePD = int.Parse(txtPricePD.Text),
-                PricePW = int.Parse(txtPricePW.Text),
+                PricePD = (int) (double.Parse(txtPricePD.Text) * 100),
+                PricePW = (int) (double.Parse(txtPricePW.Text) * 100),
                 Event = selectedEvenement.ID
             };
             DatabaseManager.InsertItem(m);
