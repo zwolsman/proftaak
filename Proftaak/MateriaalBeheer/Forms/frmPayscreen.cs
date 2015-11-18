@@ -36,10 +36,15 @@ namespace MateriaalBeheer.Forms
 
         private void btAddBill_Click(object sender, EventArgs e)
         {
-            int i = DatabaseManager.GetLeasePlaceID(rfid);
+            int? i = DatabaseManager.GetLeasePlaceID(rfid);
+            if (i == null)
+            {
+                MessageBox.Show("Kan betaling niet verwerken.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Payment p = new Payment()
             {
-                LeasePlace = i,
+                LeasePlace = (int)i,
                 Amount = 0 - price,
                 Description = "Huur:" + lblInfo.Text,
             };

@@ -401,10 +401,12 @@ namespace DatabaseLibrary
             return Query(qur).Select(HashtableToItem<T>).ToList();
         }
 
-        public static int GetLeasePlaceID(string RFID)
+        public static int? GetLeasePlaceID(string RFID)
         {
             string qry = string.Format(SQL_SELECT_LEASEPLACEID, RFID);
             Hashtable t = QueryFirst(qry);
+            if (string.IsNullOrEmpty(t["ID"].ToString()))
+                return null;
             return int.Parse(t["ID"].ToString());
         }
 
