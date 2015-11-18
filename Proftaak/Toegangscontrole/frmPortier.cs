@@ -23,7 +23,7 @@ namespace Toegangscontrole
 
         private void btBetaling_Click(object sender, EventArgs e)
         {
-
+            new frmBetalingen(evenement) { Location = Location, StartPosition = FormStartPosition.CenterParent }.Show(this);
         }
 
         private void btReservering_Click(object sender, EventArgs e)

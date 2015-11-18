@@ -29,10 +29,16 @@ namespace Toegangscontrole
 
         private void btPayNow_Click(object sender, EventArgs e)
         {
-            int i = DatabaseManager.GetLeasePlaceID(rfid);
+            int? i = DatabaseManager.GetLeasePlaceID(rfid);
+            if (!i.HasValue)
+            {
+                MessageBox.Show("Er is iets fout gegaan. Probeer het opnieuw.", "RFID fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult = DialogResult.Cancel;
+                Close();
+            }
             Payment p = new Payment()
             {
-                LeasePlace = i,
+                LeasePlace = (int)i,
                 Amount = (int)(price*100),
                 Description = "Betaald bij portier:" + price.ToString(),
             };
