@@ -156,7 +156,7 @@ namespace MateriaalBeheer.Forms
                 {
                     Productcode = int.Parse(productcode)
                 };
-                Item item = DatabaseManager.ContainsItem<Item>(i, new[] {"Productcode"});
+                Item item = DatabaseManager.ContainsItem(i, new [] {"Productcode"});
                 if (item == default(Item))
                 {
                     MessageBox.Show("Productcode bestaat niet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -166,7 +166,7 @@ namespace MateriaalBeheer.Forms
                 {
                     Item = item.ID
                 };
-                LeaseMaterial lease = DatabaseManager.ContainsLease<LeaseMaterial>(lm, "Item");
+                LeaseMaterial lease = DatabaseManager.ContainsLease(lm, "Item");
                 if (lease == default(LeaseMaterial))
                 {
                     MessageBox.Show("Item is niet verhuurd.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -182,7 +182,7 @@ namespace MateriaalBeheer.Forms
                 {
                     ID = item.Material
                 };
-                Material mat = DatabaseManager.ContainsItem<Material>(m, new[] {"ID"});
+                Material mat = DatabaseManager.ContainsItem(m, new[] {"ID"});
                 int price = 0;
                 if(mat.PricePW > 0)
                 {
@@ -230,6 +230,11 @@ namespace MateriaalBeheer.Forms
             if (listMaterial.SelectedIndex == -1)
                 return;
             LoadItems();
+        }
+
+        private void listItem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btHuren.Enabled = listItem.SelectedIndex != -1;
         }
     }
 }

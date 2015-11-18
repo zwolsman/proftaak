@@ -37,8 +37,8 @@ namespace Reserveer_Systeem
                 {
                     m.Product,
                     m.Description,
-                    m.PricePD.ToString(),
-                    m.PricePW.ToString(),
+                    (int.Parse(m.PricePD.ToString()) / 1000).ToString("C"),
+                    (int.Parse(m.PricePW.ToString()) / 1000).ToString("C"),
                     "True"
                 }));
             }

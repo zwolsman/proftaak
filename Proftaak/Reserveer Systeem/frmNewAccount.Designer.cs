@@ -77,7 +77,7 @@
             this.txtFirstname.Name = "txtFirstname";
             this.txtFirstname.Size = new System.Drawing.Size(146, 21);
             this.txtFirstname.TabIndex = 10;
-            this.txtFirstname.Text = "Marvin";
+            this.txtFirstname.Text = " ";
             // 
             // txtAddress
             // 
@@ -85,7 +85,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(146, 21);
             this.txtAddress.TabIndex = 12;
-            this.txtAddress.Text = "Ekkerstraat 28";
+            this.txtAddress.Text = " ";
             // 
             // label2
             // 
@@ -102,7 +102,7 @@
             this.txtLastname.Name = "txtLastname";
             this.txtLastname.Size = new System.Drawing.Size(146, 21);
             this.txtLastname.TabIndex = 14;
-            this.txtLastname.Text = "Zwolsman";
+            this.txtLastname.Text = " ";
             // 
             // txtBankaccount
             // 
@@ -110,7 +110,7 @@
             this.txtBankaccount.Name = "txtBankaccount";
             this.txtBankaccount.Size = new System.Drawing.Size(207, 21);
             this.txtBankaccount.TabIndex = 16;
-            this.txtBankaccount.Text = "167887963";
+            this.txtBankaccount.Text = " ";
             // 
             // label4
             // 
@@ -128,7 +128,6 @@
             this.txtPhonenumber.Name = "txtPhonenumber";
             this.txtPhonenumber.Size = new System.Drawing.Size(146, 21);
             this.txtPhonenumber.TabIndex = 17;
-            this.txtPhonenumber.Text = "0402572102";
             // 
             // txtZipcode
             // 
@@ -137,7 +136,6 @@
             this.txtZipcode.Name = "txtZipcode";
             this.txtZipcode.Size = new System.Drawing.Size(146, 21);
             this.txtZipcode.TabIndex = 18;
-            this.txtZipcode.Text = "5616SP";
             // 
             // label3
             // 
@@ -188,7 +186,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(149, 21);
             this.txtUsername.TabIndex = 23;
-            this.txtUsername.Text = "marvinn";
+            this.txtUsername.Text = " ";
             // 
             // label7
             // 
@@ -214,7 +212,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(149, 21);
             this.txtPassword.TabIndex = 25;
-            this.txtPassword.Text = "wachtwoord";
+            this.txtPassword.Text = " ";
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // frmNewAccount

@@ -1,4 +1,6 @@
-﻿namespace MediaSysteem
+﻿using MediaSysteem.Controls;
+
+namespace MediaSysteem
 {
     partial class frmTimeline
     {
@@ -32,16 +34,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTimeline));
             this.flowLayoutPosts = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblPath = new System.Windows.Forms.Label();
             this.comboTreeBox1 = new ComboTreeBox();
             this.btnAddImage = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnPost = new System.Windows.Forms.Button();
-            this.txtMessage = new System.Windows.Forms.TextBox();
+            this.txtMessage = new MediaSysteem.Controls.CueTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.picProfile = new System.Windows.Forms.PictureBox();
             this.btnProfile = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picProfile)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +65,7 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.lblPath);
             this.panel1.Controls.Add(this.comboTreeBox1);
             this.panel1.Controls.Add(this.btnAddImage);
             this.panel1.Controls.Add(this.btnPost);
@@ -73,6 +78,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(261, 128);
             this.panel1.TabIndex = 5;
+            // 
+            // lblPath
+            // 
+            this.lblPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPath.AutoEllipsis = true;
+            this.lblPath.Location = new System.Drawing.Point(49, 105);
+            this.lblPath.Name = "lblPath";
+            this.lblPath.Size = new System.Drawing.Size(128, 13);
+            this.lblPath.TabIndex = 11;
             // 
             // comboTreeBox1
             // 
@@ -95,6 +110,7 @@
             this.btnAddImage.Size = new System.Drawing.Size(40, 23);
             this.btnAddImage.TabIndex = 9;
             this.btnAddImage.UseVisualStyleBackColor = true;
+            this.btnAddImage.Click += new System.EventHandler(this.btnAddImage_Click);
             // 
             // imageList1
             // 
@@ -118,6 +134,7 @@
             this.txtMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMessage.Cue = "Enter message here";
             this.txtMessage.Location = new System.Drawing.Point(3, 49);
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
@@ -170,11 +187,23 @@
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLogout.Location = new System.Drawing.Point(12, 438);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(75, 23);
+            this.btnLogout.TabIndex = 7;
+            this.btnLogout.Text = "Log out";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // frmTimeline
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(285, 473);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPosts);
@@ -183,6 +212,7 @@
             this.Controls.SetChildIndex(this.flowLayoutPosts, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.btnProfile, 0);
+            this.Controls.SetChildIndex(this.btnLogout, 0);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picProfile)).EndInit();
@@ -196,7 +226,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox picProfile;
         private System.Windows.Forms.Button btnPost;
-        private System.Windows.Forms.TextBox txtMessage;
+        private CueTextBox txtMessage;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTitle;
@@ -204,5 +234,7 @@
         private System.Windows.Forms.ImageList imageList1;
         private ComboTreeBox comboTreeBox1;
         private System.Windows.Forms.Button btnProfile;
+        private System.Windows.Forms.Label lblPath;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

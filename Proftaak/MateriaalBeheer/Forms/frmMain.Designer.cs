@@ -34,9 +34,10 @@
             // 
             // btModify
             // 
-            this.btModify.Location = new System.Drawing.Point(12, 21);
+            this.btModify.Location = new System.Drawing.Point(10, 17);
+            this.btModify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btModify.Name = "btModify";
-            this.btModify.Size = new System.Drawing.Size(179, 23);
+            this.btModify.Size = new System.Drawing.Size(156, 23);
             this.btModify.TabIndex = 0;
             this.btModify.Text = "Materiaal wijzigen";
             this.btModify.UseVisualStyleBackColor = true;
@@ -44,9 +45,10 @@
             // 
             // btRent
             // 
-            this.btRent.Location = new System.Drawing.Point(12, 76);
+            this.btRent.Location = new System.Drawing.Point(10, 62);
+            this.btRent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btRent.Name = "btRent";
-            this.btRent.Size = new System.Drawing.Size(179, 23);
+            this.btRent.Size = new System.Drawing.Size(156, 23);
             this.btRent.TabIndex = 1;
             this.btRent.Text = "Materiaalverhuur";
             this.btRent.UseVisualStyleBackColor = true;
@@ -54,11 +56,13 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(203, 133);
+            this.ClientSize = new System.Drawing.Size(177, 108);
             this.Controls.Add(this.btRent);
             this.Controls.Add(this.btModify);
+            this.Font = new System.Drawing.Font("Verdana", 8.25F);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMain";
             this.Text = "frmMain";
             this.ResumeLayout(false);

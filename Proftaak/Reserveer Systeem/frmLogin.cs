@@ -27,7 +27,7 @@ namespace Reserveer_Systeem
             {
                 Username = txtUsername.Text,
                 Password = txtPassword.Text
-            }, "Username", "Password");
+            }, new [] {"Username", "Password"});
 
             if (returnAccount == null)
             {

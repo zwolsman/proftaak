@@ -35,13 +35,12 @@
             // 
             // lblInfo
             // 
-            this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(69, 9);
+            this.lblInfo.Location = new System.Drawing.Point(12, 9);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(134, 17);
+            this.lblInfo.Size = new System.Drawing.Size(258, 13);
             this.lblInfo.TabIndex = 0;
             this.lblInfo.Text = "Toegangscontrole";
-            this.lblInfo.SizeChanged += new System.EventHandler(this.lblInfo_SizeChanged);
+            this.lblInfo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox1
             // 
@@ -53,7 +52,7 @@
             // 
             // frmToegangsControle
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 181);
             this.Controls.Add(this.pictureBox1);
@@ -63,7 +62,6 @@
             this.Text = "Toegangscontrole";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

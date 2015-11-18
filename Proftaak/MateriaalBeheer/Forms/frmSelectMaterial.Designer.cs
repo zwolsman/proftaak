@@ -37,11 +37,10 @@
             // 
             this.listMaterial.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listMaterial.FormattingEnabled = true;
-            this.listMaterial.ItemHeight = 17;
             this.listMaterial.Location = new System.Drawing.Point(14, 28);
             this.listMaterial.Margin = new System.Windows.Forms.Padding(2);
             this.listMaterial.Name = "listMaterial";
-            this.listMaterial.Size = new System.Drawing.Size(200, 157);
+            this.listMaterial.Size = new System.Drawing.Size(197, 147);
             this.listMaterial.TabIndex = 1;
             // 
             // label1
@@ -51,17 +50,17 @@
             this.label1.Location = new System.Drawing.Point(11, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 17);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Materials";
             // 
             // btnOk
             // 
             this.btnOk.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.Location = new System.Drawing.Point(146, 189);
+            this.btnOk.Location = new System.Drawing.Point(136, 179);
             this.btnOk.Margin = new System.Windows.Forms.Padding(2);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(65, 23);
+            this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 4;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
@@ -69,9 +68,9 @@
             // 
             // frmSelectMaterial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(222, 229);
+            this.ClientSize = new System.Drawing.Size(222, 213);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listMaterial);

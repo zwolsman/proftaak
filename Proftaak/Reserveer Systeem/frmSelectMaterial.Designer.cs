@@ -70,14 +70,16 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "Prijs per week";
+            this.columnHeader7.Width = 107;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Beschikbaar";
+            this.columnHeader8.Width = 95;
             // 
             // frmSelectMaterial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 284);
             this.Controls.Add(this.listMaterials);

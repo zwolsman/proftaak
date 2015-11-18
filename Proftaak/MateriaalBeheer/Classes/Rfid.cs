@@ -21,9 +21,9 @@ namespace MateriaalBeheer.Classes
             {
                 rfid = new RFID();
                 tag = string.Empty;
-                rfid.Error += new ErrorEventHandler(rfid_Error);
-                rfid.Tag += new TagEventHandler(rfid_Tag);
-                rfid.TagLost += new TagEventHandler(rfid_TagLost);
+                rfid.Error += rfid_Error;
+                rfid.Tag += rfid_Tag;
+                rfid.TagLost += rfid_TagLost;
                 rfid.open();
                 rfid.waitForAttachment();
                 rfid.Antenna = true;
@@ -51,15 +51,17 @@ namespace MateriaalBeheer.Classes
             tag = string.Empty;
         }
 
-        public static Boolean Rent(Item i, Boolean beschikbaarMateriaalWeergeven)
+        public static bool Rent(Item i, bool beschikbaarMateriaalWeergeven)
         {
             if (!started)
                 Start();
-            if (!tag.Equals(string.Empty))
+            if (!string.IsNullOrEmpty(tag))
             {
-                RFIDPerson rp = new RFIDPerson();
-                rp.RFID = tag;
-                if (DatabaseManager.ContainsItem(rp, new[] {"RFID"}).RFID.Equals(rp.RFID))
+                RFIDPerson rp = new RFIDPerson
+            {
+                    RFID = tag
+                };
+                if (DatabaseManager.ContainsItem(rp, new [] {"RFID"}).RFID.Equals(rp.RFID))
                 {
                     //Niet geheel veilig maar oke
                     if (!beschikbaarMateriaalWeergeven)
@@ -76,7 +78,7 @@ namespace MateriaalBeheer.Classes
                         RFID = rp.RFID,
                         Item = i.ID
                     };
-                    DatabaseManager.InsertItem<LeaseMaterial>(lm);
+                    DatabaseManager.InsertItem(lm);
                     return true;
                 }
             }
