@@ -59,7 +59,7 @@ namespace MateriaalBeheer.Classes
             {
                 RFIDPerson rp = new RFIDPerson();
                 rp.RFID = tag;
-                if (DatabaseManager.ContainsItem(rp, "RFID").RFID.Equals(rp.RFID))
+                if (DatabaseManager.ContainsItem(rp, new[] {"RFID"}).RFID.Equals(rp.RFID))
                 {
                     //Niet geheel veilig maar oke
                     if (!beschikbaarMateriaalWeergeven)

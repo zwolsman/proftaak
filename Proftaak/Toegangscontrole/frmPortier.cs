@@ -28,7 +28,7 @@ namespace Toegangscontrole
 
         private void btReservering_Click(object sender, EventArgs e)
         {
-
+            new frmReserveringen(evenement) { Location = Location, StartPosition = FormStartPosition.CenterParent }.Show(this);
         }
 
         private void btInschrijven_Click(object sender, EventArgs e)
