@@ -49,8 +49,8 @@ namespace MediaSysteem
         }
 
 
-        private readonly MediaAccount user;
-        private readonly CategoryInstance category;
+        private MediaAccount user;
+        private CategoryInstance category;
         public MessageInstance Message { get; }
 
         public MessageControl(MessageInstance message)
@@ -81,6 +81,7 @@ namespace MediaSysteem
                 MessageDeleteHandler?.Invoke(this, Message);
         }
 
+
         private void btnSubmitComment_Click(object sender, EventArgs e)
         {
             CommentPostedHandler?.Invoke(this, new MessageInstance()
@@ -109,6 +110,26 @@ namespace MediaSysteem
         private void linkAddComment_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             IsWriting = !IsWriting;
+        }
+
+        public void Reload()
+        {
+            user = new MediaAccount() { ID = Message.MediaAccount };
+            category = new CategoryInstance() { ID = Message.Category };
+
+            user = DatabaseManager.ContainsItem(user, new[] { "ID" });
+            category = DatabaseManager.ContainsItem(category, new[] { "ID" });
+
+
+            pictureBox1.ImageLocation = user.Picture;
+            lblUsername.Text = user.Username;
+            lblDate.Text = Message.Datum.ToShortDateString();
+            lblMessage.Text = Message.Report;
+
+            lblTitle.Text = string.IsNullOrEmpty(Message.Title) ? category.Name : $"{Message.Title} - {category.Name}";
+            IsWriting = false;
+            if (Globals.Account.ID != Message.MediaAccount)
+                Controls.Remove(lblRemove);
         }
     }
 }
