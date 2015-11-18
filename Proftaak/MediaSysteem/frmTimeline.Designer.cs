@@ -1,4 +1,6 @@
-﻿namespace MediaSysteem
+﻿using MediaSysteem.Controls;
+
+namespace MediaSysteem
 {
     partial class frmTimeline
     {
@@ -37,7 +39,7 @@
             this.btnAddImage = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnPost = new System.Windows.Forms.Button();
-            this.txtMessage = new System.Windows.Forms.TextBox();
+            this.txtMessage = new MediaSysteem.Controls.CueTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
@@ -86,7 +88,6 @@
             this.lblPath.Name = "lblPath";
             this.lblPath.Size = new System.Drawing.Size(128, 13);
             this.lblPath.TabIndex = 11;
-            this.lblPath.Text = "<<image path>>";
             // 
             // comboTreeBox1
             // 
@@ -133,6 +134,7 @@
             this.txtMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMessage.Cue = "Enter message here";
             this.txtMessage.Location = new System.Drawing.Point(3, 49);
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
@@ -223,7 +225,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox picProfile;
         private System.Windows.Forms.Button btnPost;
-        private System.Windows.Forms.TextBox txtMessage;
+        private CueTextBox txtMessage;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTitle;

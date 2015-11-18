@@ -134,6 +134,9 @@ namespace MediaSysteem
             {
                 message = DatabaseManager.ContainsItem(message, new[] { "MediaAccount", "Category", "Title", "Report" });
                 Messages.Add(message);
+                txtMessage.Clear();
+                txtTitle.Clear();
+                AttachedPicture = false;
             }
 
         }

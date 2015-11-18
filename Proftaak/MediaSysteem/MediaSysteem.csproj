@@ -53,6 +53,9 @@
     <Compile Include="Classes\Media.cs" />
     <Compile Include="Classes\MediaAccount.cs" />
     <Compile Include="Classes\Message.cs" />
+    <Compile Include="Controls\CueTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="frmBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,10 +98,10 @@
     <Compile Include="frmTimeline.Designer.cs">
       <DependentUpon>frmTimeline.cs</DependentUpon>
     </Compile>
-    <Compile Include="MessageControl.cs">
+    <Compile Include="Controls\MessageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MessageControl.Designer.cs">
+    <Compile Include="Controls\MessageControl.Designer.cs">
       <DependentUpon>MessageControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -124,7 +127,7 @@
     <EmbeddedResource Include="frmTimeline.resx">
       <DependentUpon>frmTimeline.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MessageControl.resx">
+    <EmbeddedResource Include="Controls\MessageControl.resx">
       <DependentUpon>MessageControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
