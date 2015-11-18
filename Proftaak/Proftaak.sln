@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaSharingSystem", "Media
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaSysteem", "MediaSysteem\MediaSysteem.csproj", "{EB7E248E-179B-48ED-9F11-9997E967503D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DropDownControls", "DropDownControls\DropDownControls.csproj", "{1A0EB623-3EDD-4BA6-80EE-0FA61A708542}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DropDownControls", "Dropdown\DropDownControls.csproj", "{1A0EB623-3EDD-4BA6-80EE-0FA61A708542}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

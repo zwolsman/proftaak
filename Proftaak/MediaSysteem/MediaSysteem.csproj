@@ -144,7 +144,7 @@
       <Project>{cd2ffa70-b471-4ce0-811e-e53425e2a764}</Project>
       <Name>DatabaseLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DropDownControls\DropDownControls.csproj">
+    <ProjectReference Include="..\Dropdown\DropDownControls.csproj">
       <Project>{1a0eb623-3edd-4ba6-80ee-0fa61a708542}</Project>
       <Name>DropDownControls</Name>
     </ProjectReference>
