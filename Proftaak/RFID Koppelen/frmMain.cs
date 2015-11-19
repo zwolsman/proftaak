@@ -96,8 +96,30 @@ namespace RFID_Koppelen
         private void btnSave_Click(object sender, EventArgs e)
         {
             //RFID in RFID table
-            DatabaseManager.Execute($"INSERT INTO RFID(Cardnumber) VALUES('{txtRFID.Text}')");
-            DatabaseManager.Execute($"INSERT INTO RFID_Person(Person, RFID) VALUES({listPersons.SelectedItems[0].Text},'{txtRFID.Text}')");
+
+            if (
+                (string)
+                    DatabaseManager.QueryFirst(
+                        $"SELECT COUNT(*) FROM RFID WHERE Cardnumber = '{txtRFID.Text}'")["Column1"] == "0")
+            {
+                DatabaseManager.Execute($"INSERT INTO RFID(Cardnumber) VALUES('{txtRFID.Text}')");
+            }
+
+            if ((string)
+                DatabaseManager.QueryFirst(
+                    $"SELECT COUNT(*) FROM RFID_Person WHERE Person = {listPersons.SelectedItems[0].Text}")[
+                        "Column1"] == "0")
+            {
+                DatabaseManager.Execute(
+                   $"INSERT INTO RFID_Person(Person, RFID) VALUES({listPersons.SelectedItems[0].Text},'{txtRFID.Text}')");
+            }
+            else
+            {
+               
+                DatabaseManager.Execute(
+                   $"UPDATE RFID_Person SET RFID='{txtRFID.Text}' WHERE Person={listPersons.SelectedItems[0].Text}");
+            }
+         
 
         }
     }
