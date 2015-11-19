@@ -80,15 +80,29 @@ namespace Toegangscontrole.Classes
                     return true;
                 }
                 int nogTeBetalen;
-                if (price["Bedrag"].ToString().Equals(""))
+                if (price == null)
                 {
-
+                    MessageBox.Show("Er is iets fout gegaan probeer opnieuw", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return true;
                 }
-                if (paid["Betaald"].ToString().Equals(""))
+
+                if (paid == null)
+                {
+                    if (price["Bedrag"].ToString().Equals(""))
+                        return true;
                     nogTeBetalen = int.Parse(price["Bedrag"].ToString());
+                }
                 else
-                    nogTeBetalen = int.Parse(price["Bedrag"].ToString()) - int.Parse(paid["Betaald"].ToString());
+                {
+                    if (price["Bedrag"].ToString().Equals(""))
+                    {
+                        return true;
+                    }
+                    if (paid["Betaald"].ToString().Equals(""))
+                        nogTeBetalen = int.Parse(price["Bedrag"].ToString());
+                    else
+                        nogTeBetalen = int.Parse(price["Bedrag"].ToString()) - int.Parse(paid["Betaald"].ToString());
+                }
                 frmPayscreen pay = new frmPayscreen(nogTeBetalen, t);
                 DialogResult result =pay.ShowDialog();
                 if(result == DialogResult.OK || result == DialogResult.Cancel)

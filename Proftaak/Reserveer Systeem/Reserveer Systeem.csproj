@@ -48,9 +48,11 @@
   <ItemGroup>
     <Compile Include="Classes\Account.cs" />
     <Compile Include="Classes\Evenement.cs" />
+    <Compile Include="Classes\Item.cs" />
     <Compile Include="Classes\LeasePlace.cs" />
     <Compile Include="Classes\Material.cs" />
     <Compile Include="Classes\Person.cs" />
+    <Compile Include="Classes\ReservationMaterial.cs" />
     <Compile Include="frmDatum.cs">
       <SubType>Form</SubType>
     </Compile>

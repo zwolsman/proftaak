@@ -115,7 +115,7 @@ namespace Reserveer_Systeem
                 MessageBox.Show("Geen plek gekozen! Probeer het opnieuw.");
                 return;
             }
-            frmSelectMaterial frmMaterial = new frmSelectMaterial(SelectedEvenement) { Location = Location, StartPosition = FormStartPosition.CenterParent };
+            frmSelectMaterial frmMaterial = new frmSelectMaterial(SelectedEvenement, frmDatum.From, frmDatum.Till) { Location = Location, StartPosition = FormStartPosition.CenterParent };
             if (frmMaterial.ShowDialog(this) == DialogResult.OK)
             {
                 //TODO RICK FIX DEZE SHIZZLE
@@ -150,7 +150,7 @@ namespace Reserveer_Systeem
         private void button1_Click_1(object sender, EventArgs e)
         {
             Evenement selectedEvenement = evenements[listEvents.SelectedIndex];
-            frmSelectMaterial frmSelectMaterial = new frmSelectMaterial(selectedEvenement);
+            frmSelectMaterial frmSelectMaterial = new frmSelectMaterial(selectedEvenement, frmDatum.From, frmDatum.Till);
 
             frmSelectMaterial.ShowDialog(this);
         }
