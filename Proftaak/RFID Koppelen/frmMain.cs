@@ -51,11 +51,16 @@ namespace RFID_Koppelen
                 {
                     if (p.Account != null)
                         persons.Add(p.Account.Value, p);
+                    
+                    if(p.Lease != null)
+                        persons.Add(p.Lease.Value, p);
                 }
                 else
                 {
                     if(p.Account != null)
                         persons[p.Account.Value].Persons.Add(p);
+                    if (p.Lease != null)
+                        persons[p.Lease.Value].Persons.Add(p);
                 }
             }
 

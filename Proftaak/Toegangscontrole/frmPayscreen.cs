@@ -24,7 +24,7 @@ namespace Toegangscontrole
             this.rfid = rfid;
             this.price = price;
             this.price = this.price / 100;
-            lblInfo.Text = "Nog te betalen: \u20AC" + this.price.ToString();
+            lblInfo.Text = "Nog te betalen: " + this.price.ToString("C");
         }
 
         private void btPayNow_Click(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace Toegangscontrole
             {
                 LeasePlace = (int)i,
                 Amount = (int)(price*100),
-                Description = "Betaald bij portier:" + price.ToString(),
+                Description = "Betaald bij portier:" + price.ToString("C"),
             };
             DatabaseManager.InsertItem<Payment>(p);
             DialogResult = DialogResult.OK;
