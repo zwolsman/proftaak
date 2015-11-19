@@ -38,6 +38,9 @@
             // 
             // listMaterials
             // 
+            this.listMaterials.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listMaterials.CheckBoxes = true;
             this.listMaterials.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4,
@@ -73,6 +76,7 @@
             // 
             // btVolgende
             // 
+            this.btVolgende.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btVolgende.Location = new System.Drawing.Point(405, 284);
             this.btVolgende.Name = "btVolgende";
             this.btVolgende.Size = new System.Drawing.Size(85, 23);
@@ -83,7 +87,7 @@
             // 
             // frmSelectMaterial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 319);
             this.Controls.Add(this.btVolgende);
