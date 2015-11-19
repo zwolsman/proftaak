@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Phidgets;
 using Phidgets.Events;
 using DatabaseLibrary;
@@ -61,36 +62,43 @@ namespace MateriaalBeheer.Classes
             {
                     RFID = tag
                 };
-                if (DatabaseManager.ContainsItem(rp, new [] {"RFID"}).RFID.Equals(rp.RFID))
+                try
                 {
-                    //Niet geheel veilig maar oke
-                    if (!beschikbaarMateriaalWeergeven)
+                    if (DatabaseManager.ContainsItem(rp, new[] {"RFID"}).RFID.Equals(rp.RFID))
                     {
-                        ReservationMaterial rm = new ReservationMaterial()
+                        //Niet geheel veilig maar oke
+                        if (!beschikbaarMateriaalWeergeven)
+                        {
+                            ReservationMaterial rm = new ReservationMaterial()
+                            {
+                                RFID = rp.RFID,
+                                Item = i.ID
+                            };
+                            DatabaseManager.DeleteItem(rm);
+                        }
+                        LeaseMaterial lm = new LeaseMaterial()
                         {
                             RFID = rp.RFID,
                             Item = i.ID
                         };
-                        DatabaseManager.DeleteItem(rm);
-                    }
-                    LeaseMaterial lm = new LeaseMaterial()
-                    {
-                        RFID = rp.RFID,
-                        Item = i.ID
-                    };
-                    if (lm.EqualsPrimairy(DatabaseManager.ContainsItem(lm, new[] { "RFID", "Item" })))
-                    {
-                        DatabaseManager.UpdateItem(lm);
-                        ReturnMaterial rm = new ReturnMaterial()
+                        if (lm.EqualsPrimairy(DatabaseManager.ContainsItem(lm, new[] {"RFID", "Item"})))
                         {
-                            RFID = lm.RFID,
-                            Item = i.ID
-                        };
-                        DatabaseManager.DeleteItem(rm);
+                            DatabaseManager.UpdateItem(lm);
+                            ReturnMaterial rm = new ReturnMaterial()
+                            {
+                                RFID = lm.RFID,
+                                Item = i.ID
+                            };
+                            DatabaseManager.DeleteItem(rm);
+                            return true;
+                        }
+                        DatabaseManager.InsertItem(lm);
                         return true;
                     }
-                    DatabaseManager.InsertItem(lm);
-                    return true;
+                }
+                catch
+                {
+                    MessageBox.Show("Incorrect RFID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             return false;

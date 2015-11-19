@@ -53,14 +53,14 @@ namespace RFID_Koppelen
                         persons.Add(p.Account.Value, p);
                     
                     if(p.Lease != null)
-                        persons.Add(p.Lease.Value, p);
+                        persons.Add(p.Lease.Value+1000, p);
                 }
                 else
                 {
                     if(p.Account != null)
                         persons[p.Account.Value].Persons.Add(p);
                     if (p.Lease != null)
-                        persons[p.Lease.Value].Persons.Add(p);
+                        persons[p.Lease.Value+1000].Persons.Add(p);
                 }
             }
 
