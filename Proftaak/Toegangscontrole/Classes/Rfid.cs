@@ -85,6 +85,7 @@ namespace Toegangscontrole.Classes
 
                     return true;
                 }
+                
                 if (paid["Betaald"].ToString().Equals(""))
                     nogTeBetalen = int.Parse(price["Bedrag"].ToString());
                 else
