@@ -19,7 +19,7 @@ namespace DatabaseLibrary
         private const string SQL_SELECT_SPECIFIC = "SELECT {0} FROM {1}";
         private const string SQL_INSERT = "INSERT INTO {0}({1}) VALUES ({2})";
         private const string SQL_UPDATE_WHERE = "UPDATE {0} SET {1} WHERE {2}={3}";
-        private const string SQL_UPDATE_WHERE2 = "UPDATE {0} SET {1} WHERE {2}={3} AND {4}={5}";
+        private const string SQL_UPDATE_WHERE2 = "UPDATE {0} SET {1} WHERE {2}='{3}' AND {4}={5}";
         private const string SQL_EXISTS = "SELECT * FROM {0} WHERE {1}";
         private const string SQL_EXISTS_MAX = "SELECT RFID, Item, MAX(LeaseDate) FROM {0} WHERE {1} GROUP BY RFID, Item";
         private const string SQL_AVAILABLE_ITEMS = "SELECT * FROM AvailableItems WHERE {0}={1}";
