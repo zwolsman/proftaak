@@ -227,7 +227,7 @@ namespace DatabaseLibrary
             tableName = $"[{database}].[dbo].[{tableName}]";
 
 
-            if (tableName.Contains("Material") && !tableName.Equals("Material"))
+            if (tableName.Contains("Material") && !tableName.Equals("[proftaak].[dbo].[Material]"))
                 return UpdateDate(item);
 
 
