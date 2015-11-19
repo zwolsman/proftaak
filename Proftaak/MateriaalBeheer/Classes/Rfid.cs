@@ -71,7 +71,7 @@ namespace MateriaalBeheer.Classes
                             RFID = rp.RFID,
                             Item = i.ID
                         };
-                        DatabaseManager.DeleteDate(rm);
+                        DatabaseManager.DeleteItem(rm);
                     }
                     LeaseMaterial lm = new LeaseMaterial()
                     {
@@ -81,6 +81,12 @@ namespace MateriaalBeheer.Classes
                     if (lm.EqualsPrimairy(DatabaseManager.ContainsItem(lm, new[] { "RFID", "Item" })))
                     {
                         DatabaseManager.UpdateItem(lm);
+                        ReturnMaterial rm = new ReturnMaterial()
+                        {
+                            RFID = lm.RFID,
+                            Item = i.ID
+                        };
+                        DatabaseManager.DeleteItem(rm);
                         return true;
                     }
                     DatabaseManager.InsertItem(lm);

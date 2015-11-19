@@ -284,6 +284,10 @@ namespace DatabaseLibrary
            ? classMappings[typeof(T).Name]
            : typeof(T).Name;
             tableName = $"[{database}].[dbo].[{tableName}]";
+
+            if (tableName.Contains("Material") && !tableName.Equals("[proftaak].[dbo].[Material]"))
+                return DeleteDate(item);
+
             Hashtable hashtable = ItemToHashtable<T>(item);
 
             if (!hashtable.ContainsKey("ID"))
@@ -292,7 +296,8 @@ namespace DatabaseLibrary
             string qur = $"DELETE FROM {tableName} WHERE ID={hashtable["ID"]}";
             return Execute(qur) != -1;
         }
-        public static bool DeleteDate<T>(T item)
+
+        private static bool DeleteDate<T>(T item)
         {
             string tableName = typeof(T).Name;
             if (!tableName.Contains("Material") || tableName.Equals("Material"))
