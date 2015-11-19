@@ -35,7 +35,7 @@
             // btModify
             // 
             this.btModify.Location = new System.Drawing.Point(10, 17);
-            this.btModify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btModify.Margin = new System.Windows.Forms.Padding(2);
             this.btModify.Name = "btModify";
             this.btModify.Size = new System.Drawing.Size(156, 23);
             this.btModify.TabIndex = 0;
@@ -46,11 +46,11 @@
             // btRent
             // 
             this.btRent.Location = new System.Drawing.Point(10, 62);
-            this.btRent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btRent.Margin = new System.Windows.Forms.Padding(2);
             this.btRent.Name = "btRent";
             this.btRent.Size = new System.Drawing.Size(156, 23);
             this.btRent.TabIndex = 1;
-            this.btRent.Text = "Materiaalverhuur";
+            this.btRent.Text = "Materiaal verhuur";
             this.btRent.UseVisualStyleBackColor = true;
             this.btRent.Click += new System.EventHandler(this.btRent_Click);
             // 
@@ -62,7 +62,7 @@
             this.Controls.Add(this.btRent);
             this.Controls.Add(this.btModify);
             this.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMain";
             this.Text = "frmMain";
             this.ResumeLayout(false);
