@@ -196,7 +196,7 @@ namespace MateriaalBeheer.Forms
                 if(payscreen.ShowDialog(this) == DialogResult.OK)
                 {
                     bool gelukt = false;
-                    if (DatabaseManager.ContainsItem(rm, new[] { "RFID", "Item" }).EqualsPrimairy(rm))
+                    if (rm.EqualsPrimairy(DatabaseManager.ContainsItem(rm, new[] { "RFID", "Item" })))
                     {
                         DatabaseManager.UpdateItem(rm);
                         gelukt = true;

@@ -14,6 +14,8 @@ namespace MateriaalBeheer.Classes
 
         public bool EqualsPrimairy(LeaseMaterial lm)
         {
+            if (lm == null)
+                return false;
             if (this.RFID.Equals(lm.RFID) && this.Item == lm.Item)
                 return true;
             return false;
