@@ -11,5 +11,10 @@ namespace MateriaalBeheer.Classes
         public string RFID { get; set; }
         public int Item { get; set; }
         public DateTime ReturnDate { get; set; } = DateTime.Now;
+
+        internal bool EqualsPrimairy(ReturnMaterial rm)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

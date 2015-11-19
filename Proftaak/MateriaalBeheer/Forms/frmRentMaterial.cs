@@ -195,7 +195,18 @@ namespace MateriaalBeheer.Forms
                 frmPayscreen payscreen = new frmPayscreen(renttime, price, rm.RFID, mat.Product) { Location = Location, StartPosition = FormStartPosition.CenterParent };
                 if(payscreen.ShowDialog(this) == DialogResult.OK)
                 {
-                    if (DatabaseManager.InsertItem<ReturnMaterial>(rm))
+                    bool gelukt = false;
+                    if (DatabaseManager.ContainsItem(rm, new[] { "RFID", "Item" }).EqualsPrimairy(rm))
+                    {
+                        DatabaseManager.UpdateItem(rm);
+                        gelukt = true;
+                    }
+                    else
+                    {
+                        DatabaseManager.InsertItem(rm);
+                        gelukt = true;
+                    }
+                    if (gelukt)
                     {
                         MessageBox.Show("Gelukt!");
                         AvailableItems();
