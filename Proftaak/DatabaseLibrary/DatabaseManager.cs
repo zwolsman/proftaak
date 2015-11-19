@@ -379,7 +379,7 @@ namespace DatabaseLibrary
             string joinTable = classMappings.ContainsKey(searchCriteria.GetType().Name)
                 ? classMappings[searchCriteria.GetType().Name]
                 : searchCriteria.GetType().Name;
-            string qur = string.Format(SQL_RESERVED_ITEMS2, joinTable, searchCriteria.ID, from.ToString(), till.ToString());
+            string qur = string.Format(SQL_RESERVED_ITEMS2, joinTable, searchCriteria.ID, Helper.GetValue(from), Helper.GetValue(till));
             string que = string.Format(SQL_AVAILABLE_ITEMS, joinTable, searchCriteria.ID);
             return Query(qur).Select(HashtableToItem<T>).ToList().Union(Query(que).Select(HashtableToItem<T>).ToList());
         }

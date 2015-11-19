@@ -14,5 +14,16 @@ namespace Reserveer_Systeem
         public string Description { get; set; }
         public int PricePD { get; set; }
         public int PricePW { get; set; }
+        public List<Item> Items { get; set; }
+
+        public Material()
+        {
+            Items = new List<Item>();
+        }
+
+        public void AddItem(Item i)
+        {
+            Items.Add(i);
+        }
     }
 }
