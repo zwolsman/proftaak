@@ -52,7 +52,7 @@ namespace Reserveer_Systeem
                     {
                         ListViewItem lv = new ListViewItem(new[]
                         {
-                        item.Productcode.ToString(),
+                        item.ID.ToString(),
                         m.Description,
                         (int.Parse(m.PricePD.ToString()) / 1000).ToString("C"),
                         (int.Parse(m.PricePW.ToString()) / 1000).ToString("C")
