@@ -78,6 +78,8 @@ namespace MateriaalBeheer.Classes
                         RFID = rp.RFID,
                         Item = i.ID
                     };
+                    if (DatabaseManager.ContainsItem(lm, new[] { "RFID", "Item" }).EqualsPrimairy(lm))
+                        DatabaseManager.UpdateItem(lm);
                     DatabaseManager.InsertItem(lm);
                     return true;
                 }

@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace MateriaalBeheer.Classes
 {
-    class LeaseMaterial
+    public class LeaseMaterial
     {
         public string RFID { get; set; }
         public int Item { get; set; }
         public DateTime LeaseDate { get; set; } = DateTime.Now;
+
+        public bool EqualsPrimairy(LeaseMaterial lm)
+        {
+            if (this.RFID.Equals(lm.RFID) && this.Item == lm.Item)
+                return true;
+            return false;
+        }
     }
 }
