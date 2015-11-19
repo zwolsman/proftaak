@@ -76,16 +76,14 @@
             this.txtFirstname.Location = new System.Drawing.Point(15, 25);
             this.txtFirstname.Name = "txtFirstname";
             this.txtFirstname.Size = new System.Drawing.Size(146, 21);
-            this.txtFirstname.TabIndex = 10;
-            this.txtFirstname.Text = " ";
+            this.txtFirstname.TabIndex = 0;
             // 
             // txtAddress
             // 
             this.txtAddress.Location = new System.Drawing.Point(167, 25);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(146, 21);
-            this.txtAddress.TabIndex = 12;
-            this.txtAddress.Text = " ";
+            this.txtAddress.TabIndex = 3;
             // 
             // label2
             // 
@@ -101,16 +99,14 @@
             this.txtLastname.Location = new System.Drawing.Point(15, 65);
             this.txtLastname.Name = "txtLastname";
             this.txtLastname.Size = new System.Drawing.Size(146, 21);
-            this.txtLastname.TabIndex = 14;
-            this.txtLastname.Text = " ";
+            this.txtLastname.TabIndex = 1;
             // 
             // txtBankaccount
             // 
             this.txtBankaccount.Location = new System.Drawing.Point(15, 145);
             this.txtBankaccount.Name = "txtBankaccount";
             this.txtBankaccount.Size = new System.Drawing.Size(207, 21);
-            this.txtBankaccount.TabIndex = 16;
-            this.txtBankaccount.Text = " ";
+            this.txtBankaccount.TabIndex = 5;
             // 
             // label4
             // 
@@ -127,7 +123,7 @@
             this.txtPhonenumber.Mask = "000 000 00 00";
             this.txtPhonenumber.Name = "txtPhonenumber";
             this.txtPhonenumber.Size = new System.Drawing.Size(146, 21);
-            this.txtPhonenumber.TabIndex = 17;
+            this.txtPhonenumber.TabIndex = 2;
             // 
             // txtZipcode
             // 
@@ -135,7 +131,7 @@
             this.txtZipcode.Mask = "0000 >LL";
             this.txtZipcode.Name = "txtZipcode";
             this.txtZipcode.Size = new System.Drawing.Size(146, 21);
-            this.txtZipcode.TabIndex = 18;
+            this.txtZipcode.TabIndex = 4;
             // 
             // label3
             // 
@@ -182,11 +178,10 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(12, 185);
+            this.txtUsername.Location = new System.Drawing.Point(15, 185);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(149, 21);
-            this.txtUsername.TabIndex = 23;
-            this.txtUsername.Text = " ";
+            this.txtUsername.TabIndex = 6;
             // 
             // label7
             // 
@@ -208,11 +203,10 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(12, 225);
+            this.txtPassword.Location = new System.Drawing.Point(15, 225);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(149, 21);
-            this.txtPassword.TabIndex = 25;
-            this.txtPassword.Text = " ";
+            this.txtPassword.TabIndex = 7;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // frmNewAccount
