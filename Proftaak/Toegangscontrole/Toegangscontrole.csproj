@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Classes\Betaling.cs" />
     <Compile Include="Classes\Evenement.cs" />
+    <Compile Include="Classes\Lease.cs" />
     <Compile Include="Classes\Payment.cs" />
     <Compile Include="Classes\Person.cs" />
     <Compile Include="Classes\Reservering.cs" />
@@ -164,6 +165,10 @@
     <ProjectReference Include="..\DatabaseLibrary\DatabaseLibrary.csproj">
       <Project>{cd2ffa70-b471-4ce0-811e-e53425e2a764}</Project>
       <Name>DatabaseLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Reserveer Systeem\Reserveer Systeem.csproj">
+      <Project>{28fa4196-6905-4edf-b323-abcd1000163e}</Project>
+      <Name>Reserveer Systeem</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

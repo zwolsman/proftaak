@@ -35,18 +35,19 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btDelete = new System.Windows.Forms.Button();
             this.btAdd = new System.Windows.Forms.Button();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listBetalingen
             // 
             this.listBetalingen.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
             this.listBetalingen.FullRowSelect = true;
             this.listBetalingen.Location = new System.Drawing.Point(13, 13);
-            this.listBetalingen.MultiSelect = false;
             this.listBetalingen.Name = "listBetalingen";
             this.listBetalingen.Size = new System.Drawing.Size(782, 424);
             this.listBetalingen.TabIndex = 0;
@@ -91,7 +92,13 @@
             this.btAdd.TabIndex = 2;
             this.btAdd.Text = "Betaling toevoegen";
             this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Visible = false;
             this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "BetalingsID";
+            this.columnHeader5.Width = 99;
             // 
             // frmBetalingen
             // 
@@ -117,5 +124,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }

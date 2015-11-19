@@ -11,7 +11,9 @@ namespace Reserveer_Systeem
         public int ID { get; set; } = -1;
         public string Name { get; set; }
 
-        public int Account { get; set; }
+        public int? Account { get; set; }
+
+        public int? Lease { get; set; }
 
         public string Surname { get; set; } = "";
 

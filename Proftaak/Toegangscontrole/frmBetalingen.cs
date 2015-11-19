@@ -25,11 +25,11 @@ namespace Toegangscontrole
 
         private void LoadList()
         {
-            int count = 0;
             foreach (Betaling b in DatabaseManager.GetItems<Betaling>(evenement))
             {
                 listBetalingen.Items.Add(new ListViewItem(new[]
                 {
+                    b.ID.ToString(),
                     b.Placenumber.ToString(),
                     b.Amount.ToString(),
                     b.Description,
@@ -40,7 +40,17 @@ namespace Toegangscontrole
 
         private void btDelete_Click(object sender, EventArgs e)
         {
-            //TODO:
+            foreach (ListViewItem item in listBetalingen.Items)
+            {
+                if (item.Selected)
+                {
+                    Payment p = new Payment()
+                    {
+                        ID = int.Parse(item.Text)
+                    };
+                    DatabaseManager.DeleteItem(p);
+                }
+            }
             Reload();
         }
 

@@ -23,6 +23,7 @@ namespace Reserveer_Systeem
 
         public static Account Account;
         public static Evenement SelectedEvenement;
+        public static int? Lease = null;
         public frmMain()
         {
             InitializeComponent();

@@ -11,7 +11,9 @@ namespace Reserveer_Systeem.Classes
         public int ID { get; set; } = -1;
         public int Event { get; set; }
 
-        public int Account { get; set; }
+        public int? Account { get; set; }
+
+        public int? Lease { get; set; }
 
         public int Place { get; set; }
 

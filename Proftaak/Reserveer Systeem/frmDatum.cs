@@ -38,7 +38,11 @@ namespace Reserveer_Systeem
             if (picErrorVoornaam.Visible || picErrorAchternaam.Visible) //End if there is an empty field
                 return;
 
-            Person person = new Person(txtVoornaam.Text, txtAchternaam.Text) {Account = frmMain.Account.ID};
+            Person person = new Person(txtVoornaam.Text, txtAchternaam.Text);
+            if (frmMain.Account == null)
+                person.Lease = frmMain.Lease;
+            else
+                person.Account = frmMain.Account.ID;
             if (persons.ContainsValue(person))
             {
                 picErrorVoornaam.Visible = true;
@@ -71,6 +75,15 @@ namespace Reserveer_Systeem
         private void btnNext_Click(object sender, EventArgs e)
         {
             bool errors = false;
+            if (frmMain.Lease != null)
+            {
+                if(persons.Count == 0)
+                {
+                    MessageBox.Show($"Er is geen hoofdhuurder aanwezig", "Fout", MessageBoxButtons.OK);
+                    return;
+                }
+                persons[0].MainTenant = "Y";
+            }
             foreach (Person p in persons.Values.Where(p => !DatabaseManager.InsertItem(p)))
             {
                 errors = true;

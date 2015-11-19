@@ -97,15 +97,20 @@ namespace Reserveer_Systeem
                 Close();
                 return;
             }
-
-            DatabaseManager.InsertItem(new LeasePlace()
+            LeasePlace leasePlace = new LeasePlace()
             {
-                Account = frmMain.Account.ID,
                 Arrival = frmDatum.From,
                 Departure = frmDatum.Till,
                 Event = frmMain.SelectedEvenement.ID,
                 Place = SpotID
-            });
+            };
+
+            if (frmMain.Account == null)
+                leasePlace.Lease = frmMain.Lease;
+            else
+                leasePlace.Account = frmMain.Account.ID;
+
+            DatabaseManager.InsertItem(leasePlace);
             DialogResult = SpotID == -1 ? DialogResult.Abort : DialogResult.OK;
             Close();
         }

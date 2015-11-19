@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Toegangscontrole.Classes
 {
-    public class Evenement
+    public class Lease
     {
         public int ID { get; set; } = -1;
-        public string Name { get; set; }
-        public DateTime BeginDate { get; set; }
-        public DateTime EndDate { get; set; }
     }
 }
