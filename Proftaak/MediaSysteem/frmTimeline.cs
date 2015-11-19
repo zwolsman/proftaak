@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -107,6 +108,25 @@ namespace MediaSysteem
         }
         private void btnPost_Click(object sender, EventArgs e)
         {
+            if (File.Exists("filter.txt"))
+            {
+                string[] filter =  File.ReadAllLines("filter.txt");
+                string[] words = txtMessage.Text.Split(' ');
+
+                StringBuilder msg = new StringBuilder();
+
+                foreach (string word in words)
+                {
+
+                    if (filter.Contains(word.ToUpper()))
+                        msg.Append("*** ");
+                    else
+                        msg.Append(word + " ");
+                }
+
+                txtMessage.Text = msg.ToString();
+            }
+
             MessageInstance message = new MessageInstance
             {
                 Datum = DateTime.Now,
