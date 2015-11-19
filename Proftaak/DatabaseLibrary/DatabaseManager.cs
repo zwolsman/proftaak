@@ -423,9 +423,7 @@ namespace DatabaseLibrary
                 s = "Y";
             string qry = string.Format(SQL_SELECT_Persons, s, searchCriteria.ID);
             Hashtable[] h = Query(qry);
-            if (h == null)
-                return null;
-            return h.Select(HashtableToItem<T>).ToList();
+            return h?.Select(HashtableToItem<T>).ToList();
         }
 
         private static T HashtableToItem<T>(Hashtable info)
