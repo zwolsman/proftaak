@@ -36,7 +36,7 @@
             // 
             // btOk
             // 
-            this.btOk.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btOk.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btOk.Location = new System.Drawing.Point(35, 76);
             this.btOk.Margin = new System.Windows.Forms.Padding(2);
             this.btOk.Name = "btOk";
@@ -52,7 +52,7 @@
             this.txtProdCode.Location = new System.Drawing.Point(10, 53);
             this.txtProdCode.Margin = new System.Windows.Forms.Padding(2);
             this.txtProdCode.Name = "txtProdCode";
-            this.txtProdCode.Size = new System.Drawing.Size(219, 20);
+            this.txtProdCode.Size = new System.Drawing.Size(219, 23);
             this.txtProdCode.TabIndex = 1;
             // 
             // btCancel
@@ -70,16 +70,16 @@
             // lblProdCode
             // 
             this.lblProdCode.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProdCode.Location = new System.Drawing.Point(10, 37);
+            this.lblProdCode.Location = new System.Drawing.Point(11, 34);
             this.lblProdCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProdCode.Name = "lblProdCode";
-            this.lblProdCode.Size = new System.Drawing.Size(219, 13);
+            this.lblProdCode.Size = new System.Drawing.Size(219, 17);
             this.lblProdCode.TabIndex = 3;
             this.lblProdCode.Text = "Voer productnummer in:\r\n";
             // 
             // frmEnterProdCode
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(239, 158);
             this.Controls.Add(this.lblProdCode);
