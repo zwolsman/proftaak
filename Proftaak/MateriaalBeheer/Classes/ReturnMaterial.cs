@@ -14,7 +14,9 @@ namespace MateriaalBeheer.Classes
 
         internal bool EqualsPrimairy(ReturnMaterial rm)
         {
-            throw new NotImplementedException();
+            if (this.RFID.Equals(rm.RFID) && this.Item == rm.Item)
+                return true;
+            return false;
         }
     }
 }
