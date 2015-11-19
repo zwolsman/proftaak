@@ -405,7 +405,7 @@ namespace DatabaseLibrary
         {
             string qry = string.Format(SQL_SELECT_LEASEPLACEID, RFID);
             Hashtable t = QueryFirst(qry);
-            if (string.IsNullOrEmpty(t["ID"].ToString()))
+            if (t == null)
                 return null;
             return int.Parse(t["ID"].ToString());
         }

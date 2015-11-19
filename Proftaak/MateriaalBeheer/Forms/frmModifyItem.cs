@@ -77,8 +77,8 @@ namespace MateriaalBeheer.Forms //TODO: testen
             selectedMaterial = materials[listMaterial.SelectedIndex];
             txtProduct.Text = selectedMaterial.Product;
             txtDescription.Text = selectedMaterial.Description;
-            txtPricePD.Text = selectedMaterial.PricePD.ToString();
-            txtPricePW.Text = selectedMaterial.PricePW.ToString();
+            txtPricePD.Text = (int.Parse(selectedMaterial.PricePD.ToString()) / 100).ToString();
+            txtPricePW.Text = (int.Parse(selectedMaterial.PricePW.ToString()) / 100).ToString();
             foreach  (Item i in selectedMaterial.Items)
             {
                 int index = listItem.Items.Add(i.Productcode);
