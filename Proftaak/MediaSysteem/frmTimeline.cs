@@ -104,7 +104,6 @@ namespace MediaSysteem
                     Messages.Add(m);
                 }
             }
-
         }
         private void btnPost_Click(object sender, EventArgs e)
         {
