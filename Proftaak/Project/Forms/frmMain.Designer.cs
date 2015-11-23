@@ -143,7 +143,6 @@
             this.txtCampingmap.Name = "txtCampingmap";
             this.txtCampingmap.Size = new System.Drawing.Size(198, 21);
             this.txtCampingmap.TabIndex = 12;
-            this.txtCampingmap.Text = "none";
             // 
             // label6
             // 
@@ -160,7 +159,6 @@
             this.txtLogo.Name = "txtLogo";
             this.txtLogo.Size = new System.Drawing.Size(198, 21);
             this.txtLogo.TabIndex = 10;
-            this.txtLogo.Text = "geen";
             // 
             // label5
             // 
@@ -178,7 +176,6 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(403, 161);
             this.txtDescription.TabIndex = 8;
-            this.txtDescription.Text = "Mijn geweldige beschrijving";
             // 
             // dtEind
             // 
@@ -218,7 +215,6 @@
             this.txtLocatie.Name = "txtLocatie";
             this.txtLocatie.Size = new System.Drawing.Size(198, 21);
             this.txtLocatie.TabIndex = 3;
-            this.txtLocatie.Text = "Eindhoven";
             // 
             // label2
             // 
@@ -235,7 +231,6 @@
             this.txtNaam.Name = "txtNaam";
             this.txtNaam.Size = new System.Drawing.Size(198, 21);
             this.txtNaam.TabIndex = 1;
-            this.txtNaam.Text = "Test";
             // 
             // label1
             // 
