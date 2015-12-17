@@ -25,11 +25,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFID Koppelen", "RFID Koppe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Winforms", "Winforms", "{152FC3B4-C941-49A5-A56B-8C59FDE9F5FA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Website", "Website", "{B7E0FB11-5BFD-419F-9A92-22D8CCF5C3F0}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ActiveDirectory", "ActiveDirectory", "{5DE71230-2BA5-4B81-9DF3-4F48CA7867B8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ActiveDirectory", "ActiveDirectory", "{C59E376B-C35D-4254-BC5C-58FFB34C7059}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\Visual Studio 2015\Projects\ActiveDirectoryLogin\TestApplication\Authentication.cs = ..\..\..\Visual Studio 2015\Projects\ActiveDirectoryLogin\TestApplication\Authentication.cs
+		Authentication.cs = Authentication.cs
 	EndProjectSection
 EndProject
 Global
@@ -93,6 +91,5 @@ Global
 		{EB7E248E-179B-48ED-9F11-9997E967503D} = {152FC3B4-C941-49A5-A56B-8C59FDE9F5FA}
 		{1A0EB623-3EDD-4BA6-80EE-0FA61A708542} = {152FC3B4-C941-49A5-A56B-8C59FDE9F5FA}
 		{E4F4680C-4F13-4AFB-89EC-DC45FAC1300D} = {152FC3B4-C941-49A5-A56B-8C59FDE9F5FA}
-		{5DE71230-2BA5-4B81-9DF3-4F48CA7867B8} = {B7E0FB11-5BFD-419F-9A92-22D8CCF5C3F0}
 	EndGlobalSection
 EndGlobal
